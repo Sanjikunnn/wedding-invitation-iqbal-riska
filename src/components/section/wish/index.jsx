@@ -3,21 +3,22 @@ import supabase from '../../../lib/supabaseClient';
 import badwords from 'indonesian-badwords';
 
 const WishItem = forwardRef(({ name, message, color }, ref) => (
-  <div ref={ref} className="flex gap-2">
+  <div
+    ref={ref}
+    className="flex items-start gap-3 bg-white/5 rounded-lg p-3 backdrop-blur-sm shadow-md animate-popIn border border-white/10"
+  >
     <div>
       <img
-        width={24}
-        height={24}
+        width={32}
+        height={32}
         src="images/face.png"
-        style={{
-          backgroundColor: color,
-        }}
-        className=" rounded-sm"
+        style={{ backgroundColor: color }}
+        className="rounded-full p-1"
       />
     </div>
     <div>
-      <p className="text-white text-md -mt-1">{name}</p>
-      <p className="text-xs text-[#A3A1A1]">{message}</p>
+      <p className="text-white font-semibold text-sm">{name}</p>
+      <p className="text-sm text-white/80">{message}</p>
     </div>
   </div>
 ));
@@ -26,7 +27,6 @@ const colorList = ['red', '#ffdb58', '#6bc76b', '#48cae4'];
 
 export default function WishSection() {
   const lastChildRef = useRef(null);
-
   const [data, setData] = useState([]);
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
@@ -36,60 +36,39 @@ export default function WishSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (name.length < 3) {
-      setError('Nama minimal 3 karakter!');
-      return;
-    }
-
-    if (message.length < 10) {
-      setError('Pesan minimal 10 karakter!');
-      return;
-    }
-
-    if (badwords.flag(name)) {
-      setError('Gabolah kata kasar!');
-      return;
-    }
+    if (name.length < 3) return setError('Nama minimal 3 karakter!');
+    if (message.length < 10) return setError('Pesan minimal 10 karakter!');
+    if (badwords.flag(name)) return setError('Gabolah kata kasar!');
 
     setLoading(true);
     setError(null);
 
-    // random color based data length
     const randomColor = colorList[data.length % colorList.length];
-    const newmessage = badwords.censor(message);
+    const cleanMsg = badwords.censor(message);
+
     const { error } = await supabase
-      .from(import.meta.env.VITE_APP_TABLE_NAME) // Replace with your actual table name
-      .insert([
-        { name, message: newmessage, color: randomColor }, // Assuming your table has a "name" column
-      ]);
+      .from(import.meta.env.VITE_APP_TABLE_NAME)
+      .insert([{ name, message: cleanMsg, color: randomColor }]);
 
     setLoading(false);
 
-    if (error) {
-      setError(error.message);
-    } else {
-      //scroll to .wish-container last child
+    if (error) return setError(error.message);
 
-      fetchData();
-      setTimeout(scrollToLastChild, 500);
-      setName('');
-      setMessage('');
-    }
+    fetchData();
+    setTimeout(scrollToLastChild, 300);
+    setName('');
+    setMessage('');
   };
 
   const fetchData = async () => {
     const { data, error } = await supabase
-      .from(import.meta.env.VITE_APP_TABLE_NAME) // Replace 'your_table' with the actual table name
+      .from(import.meta.env.VITE_APP_TABLE_NAME)
       .select('name, message, color');
-
-    if (error) console.error('Error fetching data: ', error);
-    else setData(data);
+    if (!error) setData(data);
   };
 
   const scrollToLastChild = () => {
-    if (lastChildRef.current) {
-      lastChildRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
+    lastChildRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -97,51 +76,55 @@ export default function WishSection() {
   }, []);
 
   return (
-    <div>
-      <h2 className="text-lg leading-5 text-white font-bold mb-5">
-        Wish for the couple
+    <div className="animate-fadeIn">
+      <h2 className="text-2xl font-bold text-center text-white mb-5 tracking-wide">
+        ✨ Wish for the Couple ✨
       </h2>
-      <div className="max-h-[20rem] overflow-auto space-y-4 wish-container">
+
+      <div className="max-h-[20rem] overflow-auto space-y-4 px-2 pb-2 scroll-smooth">
         {data.map((item, index) => (
           <WishItem
+            key={index}
             name={item.name}
             message={item.message}
             color={item.color}
-            key={index}
             ref={index === data.length - 1 ? lastChildRef : null}
           />
         ))}
       </div>
-      <form onSubmit={handleSubmit} className="mt-4 space-y-4">
-        {error && <div className="text-red-500 text-sm">{error}</div>}
 
-        <div className="space-y-1">
-          <label>Name</label>
+      <form onSubmit={handleSubmit} className="mt-6 space-y-5 px-2">
+        {error && <p className="text-red-400 text-sm">{error}</p>}
+
+        <div className="space-y-2">
           <input
-            required
-            minLength={3}
+            placeholder="Your Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full focus:outline-none px-2 py-1 text-black"
+            className="w-full px-3 py-2 rounded-md text-black placeholder-gray-500 focus:outline-none"
           />
         </div>
-        <div className="space-y-1">
-          <label>Message</label>
+
+        <div className="space-y-2">
           <textarea
-            required
-            minLength={10}
+            placeholder="Your Message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-full focus:outline-none px-2 py-1 text-black"
             rows={4}
-          ></textarea>
+            className="w-full px-3 py-2 rounded-md text-black placeholder-gray-500 focus:outline-none"
+          />
         </div>
+
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-2 bg-white text-black rounded-sm"
+          className={`w-full py-2 text-white rounded-md font-semibold tracking-wide transition duration-300 ${
+            loading
+              ? 'bg-gray-500 cursor-not-allowed'
+              : 'bg-gradient-to-r from-pink-500 to-red-500 hover:brightness-110'
+          }`}
         >
-          Send
+          {loading ? 'Sending...' : 'Send Wish 💌'}
         </button>
       </form>
     </div>

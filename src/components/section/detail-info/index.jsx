@@ -8,6 +8,8 @@ import WishSection from '../wish';
 import Footer from '../footer';
 import data from '../../../data/config.json';
 import SongButton from '../../ui/song-button';
+import WeddingMap from '../maps';
+import GiftSection from '../gift';
 
 export default function DetailInfo() {
   return (
@@ -24,6 +26,8 @@ export default function DetailInfo() {
         {data.show_menu.gallery && (
           <OurGallery gallery={data.gallery} show_menu={data.show_menu} />
         )}
+        {data.show_menu.maps && <WeddingMap />}
+        {data.show_menu.GiftSection && <GiftSection />}
         {data.show_menu.wish && import.meta.env.VITE_APP_TABLE_NAME ? (
           <WishSection />
         ) : null}

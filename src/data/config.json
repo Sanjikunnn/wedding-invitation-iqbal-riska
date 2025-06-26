@@ -1,52 +1,93 @@
 {
   "pegantin": {
     "pria": {
-      "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL5m2gr2lMb1huhMFwIR41jrDU5ZOxKydgEw&s",
-      "panggilan": "Naruto",
-      "nama": "Uzumaki Naruto",
-      "bapak": "Minato",
-      "ibu": "Kushina"
+      "foto": "/images/iqbal.jpeg",
+      "panggilan": "Iqbal",
+      "nama": "Faizal Muhamad Iqbal, S.Kom",
+      "bapak": "Saeful Bahri",
+      "ibu": "Indawati"
     },
     "wanita": {
-      "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWSd9ntnjxJieblDHXudyFyNaw3jYmHFuhaQ&s",
-      "panggilan": "Hinata",
-      "nama": "Hyuga Hinata",
-      "bapak": "Hiashi",
-      "ibu": "??"
+      "foto": "/images/riska.jpeg",
+      "panggilan": "Riska",
+      "nama": "Riska Anggraini, S.M",
+      "bapak": "Sularmanto",
+      "ibu": "Supartini"
     }
   },
-  "audio_url": "/audio/lagunya.mp3",
-  "tanggal_pernikahan": "2020-12-12",
-  "thumbnail_image_url": "https://i.pinimg.com/736x/3d/19/f6/3d19f61536c6d3c0f7c4f0a621652bef.jpg",
+  "audio_url": "/audio/MUARA.mp3",
+  "GiftSection": {
+    "title": "Kado Pernikahan",
+    "description": "Jika ingin memberikan kado pernikahan, silakan transfer ke rekening atau alamat berikut:",
+    "rekening": [
+      {
+        "bank": "Bank BCA",
+        "nama": "Faizal Muhamad Iqbal",
+        "nomor_rekening": "7111308997",
+        "logo_url": "/images/bahan/bca.webp",
+        "card_bg": "/images/bahan/kartu-bca.webp"
+      },
+      {
+        "bank": "Bank BCA",
+        "nama": "Riska Anggraini",
+        "nomor_rekening": "7111308997",
+        "logo_url": "/images/bahan/bca.webp",
+        "card_bg": "/images/bahan/kartu-bca.webp"
+      }
+    ],
+    "address": {
+      "recipient_name": "Riska Anggraini",
+      "full_address": "Jl. Mawar No. 123, Kec. Harapan, Kota Bahagia, Provinsi Sejahtera",
+      "postal_code": "12345",
+      "phone_number": "+62 812-3456-7890"
+    }
+  },
+  "maps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126472.10124350523!2d110.55291301860215!3d-7.868555464358877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a4be412c847d1%3A0x4027a76e352fce0!2sKec.%20Nglipar%2C%20Kabupaten%20Gunungkidul%2C%20Daerah%20Istimewa%20Yogyakarta!5e0!3m2!1sid!2sid!4v1750869011778!5m2!1sid!2sid",
+  "url_maps": "https://maps.app.goo.gl/iTdXmUYE7W75yqGS8",
+  "whoosh_url": "/audio/whoosh.mp3",
+  "tanggal_pernikahan": "25 DESEMBER 2025",
+  "thumbnail_image_url": "/images/home5.jpeg",
   "url_video": "/video/videonya.mp4",
   "intro": "Setelah Aku dan Kamu dipertemukan dalam situasi yang tepat, di mana keduanya telah siap untuk memulai hubungan bersama, tibalah mereka di awal perjalanan baru menuju pernikahan.",
-  "breaking_news_img": "https://i.ytimg.com/vi/IAiZbwBW8XI/maxresdefault.jpg",
-  "breaking_news_content": "<p>Halo! Karena kalian adalah orang penting yang mengisi hari-hari kami, kami ingin informasikan bahwa kami akan segera menikah! &lt;3 </p><p className=\"mt-4\"> Tapi sebelumnya, kami mohon maaf kepada teman dan kerabat semua karena tidak bisa mengundang kalian hadir di hari bahagia kami, dikarenakan pernikahan kami bersifat intimate wedding yang dilaksanakan di Bekasi dan hanya dihadiri oleh keluarga dan orang terdekat.</p><p className=\"mt-4\">Walaupun begitu, kami harapkan sebaik-baiknya doa untuk kelancaran pernikahan dan hari-hari bahagia setelahnya.</p><p className=\"mt-4\">Dengan penuh cinta,</p><p>The bride and groom &lt;3</p>",
+  "breaking_news_img": "/images/foto1.jpeg",
+  "breaking_news_content": "<p>Halo! Karena kalian adalah orang penting yang mengisi hari-hari kami, kami ingin informasikan bahwa kami akan segera menikah! &lt;3 </p><p className=\"mt-4\"> Tapi sebelumnya, kami mohon maaf kepada teman dan kerabat semua karena tidak bisa mengundang kalian hadir di hari bahagia kami, dikarenakan pernikahan kami bersifat intimate wedding yang dilaksanakan di Gunung Kidul, Yogyakarta dan hanya dihadiri oleh keluarga besar dan orang terdekat.</p><p className=\"mt-4\">Walaupun begitu, kami harapkan sebaik-baiknya doa untuk kelancaran pernikahan dan hari-hari bahagia setelahnya.</p><p className=\"mt-4\">Dengan penuh cinta,</p><p>The bride and groom &lt;3</p>",
   "love_story": [
     {
-      "image_url": "https://i.ytimg.com/vi/IAiZbwBW8XI/maxresdefault.jpg",
+      "image_url": "/images/foto4.jpeg",
       "title": "Episode 1: How We Met Each Other that Time",
       "description": "Ketika pertama kali bertemu, kami tidak tahu bahwa kami akan menjadi pasangan hidup. Namun, Tuhan telah menyiapkan jalan kami untuk bertemu dan saling mengenal satu sama lain."
     },
     {
-      "image_url": "https://i.ytimg.com/vi/IAiZbwBW8XI/maxresdefault.jpg",
-      "title": "Episode 2: The First Date",
+      "image_url": "/images/foto6.jpeg",
+      "title": "Episode 2: The Second Date",
+      "description": "Setelah beberapa kali bertemu, akhirnya kami memutuskan untuk menghabiskan waktu bersama. Kami pergi ke tempat yang indah dan berbagi cerita tentang diri kami masing-masing."
+    },
+    {
+      "image_url": "/images/foto7.jpeg",
+      "title": "Episode 3: The Third Date",
+      "description": "Setelah beberapa kali bertemu, akhirnya kami memutuskan untuk menghabiskan waktu bersama. Kami pergi ke tempat yang indah dan berbagi cerita tentang diri kami masing-masing."
+    },
+    {
+      "image_url": "/images/foto8.jpeg",
+      "title": "Episode 4: The Fourth Date",
       "description": "Setelah beberapa kali bertemu, akhirnya kami memutuskan untuk menghabiskan waktu bersama. Kami pergi ke tempat yang indah dan berbagi cerita tentang diri kami masing-masing."
     }
   ],
   "gallery": [
-    "https://i.ytimg.com/vi/IAiZbwBW8XI/maxresdefault.jpg",
-    "https://i.ytimg.com/vi/IAiZbwBW8XI/maxresdefault.jpg",
-    "https://i.ytimg.com/vi/IAiZbwBW8XI/maxresdefault.jpg",
-    "https://i.ytimg.com/vi/IAiZbwBW8XI/maxresdefault.jpg",
-    "https://i.ytimg.com/vi/IAiZbwBW8XI/maxresdefault.jpg",
-    "https://i.ytimg.com/vi/IAiZbwBW8XI/maxresdefault.jpg"
+    "/images/foto1.jpeg",
+    "/images/foto2.jpeg",
+    "/images/foto3.jpeg",
+    "/images/foto4.jpeg",
+    "/images/foto5.jpeg",
+    "/images/foto6.jpeg"
   ],
   "show_menu": {
     "breaking_news": true,
     "bride_and_groom": true,
     "love_story": true,
     "gallery": true,
+    "maps": true,
+    "GiftSection": true,
     "wish": true
   }
 }

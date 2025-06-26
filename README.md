@@ -1,10 +1,10 @@
-# NIKAHFIX
+# IQBALRISKANIKAH
 
-**NIKAHFIX** adalah sebuah website undangan pernikahan yang terinspirasi dari tampilan _Netflix_, memberikan pengalaman visual menarik dan modern untuk pengguna. Proyek ini dibangun menggunakan **React** dengan bundler **Vite**, dilengkapi dengan **Supabase** untuk mengelola data undangan, serta dirancang agar mudah diakses, responsif, dan estetis.
+**IQBALRISKANIKAH** adalah sebuah website undangan pernikahan iqbal & riska yang terinspirasi dari tampilan _Netflix_, memberikan pengalaman visual menarik dan modern untuk pengguna. Proyek ini dibangun menggunakan **React** dengan bundler **Vite**, dilengkapi dengan **Supabase** untuk mengelola data undangan, serta dirancang agar mudah diakses, responsif, dan estetis.
 
 ## Demo
 
-Anda dapat melihat demo langsung dari NIKAHFIX di sini: [NIKAHFIX - Demo](https://nikahfix-v01.vercel.app/).
+Anda dapat melihat demo langsung dari IQBALRISKANIKAH di sini: [IQBALRISKANIKAH - Demo](https://nikahfix-v01.vercel.app/).
 Jika anda memiliki tujuan spesifik undangannya, bisa dibuat link seperti berikut [https://nikahfix-v01.vercel.app/?to=tajul+dan+gorbon](https://nikahfix-v01.vercel.app/?to=tajul+dan+gorbon)
 
 ## Teknologi yang Digunakan
@@ -21,11 +21,11 @@ Berikut adalah langkah-langkah untuk menginstal proyek ini di lingkungan lokal A
 
 1. **Clone Repository**:
 
-   `git clone https://github.com/arifintajul4/nikahfix.git`
+   `git clone https://github.com/sanjikunnn/iqbalriskanikah.git`
 
 2. **Masuk ke Direktori Proyek**:
 
-   `cd nikahfix`
+   `cd iqbalriskanikah`
 
 3. **Instal Dependensi**:
    Pastikan Anda sudah menginstal Node.js. Jalankan perintah berikut untuk menginstal semua dependensi yang diperlukan.
@@ -44,7 +44,7 @@ Berikut adalah langkah-langkah untuk menginstal proyek ini di lingkungan lokal A
 
 ---
 
-# Integrasi Supabase di NIKAHFIX
+# Integrasi Supabase di IQBALRISKANIKAH
 
 NIKAHFIX menggunakan **Supabase** untuk mengelola data undangan pernikahan, seperti informasi tamu, pesan, dan acara. Supabase menyediakan layanan **auth**, **database**, dan **storage** untuk membangun aplikasi secara cepat dan efisien.
 

@@ -2,12 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* add spin animation */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+@layer utilities {
+  .animate-fadeIn {
+    @apply opacity-0;
+    animation: fadeIn 1s forwards;
   }
-  100% {
-    transform: rotate(360deg);
+  .animate-fadeInUp {
+    @apply opacity-0 translate-y-4;
+    animation: fadeInUp 1s forwards;
+  }
+  .animate-fadeInDown {
+    @apply opacity-0 -translate-y-4;
+    animation: fadeInDown 1s forwards;
+  }
+  .animate-fadeInPulse {
+    animation: fadeIn 2s both, pulse 2s infinite;
+  }
+  .animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+  .animate-float-soft {
+  animation: float-bounce 8s ease-in-out infinite;
+}
+.animate-float-smooth {
+    animation: float-smooth 10s ease-in-out infinite;
+    will-change: transform;
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  to { opacity: 1; transform: translateY(0); }
+}
+ 
+@keyframes float {
+   0%, 100% {
+    transform: translateY(5px);
+  }
+  50% {
+    transform: translateY(-5px);
+  } 
+}
+@keyframes float-bounce {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(2px, -12px);
+  }
+}
+@keyframes float-smooth {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(0.5);
+  }
+  50% {
+    transform: translateY(-30px) rotate(3deg) scale(1);
   }
 }

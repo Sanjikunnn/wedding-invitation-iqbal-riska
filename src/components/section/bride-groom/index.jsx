@@ -15,11 +15,11 @@ export default function Bridegroom() {
             height={164}
           />
           <div>
-            <h4 className="text-sm text-white font-medium mt-2">
+            <h4 className="text-xs text-white font-medium mt-2">
               {data.pegantin.wanita.nama}
             </h4>
             <p className="text-[#A3A1A1] text-xs leading-4 mt-2">
-              Putri dari {data.pegantin.wanita.bapak} &amp; Ibu{' '}
+              Putri Pertama dari {data.pegantin.wanita.bapak} &amp; Ibu{' '}
               {data.pegantin.wanita.ibu}
             </p>
           </div>
@@ -31,11 +31,11 @@ export default function Bridegroom() {
             height={164}
           />
           <div>
-            <h4 className="text-sm text-white font-medium mt-2">
+            <h4 className="text-xs text-white font-medium mt-2">
               {data.pegantin.pria.nama}
             </h4>
             <p className="text-[#A3A1A1] text-xs leading-4 mt-2">
-              Putra dari {data.pegantin.pria.bapak} &amp; Ibu{' '}
+              Putra Pertama dari {data.pegantin.pria.bapak} &amp; Ibu{' '}
               {data.pegantin.pria.ibu}
             </p>
           </div>
