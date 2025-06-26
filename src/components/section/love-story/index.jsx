@@ -1,25 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import data from '../../../data/config.json';
 
-const LoveItem = ({ imageUrl, title, duration, description }) => {
+const IMAGE_INTERVAL = 3000;
+
+const LoveItem = ({ imageList, title, duration, description }) => {
+  const [imageIndex, setImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setImageIndex((prev) => (prev + 1) % imageList.length);
+    }, IMAGE_INTERVAL);
+    return () => clearInterval(interval);
+  }, [imageList.length]);
+
   return (
     <div>
       <div className="grid grid-cols-2 gap-2">
-        <div>
-          <img
-            className="w-full rounded-md object-cover"
-            height={100}
-            style={{
-              maxHeight: '100px',
-            }}
-            src={imageUrl}
-            alt="dummy"
-          />
+        <div className="relative w-full h-[100px] rounded-md overflow-hidden">
+          {imageList.map((img, idx) => (
+            <img
+              key={idx}
+              className={`absolute top-0 left-0 w-full h-full object-cover rounded-md transition-opacity duration-1000 ${
+                idx === imageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              }`}
+              src={img}
+              alt={`Slide ${idx + 1}`}
+            />
+          ))}
         </div>
         <div className="flex justify-center">
           <div className="my-auto">
             <p className="text-white mb-2 tracking-tighter">{title}</p>
-            <p className="text-xs text-[#A3A1A1]">{duration}</p>
+            {duration && <p className="text-xs text-[#A3A1A1]">{duration}</p>}
           </div>
         </div>
       </div>
@@ -31,16 +43,14 @@ const LoveItem = ({ imageUrl, title, duration, description }) => {
 export default function LoveStory() {
   return (
     <div>
-      <h2 className="text-lg leading-5 text-white font-bold mb-4">
-        Our Love Story
-      </h2>
+      <h2 className="text-xl tracking-widest leading-5 text-white font-bold font-cursive mb-4 mt-10">Our Love Story</h2>
       <div className="space-y-4">
         {data.love_story.map((item, index) => (
           <LoveItem
             key={index}
-            imageUrl={item.image_url}
             title={item.title}
-            duration="26m 10s"
+            imageList={item.image_list}
+            duration={item.duration || ''}
             description={item.description}
           />
         ))}

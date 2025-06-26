@@ -2,7 +2,7 @@ import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import supabase from '../../../lib/supabaseClient';
 import badwords from 'indonesian-badwords';
 
-const WishItem = forwardRef(({ name, message, color }, ref) => (
+const RSVPItem = forwardRef(({ name, status, total, color }, ref) => (
   <div
     ref={ref}
     className="flex items-start gap-3 bg-white/5 rounded-lg p-3 backdrop-blur-sm shadow-md animate-popIn border border-white/10"
@@ -14,22 +14,26 @@ const WishItem = forwardRef(({ name, message, color }, ref) => (
         src="images/face.png"
         style={{ backgroundColor: color }}
         className="rounded-full p-1"
+        alt="avatar"
       />
     </div>
     <div>
       <p className="text-white font-semibold text-sm">{name}</p>
-      <p className="text-sm text-white/80">{message}</p>
+      <p className="text-sm text-white/80">
+        {status === 'hadir' ? 'Akan hadir' : 'Tidak bisa hadir'} – {total} orang
+      </p>
     </div>
   </div>
 ));
 
-const colorList = ['red', '#ffdb58', '#6bc76b', '#48cae4'];
+const colorList = ['#ff6b6b', '#ffd166', '#06d6a0', '#118ab2'];
 
-export default function WishSection() {
+export default function RSVPSection() {
   const lastChildRef = useRef(null);
   const [data, setData] = useState([]);
   const [name, setName] = useState('');
-  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState('hadir');
+  const [total, setTotal] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -37,18 +41,16 @@ export default function WishSection() {
     e.preventDefault();
 
     if (name.length < 3) return setError('Nama minimal 3 karakter!');
-    if (message.length < 10) return setError('Pesan minimal 10 karakter!');
-    if (badwords.flag(name)) return setError('Gabolah kata kasar!');
+    if (badwords.flag(name)) return setError('Nama mengandung kata tidak pantas!');
 
     setLoading(true);
     setError(null);
 
     const randomColor = colorList[data.length % colorList.length];
-    const cleanMsg = badwords.censor(message);
 
     const { error } = await supabase
-      .from(import.meta.env.VITE_APP_TABLE_NAME)
-      .insert([{ name, message: cleanMsg, color: randomColor }]);
+      .from(import.meta.env.VITE_APP_TABLE_RSVP) // contoh: RSVP table
+      .insert([{ name, status, total: parseInt(total), color: randomColor }]);
 
     setLoading(false);
 
@@ -57,13 +59,14 @@ export default function WishSection() {
     fetchData();
     setTimeout(scrollToLastChild, 300);
     setName('');
-    setMessage('');
+    setTotal(1);
+    setStatus('hadir');
   };
 
   const fetchData = async () => {
     const { data, error } = await supabase
-      .from(import.meta.env.VITE_APP_TABLE_NAME)
-      .select('name, message, color');
+      .from(import.meta.env.VITE_APP_TABLE_RSVP)
+      .select('name, status, total, color');
     if (!error) setData(data);
   };
 
@@ -78,15 +81,16 @@ export default function WishSection() {
   return (
     <div className="text-white font-cursive animate-fadeIn">
       <h2 className="text-xl mt-10 font-bold text-left text-white mb-5 tracking-wide">
-        Wish for the Couple
+        RSVP Kehadiran
       </h2>
 
       <div className="max-h-[20rem] overflow-auto space-y-4 px-2 pb-2 scroll-smooth">
         {data.map((item, index) => (
-          <WishItem
+          <RSVPItem
             key={index}
             name={item.name}
-            message={item.message}
+            status={item.status}
+            total={item.total}
             color={item.color}
             ref={index === data.length - 1 ? lastChildRef : null}
           />
@@ -106,11 +110,23 @@ export default function WishSection() {
         </div>
 
         <div className="space-y-2">
-          <textarea
-            placeholder="Pesan dan Doa untuk Kedua Mempelai"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            rows={4}
+          <select
+            value={status}
+            onChange={(e) => setStatus(e.target.value)}
+            className="w-full px-3 py-2 rounded-md text-black focus:outline-none"
+          >
+            <option value="hadir">Saya akan hadir</option>
+            <option value="tidak_hadir">Maaf, saya tidak bisa hadir</option>
+          </select>
+        </div>
+
+        <div className="space-y-2">
+          <input
+            type="number"
+            min={1}
+            value={total}
+            onChange={(e) => setTotal(e.target.value)}
+            placeholder="Jumlah orang"
             className="w-full px-3 py-2 rounded-md text-black placeholder-gray-500 focus:outline-none"
           />
         </div>
@@ -124,7 +140,7 @@ export default function WishSection() {
               : 'bg-gradient-to-r from-pink-500 to-red-500 hover:brightness-110'
           }`}
         >
-          {loading ? 'Sending...' : 'Send Wish 💌'}
+          {loading ? 'Mengirim...' : 'Kirim RSVP 🎉'}
         </button>
       </form>
     </div>

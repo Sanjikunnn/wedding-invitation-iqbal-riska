@@ -1,18 +1,20 @@
 {
   "pegantin": {
     "pria": {
-      "foto": "/images/iqbal.jpeg",
+      "foto_list": ["/images/pria/iqbal2.jpeg", "/images/pria/iqbal3.jpeg", "/images/pria/iqbal4.jpeg"],
       "panggilan": "Iqbal",
       "nama": "Faizal Muhamad Iqbal, S.Kom",
       "bapak": "Saeful Bahri",
-      "ibu": "Indawati"
+      "ibu": "Indawati",
+      "ig": "https://instagram.com/faizmuhiq"
     },
     "wanita": {
-      "foto": "/images/riska.jpeg",
+      "foto_list": ["/images/wanita/riska.jpeg", "/images/wanita/riska2.jpg", "/images/wanita/riska3.jpg"],
       "panggilan": "Riska",
       "nama": "Riska Anggraini, S.M",
       "bapak": "Sularmanto",
-      "ibu": "Supartini"
+      "ibu": "Supartini",
+      "ig": "https://instagram.com/riska.anggra"
     }
   },
   "audio_url": "/audio/MUARA.mp3",
@@ -46,34 +48,62 @@
   "url_maps": "https://maps.app.goo.gl/iTdXmUYE7W75yqGS8",
   "whoosh_url": "/audio/whoosh.mp3",
   "tanggal_pernikahan": "25 DESEMBER 2025",
+  "akad": {
+    "tanggal": "Kamis, 25 Desember 2025",
+    "waktu": "08.00 - 10.00 WITA",
+    "tempat": "Kediaman Mempelai Wanita"
+  },
+  "resepsi": {
+    "tanggal": "Kamis, 25 Desember 2025",
+    "waktu": "10.00 WITA - Selesai",
+    "tempat": "Kediaman Mempelai Wanita"
+  },
   "thumbnail_image_url": "/images/home5.jpeg",
   "url_video": "/video/videonya.mp4",
   "intro": "Setelah Aku dan Kamu dipertemukan dalam situasi yang tepat, di mana keduanya telah siap untuk memulai hubungan bersama, tibalah mereka di awal perjalanan baru menuju pernikahan.",
-  "breaking_news_img": "/images/foto1.jpeg",
-  "breaking_news_content": "<p>Halo! Karena kalian adalah orang penting yang mengisi hari-hari kami, kami ingin informasikan bahwa kami akan segera menikah! &lt;3 </p><p className=\"mt-4\"> Tapi sebelumnya, kami mohon maaf kepada teman dan kerabat semua karena tidak bisa mengundang kalian hadir di hari bahagia kami, dikarenakan pernikahan kami bersifat intimate wedding yang dilaksanakan di Gunung Kidul, Yogyakarta dan hanya dihadiri oleh keluarga besar dan orang terdekat.</p><p className=\"mt-4\">Walaupun begitu, kami harapkan sebaik-baiknya doa untuk kelancaran pernikahan dan hari-hari bahagia setelahnya.</p><p className=\"mt-4\">Dengan penuh cinta,</p><p>The bride and groom &lt;3</p>",
+  "breaking_news_img": [
+    "/images/foto1.jpeg",
+    "/images/foto2.jpeg",
+    "/images/foto3.jpeg",
+    "/images/foto4.jpeg",
+    "/images/foto5.jpeg"
+  ],  
+  "breaking_news_content": "<p>Halo! Karena kalian adalah orang penting yang mengisi hari-hari kami, kami ingin informasikan bahwa kami akan segera menikah! &lt;3 </p><p className=\"mt-4\"> Tapi sebelumnya, kami mohon maaf kepada teman dan kerabat semua karena tidak bisa mengundang kalian hadir di hari bahagia kami, dikarenakan pernikahan kami bersifat intimate wedding yang dilaksanakan di Gunung Kidul, Yogyakarta dan hanya dihadiri oleh keluarga besar dan orang terdekat.</p><p className=\"mt-4\">Walaupun begitu, kami harapkan sebaik-baiknya doa untuk kelancaran pernikahan dan hari-hari bahagia setelahnya.</p><p className=\"mt-4\">Dengan penuh cinta,</p><p>The bride and groom </p><br /><p>Iqbal and Riska &lt;3</p>",
   "love_story": [
     {
-      "image_url": "/images/foto4.jpeg",
+      "image_list": ["/images/story/foto1.jpeg", "/images/story/foto2.jpeg", "/images/story/foto3.jpeg"],
       "title": "Episode 1: How We Met Each Other that Time",
       "description": "Ketika pertama kali bertemu, kami tidak tahu bahwa kami akan menjadi pasangan hidup. Namun, Tuhan telah menyiapkan jalan kami untuk bertemu dan saling mengenal satu sama lain."
     },
     {
-      "image_url": "/images/foto6.jpeg",
+      "image_list": ["/images/story/foto4.jpeg", "/images/story/foto5.jpeg", "/images/story/foto6.jpeg"],
       "title": "Episode 2: The Second Date",
       "description": "Setelah beberapa kali bertemu, akhirnya kami memutuskan untuk menghabiskan waktu bersama. Kami pergi ke tempat yang indah dan berbagi cerita tentang diri kami masing-masing."
     },
     {
-      "image_url": "/images/foto7.jpeg",
+      "image_list": ["/images/story/foto7.jpeg", "/images/story/foto8.jpeg", "/images/story/foto3.jpeg"],
       "title": "Episode 3: The Third Date",
       "description": "Setelah beberapa kali bertemu, akhirnya kami memutuskan untuk menghabiskan waktu bersama. Kami pergi ke tempat yang indah dan berbagi cerita tentang diri kami masing-masing."
     },
     {
-      "image_url": "/images/foto8.jpeg",
+      "image_list": ["/images/story/foto1.jpeg", "/images/story/foto2.jpeg", "/images/story/foto3.jpeg"],
       "title": "Episode 4: The Fourth Date",
       "description": "Setelah beberapa kali bertemu, akhirnya kami memutuskan untuk menghabiskan waktu bersama. Kami pergi ke tempat yang indah dan berbagi cerita tentang diri kami masing-masing."
     }
   ],
   "gallery": [
+    "/images/foto1.jpeg",
+    "/images/foto2.jpeg",
+    "/images/foto3.jpeg",
+    "/images/foto4.jpeg",
+    "/images/foto5.jpeg",
+    "/images/foto6.jpeg",
+    "/images/foto1.jpeg",
+    "/images/foto2.jpeg",
+    "/images/foto3.jpeg",
+    "/images/foto4.jpeg",
+    "/images/foto5.jpeg",
+    "/images/foto6.jpeg",
     "/images/foto1.jpeg",
     "/images/foto2.jpeg",
     "/images/foto3.jpeg",
@@ -86,8 +116,9 @@
     "bride_and_groom": true,
     "love_story": true,
     "gallery": true,
-    "maps": true,
+    "wedding_event": true,
     "GiftSection": true,
+    "rsvp": true,
     "wish": true
   }
 }

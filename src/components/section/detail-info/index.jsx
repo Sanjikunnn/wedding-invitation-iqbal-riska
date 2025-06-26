@@ -8,8 +8,9 @@ import WishSection from '../wish';
 import Footer from '../footer';
 import data from '../../../data/config.json';
 import SongButton from '../../ui/song-button';
-import WeddingMap from '../maps';
 import GiftSection from '../gift';
+import WeddingEventDetailsWithMap from '../acara';
+import RSVPSection from '../rsvp';
 
 export default function DetailInfo() {
   return (
@@ -21,15 +22,20 @@ export default function DetailInfo() {
       <div className="px-4 space-y-4">
         <TitleInfo />
         {data.show_menu.breaking_news && <BreakingNews />}
+        {data.show_menu.wedding_event && (
+          <WeddingEventDetailsWithMap />
+        )}
         {data.show_menu.bride_and_groom && <Bridegroom />}
         {data.show_menu.love_story && <LoveStory />}
         {data.show_menu.gallery && (
           <OurGallery gallery={data.gallery} show_menu={data.show_menu} />
         )}
-        {data.show_menu.maps && <WeddingMap />}
         {data.show_menu.GiftSection && <GiftSection />}
         {data.show_menu.wish && import.meta.env.VITE_APP_TABLE_NAME ? (
           <WishSection />
+        ) : null}
+        {data.show_menu.rsvp && import.meta.env.VITE_APP_TABLE_RSVP ? (
+          <RSVPSection />
         ) : null}
       </div>
       <Footer />

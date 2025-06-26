@@ -3,16 +3,16 @@ import data from '../../../data/config.json';
 
 export default function TitleInfo() {
   return (
-    <div className="space-y-1">
+    <div className="space-y-1 font-cursive text-white">
       <div className="flex gap-2 items-center">
         <img src="/favicon.ico" alt="logo" width={18} height={18} />
         <span className="text-[#A3A1A1] text-xs mt-0.5 tracking-widest">
-         🎬Wedding Premiere
+         🎬The Wedding Premiere
         </span>
       </div>
-      <h2 className="text-lg leading-5 text-white font-bold">
-        {data.pegantin.pria.panggilan} &amp; {data.pegantin.wanita.panggilan}:
-        Sebelum Hari H
+      <h2 className="text-lg leading-5 text-white font-bold tracking-widest">
+        {data.pegantin.pria.panggilan} &amp; {data.pegantin.wanita.panggilan} -
+        A Love Story
       </h2>
       <div className="flex gap-1 items-center">
         <span className="text-green-500 mr-2">100% match</span>

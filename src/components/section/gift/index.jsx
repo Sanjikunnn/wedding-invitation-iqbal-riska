@@ -73,10 +73,10 @@ export default function GiftSection() {
   }, [hasBankInfo, hasAddressInfo]);
 
   return (
-    <div className="py-8 px-2 bg-black font-sans text-white">
+    <div className="bg-black font-cursive text-white">
       {/* Judul */}
-      <div className="mb-8 text-center animate-fadeInUp">
-        <h2 className="text-3xl md:text-3xl font-bold uppercase relative inline-block py-3 px-3 bg-gradient-to-br from-red-700 via-red-800 to-red-900 rounded-full shadow-lg">
+      <div className="mb-8 text-center mt-10 animate-fadeInUp">
+        <h2 className="text-xl font-bold relative text-left -mb-2 tracking-widest">
           {data.GiftSection?.title || 'Wedding Gift'}
         </h2>
         <p className="mt-5 text-base md:text-lg text-gray-300 max-w-2xl mx-auto">
