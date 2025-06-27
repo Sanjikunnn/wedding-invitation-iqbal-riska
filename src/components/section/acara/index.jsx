@@ -13,6 +13,7 @@ export default function WeddingEventDetailsWithMap() {
     <section className="bg-black font-cursive text-white relative overflow-hidden">
       {/* Judul */}
       <div className="relative z-10 mb-4 text-center animate-fadeInUp">
+        <div className="w-full h-[3px] bg-red-500"></div>
         <h2 className="text-xl leading-5 text-white font-bold mb-10 mt-10 tracking-widest text-left ">Detail Acara</h2>
         
         <p className="mt-1 text-sm text-gray-300 italic">
@@ -94,7 +95,7 @@ export default function WeddingEventDetailsWithMap() {
           </div>
 
           {hasUrl && (
-            <div className="mt-6 mb-4 text-center">
+            <div className="mt-6 text-center">
               <a
                 href={data.url_maps}
                 target="_blank"

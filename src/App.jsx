@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './App.css';
 import UserWatch from './components/section/user-watch';
 import Thumbnail from './components/section/thumbnail';
-
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   return (

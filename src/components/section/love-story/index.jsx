@@ -43,6 +43,7 @@ const LoveItem = ({ imageList, title, duration, description }) => {
 export default function LoveStory() {
   return (
     <div>
+      <div className="w-full h-[3px] bg-red-500"></div>
       <h2 className="text-xl tracking-widest leading-5 text-white font-bold font-cursive mb-4 mt-10">Our Love Story</h2>
       <div className="space-y-4">
         {data.love_story.map((item, index) => (

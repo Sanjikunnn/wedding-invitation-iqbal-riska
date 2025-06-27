@@ -41,6 +41,7 @@ export default function OurGallery() {
 
   return (
     <div>
+      <div className="w-full h-[3px] bg-red-500"></div>
       <h2 className="text-xl leading-5 text-white font-bold font-cursive mt-10 mb-4">
         Our Gallery
       </h2>

@@ -39,7 +39,10 @@ export default function BreakingNews() {
 
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4 tracking-widest text-white">Breaking News</h2>
+      <div className="w-full h-[3px] bg-red-500"></div>
+      <h2 className="text-xl font-bold mb-4 mt-10 tracking-widest text-white">
+        Breaking News
+      </h2>
 
       <div
         ref={scrollRef}

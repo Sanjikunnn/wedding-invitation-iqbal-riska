@@ -22,6 +22,7 @@ export default function Bridegroom() {
 
   return (
     <div>
+      <div className="w-full h-[3px] bg-red-500"></div>
       <h2 className="text-xl leading-5 text-white font-bold mb-4 mt-10 tracking-widest">Bride and Groom</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-cursive text-white">
         {/* Pria */}

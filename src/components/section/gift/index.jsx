@@ -74,6 +74,7 @@ export default function GiftSection() {
 
   return (
     <div className="bg-black font-cursive text-white">
+      <div className="w-full h-[3px] bg-red-500"></div>
       {/* Judul */}
       <div className="mb-8 text-center mt-10 animate-fadeInUp">
         <h2 className="text-xl font-bold relative text-left -mb-2 tracking-widest">

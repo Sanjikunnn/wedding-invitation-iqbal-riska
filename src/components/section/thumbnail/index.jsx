@@ -93,7 +93,7 @@ export default function Thumbnail() {
             <h1 className="font-bold text-3xl leading-snug text-white text-center animate-fadeIn delay-500">
               {data.pegantin.pria.panggilan} & {data.pegantin.wanita.panggilan}
               <br />
-              <span className="text-lg font-light text-gray-300">Sebelum Hari H</span>
+              <span className="text-lg font-light text-gray-300">A Love Story</span>
             </h1>
 
             {/* Informasi "Coming Soon" dan tanggal pernikahan */}

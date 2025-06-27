@@ -80,6 +80,7 @@ export default function RSVPSection() {
 
   return (
     <div className="text-white font-cursive animate-fadeIn">
+      <div className="w-full h-[3px] bg-red-500"></div>
       <h2 className="text-xl mt-10 font-bold text-left text-white mb-5 tracking-wide">
         RSVP Kehadiran
       </h2>

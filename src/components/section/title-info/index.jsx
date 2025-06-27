@@ -10,7 +10,7 @@ export default function TitleInfo() {
          🎬The Wedding Premiere
         </span>
       </div>
-      <h2 className="text-lg leading-5 text-white font-bold tracking-widest">
+      <h2 className="text-xl leading-5 text-white font-bold tracking-widest">
         {data.pegantin.pria.panggilan} &amp; {data.pegantin.wanita.panggilan} -
         A Love Story
       </h2>
