@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import supabase from '../../../lib/supabaseClient';
 import badwords from 'indonesian-badwords';
+import dataConfig from '../../../data/config.json';
 
 const RSVPItem = forwardRef(({ name, status, total, color }, ref) => (
   <div
@@ -49,7 +50,7 @@ export default function RSVPSection() {
     const randomColor = colorList[data.length % colorList.length];
 
     const { error } = await supabase
-      .from(import.meta.env.VITE_APP_TABLE_RSVP) // contoh: RSVP table
+      .from(import.meta.env.VITE_APP_TABLE_RSVP)
       .insert([{ name, status, total: parseInt(total), color: randomColor }]);
 
     setLoading(false);
@@ -79,71 +80,119 @@ export default function RSVPSection() {
   }, []);
 
   return (
-    <div className="text-white font-cursive animate-fadeIn">
-      <div className="w-full h-[3px] bg-red-500"></div>
-      <h2 className="text-xl mt-10 font-bold text-left text-white mb-5 tracking-wide">
-        RSVP Kehadiran
-      </h2>
+    <div className="text-white font-cursive animate-fadeIn space-y-10">
+      {/* Bagian RSVP */}
+      <div>
+        <div className="w-full h-[3px] bg-red-500"></div>
+        <h2 className="text-xl mt-10 font-bold text-left text-white mb-5 tracking-wide">
+          RSVP Kehadiran
+        </h2>
 
-      <div className="max-h-[20rem] overflow-auto space-y-4 px-2 pb-2 scroll-smooth">
-        {data.map((item, index) => (
-          <RSVPItem
-            key={index}
-            name={item.name}
-            status={item.status}
-            total={item.total}
-            color={item.color}
-            ref={index === data.length - 1 ? lastChildRef : null}
-          />
-        ))}
+        <div className="max-h-[20rem] overflow-auto space-y-4 px-2 pb-2 scroll-smooth">
+          {data.map((item, index) => (
+            <RSVPItem
+              key={index}
+              name={item.name}
+              status={item.status}
+              total={item.total}
+              color={item.color}
+              ref={index === data.length - 1 ? lastChildRef : null}
+            />
+          ))}
+        </div>
+
+        <form onSubmit={handleSubmit} className="mt-6 space-y-5 px-2">
+          {error && <p className="text-red-400 text-sm">{error}</p>}
+
+          <div className="space-y-2">
+            <input
+              placeholder="Nama Kamu"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full px-3 py-2 rounded-md text-black placeholder-gray-500 focus:outline-none"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <select
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+              className="w-full px-3 py-2 rounded-md text-black focus:outline-none"
+            >
+              <option value="hadir">Saya akan hadir</option>
+              <option value="tidak_hadir">Maaf, saya tidak bisa hadir</option>
+            </select>
+          </div>
+
+          <div className="space-y-2">
+            <input
+              type="number"
+              min={1}
+              value={total}
+              onChange={(e) => setTotal(e.target.value)}
+              placeholder="Jumlah orang"
+              className="w-full px-3 py-2 rounded-md text-black placeholder-gray-500 focus:outline-none"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className={`w-full py-2 text-white rounded-md font-semibold tracking-wide transition duration-300 ${
+              loading
+                ? 'bg-gray-500 cursor-not-allowed'
+                : 'bg-gradient-to-r from-pink-500 to-red-500 hover:brightness-110'
+            }`}
+          >
+            {loading ? 'Mengirim...' : 'Kirim RSVP 🎉'}
+          </button>
+        </form>
       </div>
 
-      <form onSubmit={handleSubmit} className="mt-6 space-y-5 px-2">
-        {error && <p className="text-red-400 text-sm">{error}</p>}
+      {/* Bagian Turut Mengundang */}
+      <div className="text-center">
+        <h2 className="text-xl font-bold">Turut Mengundang</h2>
+        <div className="w-full h-[3px] bg-red-500 mt-3"></div>
+      </div>
+      <div className="text-center relative overflow-hidden h-[200px] md:h-[300px]">
 
-        <div className="space-y-2">
-          <input
-            placeholder="Nama Kamu"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full px-3 py-2 rounded-md text-black placeholder-gray-500 focus:outline-none"
-          />
+        {/* Running text */}
+        <div className="absolute inset-0 flex items-end justify-center">
+          <div className="animate-creditRoll text-white/90 text-xs leading-snug space-y-1 w-full">
+            {dataConfig.turut_mengundang.map((item, i) => (
+              <div key={i} className="flex justify-between w-full px-0">
+                <span className="text-left">{item.nama}</span>
+                <span className="text-right italic">{item.jabatan}</span>
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
+      <div className="w-full h-[3px] bg-red-500"></div>
 
-        <div className="space-y-2">
-          <select
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
-            className="w-full px-3 py-2 rounded-md text-black focus:outline-none"
-          >
-            <option value="hadir">Saya akan hadir</option>
-            <option value="tidak_hadir">Maaf, saya tidak bisa hadir</option>
-          </select>
-        </div>
+      {/* Bagian Terima Kasih */}
+      <div className="text-center space-y-6">
+        {/* Foto Ucapan Terima Kasih */}
+        <img
+          src={dataConfig.terima_kasih_image}
+          alt="Terima Kasih"
+          className="w-72 h-72 object-cover rounded-full mx-auto shadow-lg border-4 border-red-300"
+        />
 
-        <div className="space-y-2">
-          <input
-            type="number"
-            min={1}
-            value={total}
-            onChange={(e) => setTotal(e.target.value)}
-            placeholder="Jumlah orang"
-            className="w-full px-3 py-2 rounded-md text-black placeholder-gray-500 focus:outline-none"
-          />
-        </div>
+        <div className="w-16 h-[3px] bg-red-500 mx-auto rounded-full"></div>
 
-        <button
-          type="submit"
-          disabled={loading}
-          className={`w-full py-2 text-white rounded-md font-semibold tracking-wide transition duration-300 ${
-            loading
-              ? 'bg-gray-500 cursor-not-allowed'
-              : 'bg-gradient-to-r from-pink-500 to-red-500 hover:brightness-110'
-          }`}
-        >
-          {loading ? 'Mengirim...' : 'Kirim RSVP 🎉'}
-        </button>
-      </form>
+        <p className="text-sm md:text-base text-white/80 italic leading-relaxed px-4 md:px-10">
+          Tanpa mengurangi rasa hormat, izinkan kami mengharapkan kehadiran 
+          Bapak/Ibu/Saudara/i melalui undangan digital ini, serta dapat memberikan 
+          doa restu kepada kami.
+          <br />
+          <span className="block mt-3 font-semibold text-white">
+            Terima kasih.
+          </span>
+        </p>
+      </div>
+
+      
     </div>
   );
 }

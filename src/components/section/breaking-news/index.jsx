@@ -54,7 +54,7 @@ export default function BreakingNews() {
             key={index}
             src={src}
             alt={`breaking-news-${index}`}
-            className="h-48 w-72 flex-shrink-0 rounded-md object-cover shadow-lg"
+            className="h-72 w-72 flex-shrink-0 rounded-md object-cover shadow-lg"
           />
         ))}
       </div>

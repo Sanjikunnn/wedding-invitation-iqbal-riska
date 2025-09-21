@@ -40,6 +40,7 @@ const Countdown = ({ targetDate }) => {
       </div>
     );
   }
+  
 
   return (
     <div className="flex justify-center gap-2 text-white font-bold text-sm md:text-lg font-mono bg-white/5 backdrop-blur px-1 py-1 rounded-xl border border-white/10 shadow-inner">
@@ -75,6 +76,8 @@ export default function UserWatch({ onClick }) {
   // const [currentTime, setCurrentTime] = useState(new Date()); // Tidak digunakan secara langsung di JSX setelah perubahan countdown
 
   const audioRef = useRef(null);
+  const [progress, setProgress] = useState(0);
+  const animationDuration = 4200; // ⏱️ waktu sinkron loading dan showContent
 
   // Inisialisasi parameter URL dan partikel hanya sekali saat komponen pertama kali mount
   useEffect(() => {
@@ -83,7 +86,7 @@ export default function UserWatch({ onClick }) {
     setTo(toParam || 'Guest');
 
     // Inisialisasi partikel dan hati mengambang
-    // Ini bisa di-memoize jika Anda ingin menghindari re-render yang tidak perlu dari data array itu sendiri.
+    // Ini bisa di-memoize klo ingin menghindari re-render yang tidak perlu dari data array itu sendiri.
     setParticles(Array.from({ length: 50 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
@@ -109,20 +112,41 @@ export default function UserWatch({ onClick }) {
     // return () => clearInterval(timer);
   }, []); // Array dependensi kosong, hanya berjalan sekali saat mount
 
-  const handleStart = useCallback(async () => {
-    setStarted(true);
-    try {
-      if (audioRef.current) {
-        audioRef.current.volume = 0.4;
-        await audioRef.current.play();
+  // Mulai progress bar pas started true
+  useEffect(() => {
+    if (!started) return;
+
+    const intervalTime = 50;
+    const steps = animationDuration / intervalTime;
+    const increment = 100 / steps;
+
+    const timer = setInterval(() => {
+      setProgress(prev => {
+        const next = prev + increment;
+        if (next >= 100) {
+          clearInterval(timer);
+          return 100;
+        }
+        return next;
+      });
+    }, intervalTime);
+
+      return () => clearInterval(timer);
+    }, [started]);
+
+    const handleStart = useCallback(async () => {
+      setStarted(true); // Ini bakal trigger progress jalan juga
+      try {
+        if (audioRef.current) {
+          audioRef.current.volume = 0.4;
+          await audioRef.current.play();
+        }
+      } catch (err) {
+        console.warn('Audio autoplay blocked:', err.message);
       }
-    } catch (err) {
-      console.warn('Audio autoplay blocked:', err.message);
-      // Fallback atau notifikasi pengguna jika autoplay diblokir
-    }
-    // Durasi timeout disesuaikan dengan durasi animasi dan loading Anda
-    setTimeout(() => setShowContent(true), 4200);
-  }, []);
+
+      setTimeout(() => setShowContent(true), animationDuration);
+    }, []);
 
   const handleGuestClick = useCallback(() => {
     // Memberikan feedback haptic jika didukung browser
@@ -146,9 +170,10 @@ export default function UserWatch({ onClick }) {
     });
     return new Date(Date.parse(formattedDateString));
   }, [data.tanggal_pernikahan]); // Tergantung pada tanggal_pernikahan dari data
+  
 
   return (
-    <div className="relative min-h-screen overflow-hidden font-sans bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white">
+    <div className="relative w-screen min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white overflow-hidden">
       {/* Audio Element */}
       <audio ref={audioRef} src={data.whoosh_url} preload="auto" />
 
@@ -378,11 +403,20 @@ export default function UserWatch({ onClick }) {
             </button>
 
             {/* Footer */}
-            <div
-              className="absolute bottom-1 w-full text-center text-[10px] text-zinc-500 tracking-widest z-10 font-cursive animate-fadeIn"
-              style={{ animationDelay: '2s' }}
-            >
-              ©{new Date().getFullYear()} {data.pegantin.pria.panggilan} & {data.pegantin.wanita.panggilan}
+            <div className="absolute bottom-0 w-full text-center text-[10px] tracking-widest z-10 font-cursive animate-fadeIn"
+              style={{ animationDelay: '2s' }}>
+              <p className="mt-0">
+                Build with ❤️ by&nbsp;
+                <a
+                  className="underline"
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.instagram.com/faizmuhiq/"
+                >
+                  Faizal Muhamad Iqbal
+                </a>
+              </p>
+              <p>© {new Date().getFullYear()} All rights reserved.</p>
             </div>
           </div>
         )}
@@ -426,12 +460,12 @@ export default function UserWatch({ onClick }) {
                 style={{ animationDuration: '2.4s' }}
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <Gift className="text-red-500 animate-pulse drop-shadow-xl" size={32} />
+                <Gift className="text-red-500 animate-glitch" size={32} />
               </div>
             </div>
 
             {/* TEXT + EFFECTS */}
-            <div className="text-center space-y-6 relative z-10">
+            <div className="text-center space-y-4 relative z-10">
               <p className="text-2xl text-zinc-300 font-light tracking-wider animate-fadeIn">
                 Sedang menyiapkan <br /><span className="text-white font-cursive">undangan spesial</span><br /> untuk Anda...
               </p>
@@ -440,12 +474,13 @@ export default function UserWatch({ onClick }) {
               <div className="flex justify-center space-x-2">
                 {[0, 1, 2, 3, 4].map(i => (
                   <div
-                    key={i}
-                    className="w-2.5 h-2.5 rounded-full bg-red-600 shadow-md animate-bounce"
-                    style={{ animationDelay: `${i * 0.2}s` }}
+                  key={i}
+                  className="w-2.5 h-2.5 rounded-full bg-red-600 shadow-md animate-bounce"
+                  style={{ animationDelay: `${i * 0.2}s` }}
                   />
                 ))}
               </div>
+              <p className="text-xs font-cursive">{Math.round(progress)} %</p>
 
               {/* SHIMMER BAR */}
               <div className="w-64 h-1 mx-auto rounded-full bg-gradient-to-r from-transparent via-red-600/40 to-transparent relative overflow-hidden">
@@ -533,7 +568,7 @@ export default function UserWatch({ onClick }) {
             {/* TOMBOL TAMU */}
             <div
               onClick={handleGuestClick}
-              className="mt-6 group cursor-pointer relative z-10 animate-slideUp hover:scale-105 transition-all duration-700"
+              className="mt-4 group cursor-pointer relative z-10 animate-slideUp hover:scale-105 transition-all duration-700"
             >
               <div className="w-24 h-24 md:w-28 md:h-28 mx-auto rounded-full overflow-hidden border-[3px] border-red-600 bg-white/10 backdrop-blur-xl shadow-xl relative">
                 <img
@@ -561,16 +596,33 @@ export default function UserWatch({ onClick }) {
               </div>
             </div>
 
-            {/* GRADIENT LINE */}
-            <div className="absolute bottom-[60px] w-[60%] h-[1px] bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-50 animate-pulse z-10" />
+            <div className="fixed bottom-0 left-0 w-full flex flex-col items-center text-center space-y-3 sm:space-y-4 pb-4 bg-transparent z-50">
+              {/* GRADIENT LINE */}
+              <div className="w-[80%] sm:w-[60%] h-[1px] bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-50 animate-pulse" />
 
-            {/* COPYRIGHT */}
-            <div
-              className="absolute bottom-1 w-full text-center text-[10px] text-zinc-500 tracking-widest z-10 animate-fadeIn"
-              style={{ animationDelay: '2s' }}
-            >
-              ©{new Date().getFullYear()} {data.pegantin.pria.panggilan} & {data.pegantin.wanita.panggilan}
+              {/* Text Info */}
+              <div
+                className="text-[10px] sm:text-xs text-[#A3A1A1] tracking-widest animate-fadeIn"
+                style={{ animationDelay: '2s' }}
+              >
+                <p>A Digital Invitation Inspired by Netflix🎬</p>
+                <p className="mt-0">
+                  Build with ❤️ by&nbsp;
+                  <a
+                    className="underline"
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://www.instagram.com/faizmuhiq/"
+                  >
+                    Faizal Muhamad Iqbal
+                  </a>
+                </p>
+                <p className="mb-3">
+                  © {new Date().getFullYear()} All rights reserved.
+                </p>
+              </div>
             </div>
+
           </div>
         )}
       </div>

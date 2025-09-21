@@ -1,7 +1,7 @@
 {
   "pegantin": {
     "pria": {
-      "foto_list": ["/images/pria/iqbal2.jpeg", "/images/pria/iqbal3.jpeg", "/images/pria/iqbal4.jpeg"],
+      "foto_list": ["/images/pria/iqbal.jpeg", "/images/pria/iqbal2.jpeg", "/images/pria/iqbal3.jpeg", "/images/pria/iqbal4.jpeg"],
       "panggilan": "Iqbal",
       "nama": "Faizal Muhamad Iqbal, S.Kom",
       "bapak": "Saeful Bahri",
@@ -9,7 +9,7 @@
       "ig": "https://instagram.com/faizmuhiq"
     },
     "wanita": {
-      "foto_list": ["/images/wanita/riska.jpeg", "/images/wanita/riska2.jpg", "/images/wanita/riska3.jpg"],
+      "foto_list": ["/images/wanita/riska.jpeg", "/images/wanita/riska2.jpeg", "/images/wanita/riska3.jpeg", "/images/wanita/riska4.jpeg"],
       "panggilan": "Riska",
       "nama": "Riska Anggraini, S.M",
       "bapak": "Sularmanto",
@@ -32,16 +32,46 @@
       {
         "bank": "Bank BCA",
         "nama": "Riska Anggraini",
-        "nomor_rekening": "7111308997",
+        "nomor_rekening": "7295426021",
         "logo_url": "/images/bahan/bca.webp",
         "card_bg": "/images/bahan/kartu-bca.webp"
       }
     ],
+    "ewallet": [
+      {
+        "provider": "Dana",
+        "nama": "Faizal Muhamad Iqbal",
+        "nomor": "089523013056",
+        "logo_url": "/images/bahan/dana.png",
+        "card_bg": "/images/bahan/dana.png"
+      },
+      {
+        "provider": "ShopeePay",
+        "nama": "Faizal Muhamad Iqbal",
+        "nomor": "089523013056",
+        "logo_url": "/images/bahan/shopeepay.png",
+        "card_bg": "/images/bahan/shopeepay.png"
+      },
+      {
+        "provider": "Dana",
+        "nama": "Riska Anggraini",
+        "nomor": " 081335873753",
+        "logo_url": "/images/bahan/dana.png",
+        "card_bg": "/images/bahan/dana.png"
+      },
+      {
+        "provider": "ShopeePay",
+        "nama": "Riska Anggraini",
+        "nomor": " 081335873753",
+        "logo_url": "/images/bahan/shopeepay.png",
+        "card_bg": "/images/bahan/shopeepay.png"
+      }
+    ],
     "address": {
       "recipient_name": "Riska Anggraini",
-      "full_address": "Jl. Mawar No. 123, Kec. Harapan, Kota Bahagia, Provinsi Sejahtera",
-      "postal_code": "12345",
-      "phone_number": "+62 812-3456-7890"
+      "full_address": "Perum Taman Buah Sukamantri, Blok AE 1 No.10, Pasar Kemis, Kab.Tangerang",
+      "postal_code": "15560",
+      "phone_number": "081335873753"
     }
   },
   "maps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126472.10124350523!2d110.55291301860215!3d-7.868555464358877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a4be412c847d1%3A0x4027a76e352fce0!2sKec.%20Nglipar%2C%20Kabupaten%20Gunungkidul%2C%20Daerah%20Istimewa%20Yogyakarta!5e0!3m2!1sid!2sid!4v1750869011778!5m2!1sid!2sid",
@@ -58,58 +88,233 @@
     "waktu": "10.00 WITA - Selesai",
     "tempat": "Kediaman Mempelai Wanita"
   },
-  "thumbnail_image_url": "/images/home5.jpeg",
+  "makan": {
+    "tanggal": "03 Januari 2026",
+    "waktu": "10:00 WIB - Selesai",
+    "tempat": "Perumahan Taman Buah Sukamantri, Blok AE No 10, Pasar Kemis, Kabupaten Tangerang, Banten 15560"
+  },
+  "thumbnail_image_url": "/images/awall.jpeg",
   "url_video": "/video/videonya.mp4",
-  "intro": "Setelah Aku dan Kamu dipertemukan dalam situasi yang tepat, di mana keduanya telah siap untuk memulai hubungan bersama, tibalah mereka di awal perjalanan baru menuju pernikahan.",
+  "intro": "<p>''Allah selalu punya cara yang indah dalam mempertemukan dua hati. Bukan di tempat yang romantis, melainkan di antara tumpukan kerjaan, teguran yang terkadang pedas, dan canda tawa yang perlahan tumbuh menjadi benih-benih cinta.</p> <p>Dari awal penuh salah paham hingga akhir yang penuh cinta, semuanya adalah bagian dari perjalanan yang telah Allah takdirkan. Termasuk momen ini, sebuah janji suci yang bernama pernikahan, agar kebersamaan yang lahir dari cerita sederhana itu menjadi ibadah sepanjang usia.</p> <p>Dan kini, di hadapan keluarga dan sahabat, dua hati yang telah melewati banyak cerita dipersatukan. Semoga setiap langkah bersama dipenuhi kasih, kesabaran, dan keberkahan, menjadi cahaya yang menerangi perjalanan hidup hingga akhir usia.''</p>",
   "breaking_news_img": [
-    "/images/foto1.jpeg",
-    "/images/foto2.jpeg",
-    "/images/foto3.jpeg",
-    "/images/foto4.jpeg",
-    "/images/foto5.jpeg"
-  ],  
-  "breaking_news_content": "<p>Halo! Karena kalian adalah orang penting yang mengisi hari-hari kami, kami ingin informasikan bahwa kami akan segera menikah! &lt;3 </p><p className=\"mt-4\"> Tapi sebelumnya, kami mohon maaf kepada teman dan kerabat semua karena tidak bisa mengundang kalian hadir di hari bahagia kami, dikarenakan pernikahan kami bersifat intimate wedding yang dilaksanakan di Gunung Kidul, Yogyakarta dan hanya dihadiri oleh keluarga besar dan orang terdekat.</p><p className=\"mt-4\">Walaupun begitu, kami harapkan sebaik-baiknya doa untuk kelancaran pernikahan dan hari-hari bahagia setelahnya.</p><p className=\"mt-4\">Dengan penuh cinta,</p><p>The bride and groom </p><br /><p>Iqbal and Riska &lt;3</p>",
-  "love_story": [
-    {
-      "image_list": ["/images/story/foto1.jpeg", "/images/story/foto2.jpeg", "/images/story/foto3.jpeg"],
-      "title": "Episode 1: How We Met Each Other that Time",
-      "description": "Ketika pertama kali bertemu, kami tidak tahu bahwa kami akan menjadi pasangan hidup. Namun, Tuhan telah menyiapkan jalan kami untuk bertemu dan saling mengenal satu sama lain."
-    },
-    {
-      "image_list": ["/images/story/foto4.jpeg", "/images/story/foto5.jpeg", "/images/story/foto6.jpeg"],
-      "title": "Episode 2: The Second Date",
-      "description": "Setelah beberapa kali bertemu, akhirnya kami memutuskan untuk menghabiskan waktu bersama. Kami pergi ke tempat yang indah dan berbagi cerita tentang diri kami masing-masing."
-    },
-    {
-      "image_list": ["/images/story/foto7.jpeg", "/images/story/foto8.jpeg", "/images/story/foto3.jpeg"],
-      "title": "Episode 3: The Third Date",
-      "description": "Setelah beberapa kali bertemu, akhirnya kami memutuskan untuk menghabiskan waktu bersama. Kami pergi ke tempat yang indah dan berbagi cerita tentang diri kami masing-masing."
-    },
-    {
-      "image_list": ["/images/story/foto1.jpeg", "/images/story/foto2.jpeg", "/images/story/foto3.jpeg"],
-      "title": "Episode 4: The Fourth Date",
-      "description": "Setelah beberapa kali bertemu, akhirnya kami memutuskan untuk menghabiskan waktu bersama. Kami pergi ke tempat yang indah dan berbagi cerita tentang diri kami masing-masing."
-    }
-  ],
-  "gallery": [
-    "/images/foto1.jpeg",
-    "/images/foto2.jpeg",
-    "/images/foto3.jpeg",
-    "/images/foto4.jpeg",
-    "/images/foto5.jpeg",
-    "/images/foto6.jpeg",
-    "/images/foto1.jpeg",
-    "/images/foto2.jpeg",
-    "/images/foto3.jpeg",
-    "/images/foto4.jpeg",
-    "/images/foto5.jpeg",
-    "/images/foto6.jpeg",
     "/images/foto1.jpeg",
     "/images/foto2.jpeg",
     "/images/foto3.jpeg",
     "/images/foto4.jpeg",
     "/images/foto5.jpeg",
     "/images/foto6.jpeg"
+  ],  
+  "breaking_news_content": "<p>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p><p>Assalamu’alaikum Warahmatullahi Wabarakatuh.</p><p>Alhamdulillahi Rabbil ‘Alamin, dengan penuh rasa syukur kami sampaikan kabar bahagia bahwa insyaAllah kami akan segera melangsungkan akad nikah, menyempurnakan separuh agama, dan memulai perjalanan rumah tangga dengan ridha Allah ﷻ.</p><p className=\"mt-4\">Karena keterbatasan dan dengan berbagai pertimbangan, pernikahan kami akan dilaksanakan secara sederhana dan bersifat <i>intimate wedding</i> di Gunung Kidul, Yogyakarta, yang hanya dihadiri keluarga besar dan orang-orang terdekat.</p><p className=\"mt-4\">Kami memohon maaf yang sebesar-besarnya kepada sahabat serta kerabat yang belum dapat kami undang untuk hadir secara langsung. Namun kami sangat mengharapkan doa yang terbaik agar Allah ﷻ senantiasa melimpahkan keberkahan, kelancaran, serta menjadikan pernikahan ini sebagai rumah tangga yang sakinah, mawaddah, warahmah.</p><p className=\"mt-4\">Wassalamu’alaikum Warahmatullahi Wabarakatuh.</p><p className=\"mt-4\">Dengan penuh cinta dan doa,</p><p>The Bride & Groom</p><br /><p>Iqbal & Riska</p>",
+
+
+  "love_story": [
+    {
+      "image_list": ["/images/story/ls1.jpg", "/images/story/ls2.jpg", "/images/story/ls3.jpg"],
+      "title": "Episode 1: Anak Baru di Gudang",
+      "tagline": "Pertemuan pertama jarang terasa menyenangkan.",
+      "description": "Seorang admin baru ditempatkan di bagian surat jalan. Pekerjaan hari itu penuh dengan kesalahan input, membuat leader gudang harus berulang kali membetulkan. Setiap interaksi berakhir dengan teguran dingin, sementara rekan-rekan lain hanya mengamati dengan senyum penuh tanda tanya.",
+      "cliffhanger": "Siapa sangka, kebiasaan sepele itu perlahan menumbuhkan sesuatu yang berbeda?",
+      "dialogs": [
+        { "role": "leader", "name": "Leader", "text": "Ini data masih ada yg salah, coba cek lagi." },
+        { "role": "admin", "name": "Admin", "text": "Iya, maaf, aku perbaiki sekarang." }
+      ]
+    },
+    {
+      "image_list": ["/images/story/ls4.jpg", "/images/story/ls5.jpg", "/images/story/ls6.jpg"],
+      "title": "Episode 2: Tatapan yang Mengganggu",
+      "tagline": "Bahasa mata tak pernah bisa disembunyikan.",
+      "description": "Hari-hari berikutnya, admin surat jalan tak segan-segan mendekati leader gudang. Bagi sang leader, tatapan penuh perhatian itu terasa mengganggu, seolah setiap gerakan di gudang selalu diawasi.",
+      "cliffhanger": "Apakah tatapan itu akan terus diabaikan?",
+      "dialogs": [
+        { "role": "admin", "name": "Admin", "text": "Kenapa selalu kelihatan serius banget?" },
+        { "role": "leader", "name": "Leader", "text": "Karena kalau salah sedikit, semua kerjaan bisa kacau." }
+      ]
+    },
+    {
+      "image_list": ["/images/story/ls7.jpg", "/images/story/ls8.jpg", "/images/story/ls9.jpg"],
+      "title": "Episode 3: Perlahan Membuka Hati",
+      "tagline": "Batas antara cuek dan penasaran semakin tipis.",
+      "description": "Meski sering dimarahi, admin surat jalan tetap berusaha mendekat. Semangatnya membuat leader gudang mulai bertanya-tanya, apa sebenarnya yang membuatnya begitu gigih. Rasa penasaran perlahan mengikis sikap dingin yang selama ini dipertahankan.",
+      "cliffhanger": "Apakah hati yang keras bisa benar-benar luluh?",
+      "dialogs": [
+        { "role": "leader", "name": "Leader", "text": "Kenapa masih semangat banget meski sering kena tegur?" },
+        { "role": "admin", "name": "Admin", "text": "Karena aku yakin suatu hari nanti bisa bikin percaya." }
+      ]
+    },
+    {
+      "image_list": ["/images/story/ls10.jpg", "/images/story/ls11.jpg", "/images/story/ls12.jpg"],
+      "title": "Episode 4: Obrolan Pertama",
+      "tagline": "Dari satu obrolan lahir rasa berbeda.",
+      "description": "Sebuah kesempatan kecil muncul saat mereka sama-sama beristirahat. Secangkir kopi menjadi awal percakapan sederhana yang terasa berbeda dari biasanya. Tiba-tiba, suasana yang tadinya kaku berubah hangat.",
+      "cliffhanger": "Apakah obrolan ini hanya sekadar basa-basi?",
+      "dialogs": [
+        { "role": "leader", "name": "Leader", "text": "Eh, ternyata suka kopi hitam juga?" },
+        { "role": "admin", "name": "Admin", "text": "Iya, sama kayak kamu. Pahit tapi bikin nagih." }
+      ]
+    },
+    {
+      "image_list": ["/images/story/ls13.jpg", "/images/story/ls14.jpg", "/images/story/ls15.jpg"],
+      "title": "Episode 5: Senyuman yang Menular",
+      "tagline": "Satu senyum bisa mengubah segalanya.",
+      "description": "Seiring berjalannya waktu, senyum kecil admin surat jalan mulai menular. Gudang yang biasanya hanya dipenuhi suara forklift kini sesekali dipenuhi tawa ringan. Rekan-rekan kerja mulai menggoda, tapi keduanya berusaha menepis.",
+      "cliffhanger": "Ataukah senyum itu justru pertanda sesuatu yang lebih dalam?",
+      "dialogs": [
+        { "role": "admin", "name": "Admin", "text": "Kalau kamu senyum, suasana gudang jadi lebih ringan." },
+        { "role": "leader", "name": "Leader", "text": "Jangan kebanyakan lihat, nanti kebiasaan." }
+      ]
+    },
+    {
+      "image_list": ["/images/story/ls16.jpg", "/images/story/ls17.jpg", "/images/story/ls18.jpg"],
+      "title": "Episode 6: Langkah di Luar Gudang",
+      "tagline": "Di luar rutinitas, cerita baru dimulai.",
+      "description": "Untuk pertama kalinya, mereka sepakat makan siang bersama di luar kantor. Suasana berbeda membuat percakapan lebih cair. Segala batas formal di gudang mendadak menghilang di meja makan sederhana itu.",
+      "cliffhanger": "Apakah langkah kecil ini akan membawa ke arah baru?",
+      "dialogs": [
+        { "role": "admin", "name": "Admin", "text": "Biasanya kalau makan di luar, diem aja?" },
+        { "role": "leader", "name": "Leader", "text": "Kalau sama kamu, susah diem." }
+      ]
+    },
+    {
+      "image_list": ["/images/story/ls19.jpg", "/images/story/ls20.jpg", "/images/story/ls21.jpg"],
+      "title": "Episode 7: Tawa Pertama Bersama",
+      "tagline": "Tawa tulus tak pernah bisa disembunyikan.",
+      "description": "Tawa pecah karena hal-hal kecil yang hanya dimengerti berdua. Gudang yang biasanya penuh tekanan kini terasa lebih ringan. Rekan-rekan kerja makin yakin ada sesuatu yang sedang berkembang.",
+      "cliffhanger": "Akankah tawa itu menjadi kebiasaan baru?",
+      "dialogs": [
+        { "role": "admin", "name": "Admin", "text": "Gak nyangka ya, kamu bisa ketawa selepas ini." },
+        { "role": "leader", "name": "Leader", "text": "Jangan bilang-bilang, nanti citra tegas hancur." }
+      ]
+    },
+    {
+      "image_list": ["/images/story/ls22.jpg", "/images/story/ls23.jpg", "/images/story/ls24.jpg"],
+      "title": "Episode 8: Perjalanan Singkat",
+      "tagline": "Perjalanan kecil, kenangan besar.",
+      "description": "Sebuah perjalanan singkat keluar kota untuk urusan kerja ternyata meninggalkan kesan mendalam. Bukan pada tujuan perjalanan, tapi pada kebersamaan di sepanjang jalan.",
+      "cliffhanger": "Apakah perjalanan kecil ini membuka jalan lebih jauh?",
+      "dialogs": [
+        { "role": "leader", "name": "Leader", "text": "Capek juga ya kalau jalan jauh." },
+        { "role": "admin", "name": "Admin", "text": "Asal bareng, capeknya jadi gak terasa." }
+      ]
+    },
+    {
+      "image_list": ["/images/story/ls25.jpg", "/images/story/ls26.jpg", "/images/story/ls27.jpg"],
+      "title": "Episode 9: Semakin Dekat",
+      "tagline": "Jarak hati kini tinggal sehelai benang.",
+      "description": "Hubungan mereka semakin dekat. Batas antara rekan kerja dan perasaan pribadi mulai kabur. Semua orang bisa melihat, meski keduanya masih enggan mengaku.",
+      "cliffhanger": "Siapkah mereka mengakui perasaan itu?",
+      "dialogs": [
+        { "role": "admin", "name": "Admin", "text": "Kamu sadar gak, kita makin sering bareng?" },
+        { "role": "leader", "name": "Leader", "text": "Mungkin karena aku udah terbiasa ada kamu." }
+      ]
+    },
+    {
+      "image_list": ["/images/story/ls28.jpg", "/images/story/ls29.jpg", "/images/story/ls30.jpg"],
+      "title": "Episode 10: Momen Mengikat",
+      "tagline": "Ada momen yang mengubah segalanya… selamanya.",
+      "description": "Satu momen sederhana mengubah segalanya. Saat saling menatap, keduanya menyadari bahwa hubungan ini bukan lagi sekadar kebersamaan di tempat kerja.",
+      "cliffhanger": "Langkah besar apa yang akan diambil setelah ini?",
+      "dialogs": [
+        { "role": "leader", "name": "Leader", "text": "Aku gak tahu kenapa, tapi rasanya nyaman kalau bareng kamu." },
+        { "role": "admin", "name": "Admin", "text": "Jangan khawatir, aku juga merasa begitu." }
+      ]
+    },
+    {
+      "image_list": ["/images/story/ls31.jpg", "/images/story/ls32.jpg", "/images/story/ls33.jpg"],
+      "title": "Episode 11: Hari-Hari Bahagia",
+      "tagline": "Kebahagiaan sederhana, perasaan yang luar biasa.",
+      "description": "Hari-hari yang biasanya penuh tekanan kini berubah lebih berwarna. Setiap tumpukan surat jalan dan tumpukan inputan terasa lebih ringan saat mereka saling mendukung.",
+      "cliffhanger": "Tapi, apakah kebahagiaan ini akan bertahan lama?",
+      "dialogs": [
+        { "role": "admin", "name": "Admin", "text": "Kerja jadi gak terasa berat lagi ya." },
+        { "role": "leader", "name": "Leader", "text": "Iya, karena ada kamu di samping." }
+      ]
+    },
+    {
+      "image_list": ["/images/story/ls34.jpg", "/images/story/ls35.jpg", "/images/story/ls36.jpg"],
+      "title": "Episode 12: Dukungan Tanpa Batas",
+      "tagline": "Saat dunia terasa berat, kita jadi sandaran satu sama lain.",
+      "description": "Dalam kesibukan dan tekanan kerja, keduanya saling menguatkan. Saat salah satu goyah, yang lain hadir sebagai sandaran. Hubungan mereka semakin kokoh.",
+      "cliffhanger": "Apakah kekuatan itu cukup menghadapi masa depan?",
+      "dialogs": [
+        { "role": "leader", "name": "Leader", "text": "Kalau lagi capek, bilang ya." },
+        { "role": "admin", "name": "Admin", "text": "Asal ada kamu, capeknya hilang." }
+      ]
+    },
+    {
+      "image_list": ["/images/story/ls37.jpg", "/images/story/ls38.jpg", "/images/story/ls39.jpg"],
+      "title": "Episode 13: Rencana Masa Depan",
+      "tagline": "Masa depan bukan hanya mimpi, tapi rencana bersama.",
+      "description": "Obrolan mereka kini tak lagi sekadar kerja atau hari-hari di gudang. Masa depan mulai dibicarakan, dengan keyakinan bahwa semua langkah akan dijalani bersama.",
+      "cliffhanger": "Langkah terakhir sudah di depan mata.",
+      "dialogs": [
+        { "role": "admin", "name": "Admin", "text": "Kalau suatu saat kita pindah kerja, masih mau bareng?" },
+        { "role": "leader", "name": "Leader", "text": "Dimana pun, aku mau kita tetap bareng." }
+      ]
+    },
+    {
+      "image_list": ["/images/story/ls40.jpg", "/images/story/ls41.jpg", "/images/story/ls42.jpg"],
+      "title": "Episode 14: Menuju Janji Suci",
+      "tagline": "Semua perjalanan membawa ke titik ini.",
+      "description": "Setelah perjalanan panjang penuh tawa, tangis, dan perjuangan, mereka sampai pada satu keputusan. Janji sehidup semati kini tinggal selangkah lagi. Semua rekan kerja yang dulu menyaksikan awal cerita, kini ikut bahagia melihat akhirnya.",
+      "cliffhanger": "Dan cerita mereka… baru saja dimulai.",
+      "dialogs": [
+        { "role": "leader", "name": "Leader", "text": "Dulu kupikir kamu cuma bikin ribet." },
+        { "role": "admin", "name": "Admin", "text": "Dan sekarang?" },
+        { "role": "leader", "name": "Leader", "text": "Sekarang, aku gak bisa bayangin hari-hari tanpa kamu." }
+      ]
+    }
+  ],
+
+  "ai": [
+    "/images/ai/ai1.jpeg",
+    "/images/ai/ai2.jpeg",
+    "/images/ai/ai3.jpeg",
+    "/images/ai/ai4.jpeg",
+    "/images/ai/ai5.jpeg",
+    "/images/ai/ai6.jpeg",
+    "/images/ai/ai7.jpeg",
+    "/images/ai/ai8.jpeg",
+    "/images/ai/ai9.jpeg",
+    "/images/ai/ai10.jpeg",
+    "/images/ai/ai11.jpeg",
+    "/images/ai/ai12.jpeg",
+    "/images/ai/ai14.jpeg",
+    "/images/ai/ai15.jpeg",
+    "/images/ai/ai16.jpeg",
+    "/images/ai/ai17.jpeg",
+    "/images/ai/ai18.jpeg",
+    "/images/ai/ai19.jpeg",
+    "/images/ai/ai20.jpeg",
+    "/images/ai/ai21.jpeg"
+  ],
+  "gallery": [
+    "/images/gl1.jpeg",
+    "/images/gl2.jpeg",
+    "/images/gl3.jpeg",
+    "/images/gl4.jpeg",
+    "/images/gl5.jpeg",
+    "/images/gl6.jpeg",
+    "/images/gl7.jpeg",
+    "/images/gl8.jpeg",
+    "/images/gl9.jpeg",
+    "/images/gl10.jpeg",
+    "/images/gl11.jpeg",
+    "/images/gl12.jpeg",
+    "/images/gl13.jpeg",
+    "/images/gl14.jpeg",
+    "/images/gl15.jpeg",
+    "/images/gl16.jpeg",
+    "/images/gl17.jpeg",
+    "/images/gl18.jpeg",
+    "/images/l1.jpg",
+    "/images/l2.jpg",
+    "/images/l3.jpg",
+    "/images/l4.jpg",
+    "/images/l5.jpg",
+    "/images/l6.jpg",
+    "/images/l7.jpg",
+    "/images/l8.jpg",
+    "/images/l9.jpg"
   ],
   "show_menu": {
     "breaking_news": true,
@@ -120,5 +325,21 @@
     "GiftSection": true,
     "rsvp": true,
     "wish": true
-  }
+  },
+  "turut_mengundang": [
+    { "nama": "Keluarga Besar Asep Wijaya", "jabatan": "Orang Tua Mempelai Pria" },
+    { "nama": "Keluarga Besar Dewi Lestari", "jabatan": "Orang Tua Mempelai Wanita" },
+    { "nama": "Sahabat & Rekan Kantor", "jabatan": "Sahabat & Rekan" },
+    { "nama": "Bapak/Ibu H. Sutrisno", "jabatan": "Paman Mempelai Pria" },
+    { "nama": "Bapak/Ibu Hj. Kartini", "jabatan": "Bibi Mempelai Wanita" },
+    { "nama": "Rekan Alumni SMA 5 Bandung", "jabatan": "Teman Sekolah" },
+    { "nama": "Komunitas Pecinta Alam Nusantara", "jabatan": "Sahabat & Rekan" },
+    { "nama": "Bapak Drs. H. Ahmad Sudirman", "jabatan": "Keluarga Besar" },
+    { "nama": "Ibu Hj. Nur Aini", "jabatan": "Keluarga Besar" },
+    { "nama": "Rekan Satu Kantor Mempelai Pria", "jabatan": "Rekan Kerja" },
+    { "nama": "Rekan Satu Kantor Mempelai Wanita", "jabatan": "Rekan Kerja" },
+    { "nama": "Tetangga & Sahabat Dekat", "jabatan": "Kerabat & Sahabat" }
+  ],
+  "terima_kasih_image": "/images/l4.jpg"
+
 }

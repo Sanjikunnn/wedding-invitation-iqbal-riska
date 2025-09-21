@@ -43,14 +43,16 @@ export default function TitleInfo() {
       </div>
 
       <div className="pt-2">
-        <p className="text-white text-sm leading-[1.15rem] mb-2">
-          {data.intro}
-        </p>
-        <p className="text-[#A3A1A1] text-[10px] leading-[1rem]">
-          "Segala sesuatu Kami ciptakan berpasang-pasangan agar kamu mengingat
-          (kebesaran Allah)" (Q.S Az-Zariyah: 49)
-        </p>
-      </div>
+      <div
+        className="text-white text-sm leading-[1rem] mb-1 text-justify"
+        dangerouslySetInnerHTML={{ __html: data.intro }}
+      />
+      <p className="text-[#A3A1A1] text-[10px] leading-[1rem] italic text-center mt-1">
+        "Segala sesuatu Kami ciptakan berpasang-pasangan agar kamu mengingat 
+        (kebesaran Allah)" <br /> (Q.S. Az-Zariyat: 49)
+      </p>
+    </div>
+
     </div>
   );
 }

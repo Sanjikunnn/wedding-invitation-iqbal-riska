@@ -17,9 +17,17 @@ export default {
         waveright: 'waveright 3s ease-in-out infinite alternate',
         waveleft: 'waveleft 3s ease-in-out infinite alternate',
         shimmerx: 'shimmerx 5s linear infinite',
-
+        glitch: 'glitch 1.5s infinite',
       },
       keyframes: {
+        glitch: {
+          '0%': { transform: 'translate(0)' },
+          '20%': { transform: 'translate(-2px, 2px)' },
+          '40%': { transform: 'translate(2px, -1px)' },
+          '60%': { transform: 'translate(-1px, -2px)' },
+          '80%': { transform: 'translate(1px, 2px)' },
+          '100%': { transform: 'translate(0)' },
+        },
         shimmerx: {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },

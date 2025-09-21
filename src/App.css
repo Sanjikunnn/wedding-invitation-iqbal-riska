@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer utilities {
+  /* Fade In Variants */
   .animate-fadeIn {
     @apply opacity-0;
     animation: fadeIn 1s forwards;
@@ -15,53 +16,106 @@
     @apply opacity-0 -translate-y-4;
     animation: fadeInDown 1s forwards;
   }
+  img {
+    will-change: opacity;
+  }
+
+  /* Fade Out Variants */
+  .animate-fadeOutLeft {
+    animation: fadeOutLeft 1s forwards;
+  }
+  .animate-fadeOutRight {
+    animation: fadeOutRight 1s forwards;
+  }
+  .animate-fadeOutUp {
+    animation: fadeOutUp 1s forwards;
+  }
+  .animate-fadeOutDown {
+    animation: fadeOutDown 1s forwards;
+  }
+
+  /* Extra FX */
   .animate-fadeInPulse {
     animation: fadeIn 2s both, pulse 2s infinite;
   }
   .animate-float {
-  animation: float 6s ease-in-out infinite;
-}
+    animation: float 6s ease-in-out infinite;
+  }
   .animate-float-soft {
-  animation: float-bounce 8s ease-in-out infinite;
-}
-.animate-float-smooth {
+    animation: float-bounce 8s ease-in-out infinite;
+  }
+  .animate-float-smooth {
     animation: float-smooth 10s ease-in-out infinite;
     will-change: transform;
   }
+  .animate-scrollX {
+    animation: scrollX 50s linear infinite;
+  }
+  .animate-creditRoll {
+    animation: creditRoll 20s linear infinite;
+  }
 }
+
+/* Keyframes */
+@keyframes creditRoll {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(-100%); }
+}
+@keyframes scrollX {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Fade In */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(4px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 }
- 
+
+/* Fade Out */
+@keyframes fadeOutLeft {
+  from { opacity: 1; transform: translateX(0) scale(1); }
+  to { opacity: 0; transform: translateX(-30px) scale(1.05); }
+}
+@keyframes fadeOutRight {
+  from { opacity: 1; transform: translateX(0) scale(1); }
+  to { opacity: 0; transform: translateX(30px) scale(1.05); }
+}
+@keyframes fadeOutUp {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(-30px) scale(1.05); }
+}
+@keyframes fadeOutDown {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(30px) scale(1.05); }
+}
+
+/* Float FX */
 @keyframes float {
-   0%, 100% {
-    transform: translateY(5px);
-  }
-  50% {
-    transform: translateY(-5px);
-  } 
+  0%, 100% { transform: translateY(5px); }
+  50% { transform: translateY(-5px); }
 }
 @keyframes float-bounce {
-  0%, 100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(2px, -12px);
-  }
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(2px, -12px); }
 }
 @keyframes float-smooth {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg) scale(0.5);
-  }
-  50% {
-    transform: translateY(-30px) rotate(3deg) scale(1);
-  }
+  0%, 100% { transform: translateY(0px) rotate(0deg) scale(0.5); }
+  50% { transform: translateY(-30px) rotate(3deg) scale(1); }
+}
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, -2px); }
+  80% { transform: translate(1px, 2px); }
+  100% { transform: translate(0); }
 }

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.46.1",
+    "firebase": "^11.9.1",
     "indonesian-badwords": "^1.0.1",
     "lodash": "^4.17.21",
     "lucide-react": "^0.522.0",
@@ -18,7 +19,8 @@
     "react-dom": "^18.3.1",
     "react-google-recaptcha": "^3.1.0",
     "react-icons": "^5.5.0",
-    "react-router": "^7.0.1"
+    "react-router": "^7.0.1",
+    "react-window": "^2.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

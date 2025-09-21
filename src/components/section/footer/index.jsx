@@ -23,12 +23,12 @@ export default function Footer() {
             className="underline"
             target="_blank"
             rel="noreferrer"
-            href="https://www.github.com/sanjikunnn"
+            href="https://www.instagram.com/faizmuhiq/"
           >
             Faizal Muhamad Iqbal
           </a>
         </p>
-        <p className="mt-1">© {new Date().getFullYear()} All rights reserved.</p>
+        <p className="mb-3">© {new Date().getFullYear()} All rights reserved.</p>
       </div>
     </div>
   );

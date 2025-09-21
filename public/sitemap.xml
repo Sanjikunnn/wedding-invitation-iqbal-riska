@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://yourdomain.com/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/#wedding-event</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/#bride-groom</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/#love-story</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/#gallery</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/#gift</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/#wishes</loc>
+    <priority>0.5</priority>
+  </url>
+</urlset>

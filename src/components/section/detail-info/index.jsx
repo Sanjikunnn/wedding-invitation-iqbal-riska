@@ -41,6 +41,22 @@ export default function DetailInfo() {
 
       {/* Sticky Bottom Navigation */}
       <div className="fixed bottom-0 left-0 right-0 bg-black border-t border-gray-700 flex justify-around items-center py-2 z-50 text-white text-[10px] sm:text-xs">
+        
+        {data.show_menu.love_story && (
+          <a
+            href="#love-story"
+            onClick={() => setActiveSection('love-story')}  
+            className={`flex flex-col items-center transition duration-300 ease-in-out ${
+            activeSection === 'love-story'
+              ? 'text-red-500 scale-110 underline underline-offset-4 decoration-red-500'
+              : 'text-white'
+          }`}
+
+          >
+            <span>❤️</span>
+            <span>Story</span>
+          </a>
+        )}
         {data.show_menu.breaking_news && (
           <a
             href="#breaking-news"
@@ -55,21 +71,7 @@ export default function DetailInfo() {
             <span>News</span>
           </a>
         )}
-        {data.show_menu.wedding_event && (
-          <a
-            href="#wedding-event"
-            onClick={() => setActiveSection('wedding-event')}
-            className={`flex flex-col items-center transition duration-300 ease-in-out ${
-            activeSection === 'wedding-event'
-              ? 'text-red-500 scale-110 underline underline-offset-4 decoration-red-500'
-              : 'text-white'
-          }`}
-
-          >
-            <span>💒</span>
-            <span>Event</span>
-          </a>
-        )}
+        
         {data.show_menu.bride_and_groom && (
           <a
             href="#bride-groom"
@@ -85,19 +87,19 @@ export default function DetailInfo() {
             <span>Couple</span>
           </a>
         )}
-        {data.show_menu.love_story && (
+        {data.show_menu.wedding_event && (
           <a
-            href="#love-story"
-            onClick={() => setActiveSection('love-story')}  
+            href="#wedding-event"
+            onClick={() => setActiveSection('wedding-event')}
             className={`flex flex-col items-center transition duration-300 ease-in-out ${
-            activeSection === 'love-story'
+            activeSection === 'wedding-event'
               ? 'text-red-500 scale-110 underline underline-offset-4 decoration-red-500'
               : 'text-white'
           }`}
 
           >
-            <span>❤️</span>
-            <span>Story</span>
+            <span>💒</span>
+            <span>Event</span>
           </a>
         )}
         {data.show_menu.gallery && (
@@ -166,27 +168,27 @@ export default function DetailInfo() {
       <div className="px-4 space-y-4">
         <TitleInfo />
 
+        {data.show_menu.love_story && (
+          <section id="love-story">
+            <LoveStory />
+          </section>
+        )}
+        
         {data.show_menu.breaking_news && (
           <section id="breaking-news">
             <BreakingNews />
           </section>
         )}
-
-        {data.show_menu.wedding_event && (
-          <section id="wedding-event">
-            <WeddingEventDetailsWithMap />
-          </section>
-        )}
-
+        
         {data.show_menu.bride_and_groom && (
           <section id="bride-groom">
             <Bridegroom />
           </section>
         )}
 
-        {data.show_menu.love_story && (
-          <section id="love-story">
-            <LoveStory />
+        {data.show_menu.wedding_event && (
+          <section id="wedding-event">
+            <WeddingEventDetailsWithMap />
           </section>
         )}
 

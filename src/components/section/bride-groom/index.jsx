@@ -11,6 +11,18 @@ export default function Bridegroom() {
   const [wanitaIndex, setWanitaIndex] = useState(0);
   const [priaIndex, setPriaIndex] = useState(0);
 
+  // Preload gambar berikutnya agar transisi lancar
+  useEffect(() => {
+    const preloadImage = (src) => {
+      const img = new Image();
+      img.src = src;
+    };
+
+    preloadImage(wanitaImages[(wanitaIndex + 1) % wanitaImages.length]);
+    preloadImage(priaImages[(priaIndex + 1) % priaImages.length]);
+  }, [wanitaIndex, priaIndex, wanitaImages, priaImages]);
+
+  // Ganti index setiap interval
   useEffect(() => {
     const interval = setInterval(() => {
       setWanitaIndex((prev) => (prev + 1) % wanitaImages.length);
@@ -23,15 +35,18 @@ export default function Bridegroom() {
   return (
     <div>
       <div className="w-full h-[3px] bg-red-500"></div>
-      <h2 className="text-xl leading-5 text-white font-bold mb-4 mt-10 tracking-widest">Bride and Groom</h2>
+      <h2 className="text-xl leading-5 text-white font-bold mb-4 mt-10 tracking-widest">
+        Bride and Groom
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-cursive text-white">
         {/* Pria */}
         <div className="flex flex-col items-center text-center">
-          <div className="relative w-full h-48 overflow-hidden rounded-md">
+          <div className="relative w-full h-96 overflow-hidden rounded-md">
             {priaImages.map((img, idx) => (
               <img
                 key={idx}
                 src={img}
+                loading="lazy"
                 alt={`Foto ${idx + 1}`}
                 className={`absolute inset-0 w-full h-full object-cover rounded-md transition-opacity duration-1000 ${
                   idx === priaIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
@@ -60,11 +75,12 @@ export default function Bridegroom() {
 
         {/* Wanita */}
         <div className="flex flex-col items-center text-center">
-          <div className="relative w-full h-48 overflow-hidden rounded-md">
+          <div className="relative w-full h-96 overflow-hidden rounded-md">
             {wanitaImages.map((img, idx) => (
               <img
                 key={idx}
                 src={img}
+                loading="lazy"
                 alt={`Foto ${idx + 1}`}
                 className={`absolute inset-0 w-full h-full object-cover rounded-md transition-opacity duration-1000 ${
                   idx === wanitaIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
@@ -90,8 +106,6 @@ export default function Bridegroom() {
             </p>
           </div>
         </div>
-
-        
       </div>
     </div>
   );

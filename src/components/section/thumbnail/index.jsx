@@ -61,7 +61,7 @@ export default function Thumbnail() {
 
   // Render komponen Thumbnail jika isOpenDetail masih false
   return (
-    <div className="relative min-h-screen overflow-hidden animate-fadeCinematic">
+    <div className="relative w-screen min-h-screen overflow-hidden animate-fadeCinematic">
       {/* Lapisan Overlay Hitam untuk membuat gambar latar belakang lebih gelap */}
       <div className="absolute inset-0 bg-black opacity-60 z-0"></div>
 

@@ -4,6 +4,7 @@ import data from '../../../data/config.json';
 export default function WeddingEventDetailsWithMap() {
   const akad = data.akad || {};
   const resepsi = data.resepsi || {};
+  const makan = data.makan || {}; // ✅ Tambahan untuk makan-makan
   const hasEmbed = data.maps && typeof data.maps === 'string';
   const hasUrl = data.url_maps && typeof data.url_maps === 'string';
 
@@ -14,18 +15,20 @@ export default function WeddingEventDetailsWithMap() {
       {/* Judul */}
       <div className="relative z-10 mb-4 text-center animate-fadeInUp">
         <div className="w-full h-[3px] bg-red-500"></div>
-        <h2 className="text-xl leading-5 text-white font-bold mb-10 mt-10 tracking-widest text-left ">Detail Acara</h2>
-        
+        <h2 className="text-xl leading-5 text-white font-bold mb-10 mt-10 tracking-widest text-left">
+          Detail Acara
+        </h2>
+
         <p className="mt-1 text-sm text-gray-300 italic">
-              📆 Upcoming Episodes: Wedding Schedule
+          📆 Upcoming Episodes: Wedding Schedule
         </p>
       </div>
 
       {/* Tab Switcher */}
-      <div className="relative z-10 flex justify-center mb-6 gap-12 animate-fadeInUp">
+      <div className="relative z-10 flex justify-center mb-6 gap-4 md:gap-8 animate-fadeInUp overflow-x-auto no-scrollbar">
         <button
           onClick={() => setActiveTab('akad')}
-          className={`px-4 py-1 text-base font-cursive rounded-full transition ${
+          className={`px-3 py-1 text-base font-cursive rounded-full transition ${
             activeTab === 'akad'
               ? 'bg-red-600 text-white'
               : 'bg-white/10 text-gray-300 hover:bg-white/20'
@@ -35,7 +38,7 @@ export default function WeddingEventDetailsWithMap() {
         </button>
         <button
           onClick={() => setActiveTab('resepsi')}
-          className={`px-4 py-1 text-base font-cursive rounded-full transition ${
+          className={`px-3 py-1 text-base font-cursive rounded-full transition ${
             activeTab === 'resepsi'
               ? 'bg-red-600 text-white'
               : 'bg-white/10 text-gray-300 hover:bg-white/20'
@@ -43,16 +46,29 @@ export default function WeddingEventDetailsWithMap() {
         >
           Resepsi
         </button>
+        {/* ✅ Tombol baru makan-makan */}
+        <button
+          onClick={() => setActiveTab('makan')}
+          className={`px-3 py-1 text-base font-cursive rounded-full transition ${
+            activeTab === 'makan'
+              ? 'bg-red-600 text-white'
+              : 'bg-white/10 text-gray-300 hover:bg-white/20'
+          }`}
+        >
+          Silaturahmi
+        </button>
       </div>
 
       {/* Detail Acara */}
       <div className="relative z-10 max-w-2xl mx-auto animate-fadeIn delay-700">
         {activeTab === 'akad' && (
           <div className="border border-red-800 rounded-2xl shadow-lg p-6 text-center">
-            <h3 className="text-xl font-bold text-red-600 mb-2 uppercase ">Akad Nikah</h3>
+            <h3 className="text-xl font-bold text-red-600 mb-2 uppercase">Akad Nikah</h3>
             <p className="text-gray-300">
-              <strong>Tanggal:</strong> {akad.tanggal || '---'}<br />
-              <strong>Waktu:</strong> {akad.waktu || '---'}<br />
+              <strong>Tanggal:</strong> {akad.tanggal || '---'}
+              <br />
+              <strong>Waktu:</strong> {akad.waktu || '---'}
+              <br />
               <strong>Tempat:</strong> {akad.tempat || '---'}
             </p>
           </div>
@@ -60,11 +76,30 @@ export default function WeddingEventDetailsWithMap() {
 
         {activeTab === 'resepsi' && (
           <div className="border border-red-800 rounded-2xl shadow-lg p-6 text-center">
-            <h3 className="text-xl font-bold text-red-600 mb-2 uppercase ">Resepsi</h3>
+            <h3 className="text-xl font-bold text-red-600 mb-2 uppercase">Resepsi</h3>
             <p className="text-gray-300">
-              <strong>Tanggal:</strong> {resepsi.tanggal || '---'}<br />
-              <strong>Waktu:</strong> {resepsi.waktu || '---'}<br />
+              <strong>Tanggal:</strong> {resepsi.tanggal || '---'}
+              <br />
+              <strong>Waktu:</strong> {resepsi.waktu || '---'}
+              <br />
               <strong>Tempat:</strong> {resepsi.tempat || '---'}
+            </p>
+          </div>
+        )}
+
+        {activeTab === 'makan' && (
+          <div className="border border-red-800 rounded-2xl shadow-lg p-6 text-center">
+            <h3 className="text-xl font-bold text-red-600 mb-2 uppercase">Silaturahmi Teman & Rekan Kerja</h3>
+            <p className="text-gray-300">
+              <em className="text-sm text-gray-400">
+                Acara santai bersama teman & rekan kerja 🤝🍽️
+              </em>
+              <br />
+              <strong>Tanggal:</strong> {makan.tanggal || '---'}
+              <br />
+              <strong>Waktu:</strong> {makan.waktu || '---'}
+              <br />
+              <strong>Tempat:</strong> {makan.tempat || '---'}
             </p>
           </div>
         )}
