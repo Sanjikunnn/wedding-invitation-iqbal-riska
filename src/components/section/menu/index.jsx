@@ -9,7 +9,7 @@ const MenuPage = () => {
       <MenuButton to="/breaking-news" label="Breaking News" />
       <MenuButton to="/wedding-event" label="Wedding Event" />
       <MenuButton to="/bride-groom" label="Bride & Groom" />
-      <MenuButton to="/love-story" label="Love Story" />
+      <MenuButton to="/love-story" label="" />
       <MenuButton to="/gallery" label="Gallery" />
       <MenuButton to="/gift" label="Gift Section" />
       <MenuButton to="/wishes" label="Wishes" />

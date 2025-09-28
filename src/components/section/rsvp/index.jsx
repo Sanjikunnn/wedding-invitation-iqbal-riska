@@ -75,6 +75,15 @@ export default function RSVPSection() {
     lastChildRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // ✅ Auto isi nama dari query ?to=nama
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const toName = params.get('to');
+    if (toName) {
+      setName(decodeURIComponent(toName));
+    }
+  }, []);
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -155,8 +164,6 @@ export default function RSVPSection() {
         <div className="w-full h-[3px] bg-red-500 mt-3"></div>
       </div>
       <div className="text-center relative overflow-hidden h-[200px] md:h-[300px]">
-
-        {/* Running text */}
         <div className="absolute inset-0 flex items-end justify-center">
           <div className="animate-creditRoll text-white/90 text-xs leading-snug space-y-1 w-full">
             {dataConfig.turut_mengundang.map((item, i) => (
@@ -172,27 +179,41 @@ export default function RSVPSection() {
 
       {/* Bagian Terima Kasih */}
       <div className="text-center space-y-6">
-        {/* Foto Ucapan Terima Kasih */}
-        <img
-          src={dataConfig.terima_kasih_image}
-          alt="Terima Kasih"
-          className="w-72 h-72 object-cover rounded-full mx-auto shadow-lg border-4 border-red-300"
-        />
+        <div className="relative w-72 h-72 mx-auto">
+          {/* Border Warna-warni Muter */}
+          <div className="absolute inset-0 animate-spin-slow 
+                bg-[conic-gradient(red,orange,yellow,green,cyan,indigo,violet,red)] 
+                [clip-path:polygon(50%_0%,61%_35%,98%_35%,68%_57%,79%_91%,50%_70%,21%_91%,32%_57%,2%_35%,39%_35%)]">
 
-        <div className="w-16 h-[3px] bg-red-500 mx-auto rounded-full"></div>
+            {/* Layer dalam biar gradient jadi border */}
+            <div className="absolute inset-[6px] bg-black rounded-full"></div>
+          </div>
+
+          {/* Foto */}
+          <img
+            src={dataConfig.terima_kasih_image}
+            alt="Terima Kasih"
+            className="absolute inset-[12px] w-[calc(100%-24px)] h-[calc(100%-24px)] 
+                      object-cover rounded-full shadow-lg z-10"
+          />
+        </div>
+
+        <div className="w-16 h-[8px] bg-red-500 mx-auto rounded-full"></div>
 
         <p className="text-sm md:text-base text-white/80 italic leading-relaxed px-4 md:px-10">
-          Tanpa mengurangi rasa hormat, izinkan kami mengharapkan kehadiran 
-          Bapak/Ibu/Saudara/i melalui undangan digital ini, serta dapat memberikan 
-          doa restu kepada kami.
+          Dengan penuh rasa hormat dan sukacita, kami mengundang kehadiran 
+          Bapak/Ibu/Saudara/i melalui undangan digital ini. Besar harapan kami 
+          agar kehadiran serta doa restu yang tulus dapat menjadi pelengkap 
+          kebahagiaan kami dalam hari istimewa ini.
           <br />
           <span className="block mt-3 font-semibold text-white">
-            Terima kasih.
+            Terima kasih atas segala doa dan perhatiannya.
           </span>
         </p>
+
       </div>
 
-      
+
     </div>
   );
 }

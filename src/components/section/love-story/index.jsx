@@ -1,10 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react'; // icon panah
-import data from '../../../data/config.json';
+import React, { useEffect, useState, useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import data from "../../../data/config.json";
 
 const IMAGE_INTERVAL = 3000;
 
-const LoveItem = ({ imageList, title, duration, description, tagline, cliffhanger, dialogs }) => {
+const LoveItem = ({
+  imageList,
+  title,
+  duration,
+  description,
+  tagline,
+  cliffhanger,
+  dialogs,
+}) => {
   const [imageIndex, setImageIndex] = useState(0);
   const [expanded, setExpanded] = useState(false);
 
@@ -20,92 +29,160 @@ const LoveItem = ({ imageList, title, duration, description, tagline, cliffhange
   // preload gambar berikutnya
   useEffect(() => {
     if (!imageList || imageList.length === 0) return;
-
     const nextIndex = (imageIndex + 1) % imageList.length;
     const img = new Image();
     img.src = imageList[nextIndex];
   }, [imageIndex, imageList]);
 
-  // Potong deskripsi kalau belum expand
-  const shortDesc = description?.length > 120 ? description.slice(0, 120) + '...' : description;
+  const shortDesc =
+    description?.length > 120 ? description.slice(0, 120) + "..." : description;
 
   return (
-    <div className="bg-black bg-opacity-30 p-3 rounded-lg">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.6 }}
+      className="bg-black bg-opacity-30 p-3 rounded-lg"
+    >
       <div className="grid grid-cols-2 gap-2">
-        <div className="relative w-full h-[100px] md:h-[300px] rounded-md overflow-hidden">
+        {/* Slideshow Gambar */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative w-full h-[120px] sm:h-[180px] md:h-[250px] lg:h-[300px] rounded-md overflow-hidden"
+        >
           {imageList.map((img, idx) => (
-            <img
+            <motion.img
               key={idx}
               loading="lazy"
-              className={`absolute top-0 left-0 w-full h-full object-cover rounded-md transition-opacity duration-1000 ${
-                idx === imageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
-              }`}
               src={img}
               alt={`Slide ${idx + 1}`}
+              className="absolute top-0 left-0 w-full h-full object-cover rounded-md"
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{
+                opacity: idx === imageIndex ? 1 : 0,
+                scale: idx === imageIndex ? 1 : 1.05,
+              }}
+              transition={{ duration: 1 }}
+              style={{ zIndex: idx === imageIndex ? 10 : 0 }}
             />
           ))}
-        </div>
-        <div className="flex justify-center">
-          <div className="my-auto">
-            <p className="text-white mb-1 tracking-tighter font-semibold">{title}</p>
+        </motion.div>
+
+        {/* Title + Tagline */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="flex justify-center"
+        >
+          <div className="my-auto text-center md:text-left">
+            <p className="text-white mb-1 tracking-tighter font-semibold">
+              {title}
+            </p>
             {duration && <p className="text-xs text-[#A3A1A1]">{duration}</p>}
-            {tagline && <p className="text-xs italic text-gray-300 mt-1">"{tagline}"</p>}
+            {tagline && (
+              <p className="text-xs italic text-gray-300 mt-1">"{tagline}"</p>
+            )}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Deskripsi */}
-      <p className="text-[#A3A1A1] text-xs mt-2">
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+        className="text-[#A3A1A1] text-xs mt-2"
+      >
         {expanded ? description : shortDesc}
-      </p>
+      </motion.p>
 
       {/* Dialog hanya tampil kalau expanded */}
-      {expanded && dialogs && dialogs.length > 0 && (
-        <div className="mt-4 space-y-3">
-          {dialogs.map((dialog, idx) => (
-            <div
-              key={idx}
-              className={`flex ${
-                dialog.role === 'leader' ? 'justify-end' : 'justify-start'
-              }`}
-            >
-              <div
-                className={`relative px-2 py-1 max-w-[70%] text-xs shadow-md ${
-                  dialog.role === 'leader'
-                    ? 'bg-gradient-to-r from-red-600 to-red-500 text-white rounded-2xl rounded-br-sm'
-                    : 'bg-white/10 text-gray-200 rounded-2xl rounded-bl-sm'
+      <AnimatePresence>
+        {expanded && dialogs && dialogs.length > 0 && (
+          <motion.div
+            className="mt-4 space-y-3"
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: { staggerChildren: 0.2, delayChildren: 0.5},
+              },
+            }}
+          >
+            {dialogs.map((dialog, idx) => (
+              <motion.div
+                key={idx}
+                variants={{
+                  hidden: { opacity: 0, y: 10 },
+                  show: { opacity: 1, y: 0 },
+                }}
+                className={`flex ${
+                  dialog.role === "leader" ? "justify-end" : "justify-start"
                 }`}
               >
-                <p className="text-[10px] uppercase tracking-wide font-semibold opacity-70 mb-1">
-                  {dialog.name}
-                </p>
-                <p className="leading-snug">{dialog.text}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
+                <div
+                  className={`relative px-2 py-1 max-w-[70%] text-xs shadow-md ${
+                    dialog.role === "leader"
+                      ? "bg-gradient-to-r from-red-600 to-red-500 text-white rounded-2xl rounded-br-sm"
+                      : "bg-white/10 text-gray-200 rounded-2xl rounded-bl-sm"
+                  }`}
+                >
+                  <p className="text-[10px] uppercase tracking-wide font-semibold opacity-70 mb-1">
+                    {dialog.name}
+                  </p>
+                  <p className="leading-snug">{dialog.text}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Tombol expand */}
       {description?.length > 120 && (
-        <button
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.9 }}
           onClick={() => setExpanded(!expanded)}
           className="text-gray-400 text-xs mt-1 underline"
         >
-          {expanded ? 'Sembunyikan' : 'Lihat Selengkapnya'}
-        </button>
+          {expanded ? "Sembunyikan" : "Lihat Selengkapnya"}
+        </motion.button>
       )}
 
-      {cliffhanger && <p className="text-red-400 text-xs mt-2 italic">— {cliffhanger}</p>}
-    </div>
+      {/* Cliffhanger */}
+      {cliffhanger && (
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          className="text-red-400 text-xs mt-2 italic"
+        >
+          — {cliffhanger}
+        </motion.p>
+      )}
+    </motion.div>
   );
 };
 
 export default function LoveStory() {
   const [currentPage, setCurrentPage] = useState(0);
+  const [animKey, setAnimKey] = useState(0);
+  const sectionRef = useRef(null);
+
   const episodes = data.love_story || [];
   const totalPages = episodes.length;
+  const currentEpisode = episodes[currentPage];
 
   const handlePrev = () => {
     setCurrentPage((prev) => (prev > 0 ? prev - 1 : prev));
@@ -115,29 +192,53 @@ export default function LoveStory() {
     setCurrentPage((prev) => (prev < totalPages - 1 ? prev + 1 : prev));
   };
 
-  const currentEpisode = episodes[currentPage];
+  // refresh animasi tiap section masuk viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAnimKey((k) => k + 1);
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
 
   return (
-    <div>
+    <div ref={sectionRef}>
       <div className="w-full h-[3px] bg-red-500"></div>
-      <h2 className="text-xl tracking-widest leading-5 text-white font-bold font-cursive mb-4 mt-10">
+      <motion.h2
+        key={animKey}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-xl tracking-widest leading-5 text-white font-bold font-cursive mb-4 mt-10"
+      >
         Our Love Story
-      </h2>
+      </motion.h2>
 
       {/* Render hanya episode aktif */}
-      {currentEpisode && (
-        <LoveItem
-          title={currentEpisode.title}
-          imageList={currentEpisode.image_list}
-          duration={currentEpisode.duration || ''}
-          tagline={currentEpisode.tagline}
-          description={currentEpisode.description}
-          cliffhanger={currentEpisode.cliffhanger}
-          dialogs={currentEpisode.dialogs}
-        />
-      )}
+      <AnimatePresence mode="wait">
+        {currentEpisode && (
+          <LoveItem
+            key={`${currentPage}-${animKey}`}
+            title={currentEpisode.title}
+            imageList={currentEpisode.image_list}
+            duration={currentEpisode.duration || ""}
+            tagline={currentEpisode.tagline}
+            description={currentEpisode.description}
+            cliffhanger={currentEpisode.cliffhanger}
+            dialogs={currentEpisode.dialogs}
+          />
+        )}
+      </AnimatePresence>
 
-      {/* Pagination pakai ikon */}
+      {/* Pagination */}
       <div className="flex flex-col items-center gap-3 mt-6">
         <div className="flex justify-center items-center gap-6">
           <button
@@ -168,7 +269,9 @@ export default function LoveStory() {
               key={idx}
               onClick={() => setCurrentPage(idx)}
               className={`w-2.5 h-2.5 rounded-full transition ${
-                idx === currentPage ? 'bg-red-500 scale-110' : 'bg-white/30 hover:bg-white/50'
+                idx === currentPage
+                  ? "bg-red-500 scale-110"
+                  : "bg-white/30 hover:bg-white/50"
               }`}
             />
           ))}

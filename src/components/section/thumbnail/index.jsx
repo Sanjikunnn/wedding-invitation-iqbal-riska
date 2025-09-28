@@ -77,32 +77,36 @@ export default function Thumbnail() {
       <div className="relative z-10 flex flex-col justify-end min-h-screen">
         <div className="pb-10 pt-2 bg-gradient-to-b from-transparent via-black/80 to-black px-5">
           <div className="mb-10 space-y-4">
-            {/* Gambar pasangan pengantin, disesuaikan agar tidak memudar */}
+            {/* Gambar pasangan */}
             <img
-              src="/images/iqbalriska.png" // Pastikan path gambar ini benar
-              alt={`${data.pegantin.pria.panggilan} & ${data.pegantin.wanita.panggilan} Wedding Thumbnail`} // Teks alternatif yang lebih deskriptif
-              loading="lazy" // Memuat gambar secara deferred untuk performa
-              width={100} // Tetapkan lebar intrinsik
-              height={100} // Tetapkan tinggi intrinsik (disarankan rasio aspek 1:1 atau sesuai gambar asli)
-              className="mx-auto w-[100px] h-auto object-contain animate-fadeOut delay-300" // Gunakan fadeIn, bukan fadeOut
-              // Class 'opacity-0 animate-fadeOut delay-300' asli akan membuat gambar tidak terlihat dan memudar
-              // Kami menggantinya dengan 'animate-fadeIn delay-300' agar gambar muncul.
+              src="/images/iqbalriska.png"
+              alt={`${data.pegantin.pria.panggilan} & ${data.pegantin.wanita.panggilan} Wedding Thumbnail`}
+              className="mx-auto w-[100px] h-auto object-contain animate-fadeOutDown"
+              style={{ animationDelay: "0.5s", animationDuration: "10s" }}
             />
 
-            {/* Judul utama dengan nama pengantin */}
-            <h1 className="font-bold text-3xl leading-snug text-white text-center animate-fadeIn delay-500">
+            {/* Judul */}
+            <h1
+              className="font-bold text-3xl text-white text-center opacity-0 animate-fadeInUp"
+              style={{ animationDelay: "1.2s", animationDuration: "1.5s" }}
+            >
               {data.pegantin.pria.panggilan} & {data.pegantin.wanita.panggilan}
               <br />
               <span className="text-lg font-light text-gray-300">A Love Story</span>
             </h1>
 
-            {/* Informasi "Coming Soon" dan tanggal pernikahan */}
-            <div className="flex gap-3 justify-center items-center text-white animate-fadeIn delay-700">
-              <span className={`text-xs text-white rounded-md px-2 py-1 ${
-                new Date() >= new Date(data.tanggal_pernikahan)
-                  ? 'bg-green-600'
-                  : 'bg-red-600'
-              }`}>
+            {/* Status + Tanggal */}
+            <div
+              className="flex gap-3 justify-center items-center text-white opacity-0 animate-fadeIn"
+              style={{ animationDelay: "2s", animationDuration: "1.5s" }}
+            >
+              <span
+                className={`text-xs text-white rounded-md px-2 py-1 ${
+                  new Date() >= new Date(data.tanggal_pernikahan)
+                    ? 'bg-green-600'
+                    : 'bg-red-600'
+                }`}
+              >
                 {new Date() >= new Date(data.tanggal_pernikahan)
                   ? 'Berlangsung'
                   : 'Coming Soon'}
@@ -110,27 +114,38 @@ export default function Thumbnail() {
               <p className="text-sm">{data.tanggal_pernikahan}</p>
             </div>
 
-
-            {/* Daftar tag terkait acara */}
+            {/* Tags (muncul satu per satu lebih lambat) */}
             <ul className="flex gap-2 justify-center items-center text-xs" aria-label="Wedding Tags">
-              <TagItem title="#Romance" />
-              <TagItem title="#Wedding" />
-              <TagItem title="#TheBride&Groom" />
-              <TagItem title="#Love" />
-              <TagItem title="#Story" />
+              <li className="opacity-0 animate-fadeInUp" style={{ animationDelay: "2.8s", animationDuration: "1.2s" }}>
+                <TagItem title="#Romance" />
+              </li>
+              <li className="opacity-0 animate-fadeInUp" style={{ animationDelay: "3.4s", animationDuration: "1.2s" }}>
+                <TagItem title="#Wedding" />
+              </li>
+              <li className="opacity-0 animate-fadeInUp" style={{ animationDelay: "4s", animationDuration: "1.2s" }}>
+                <TagItem title="#TheBride&Groom" />
+              </li>
+              <li className="opacity-0 animate-fadeInUp" style={{ animationDelay: "4.6s", animationDuration: "1.2s" }}>
+                <TagItem title="#Love" />
+              </li>
+              <li className="opacity-0 animate-fadeInUp" style={{ animationDelay: "5.2s", animationDuration: "1.2s" }}>
+                <TagItem title="#Story" />
+              </li>
             </ul>
           </div>
 
-          {/* Bagian tombol "See The Detail" dan ikon panah */}
-          <div className="w-full text-center">
+          {/* Tombol terakhir */}
+          <div
+            className="w-full text-center opacity-0 animate-fadeInUp"
+            style={{ animationDelay: "6s", animationDuration: "1.5s" }}
+          >
             <button
-              onClick={() => setIsOpenDetail(true)} // Fungsi onClick tetap sama
-              className="uppercase w-full text-xs font-semibold text-zinc-400 animate-bounceIn"
-              aria-label="See Wedding Details" // Label untuk aksesibilitas
+              onClick={() => setIsOpenDetail(true)}
+              className="uppercase w-full text-xs font-semibold text-zinc-400"
             >
               Klik Disini untuk Melihat Undangan
             </button>
-            <div className="rotate-180 animate-bounce mt-2" aria-hidden="true"> {/* Ikon panah dekoratif, disembunyikan dari screen reader */}
+            <div className="rotate-180 animate-bounce mt-2">
               <svg
                 className="w-6 h-6 mx-auto text-white"
                 xmlns="http://www.w3.org/2000/svg"
@@ -149,6 +164,8 @@ export default function Thumbnail() {
           </div>
         </div>
       </div>
+
+
     </div>
   );
 }

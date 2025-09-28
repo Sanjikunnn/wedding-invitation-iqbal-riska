@@ -31,7 +31,7 @@
     animation: fadeOutUp 1s forwards;
   }
   .animate-fadeOutDown {
-    animation: fadeOutDown 1s forwards;
+    animation: fadeOutDown 6s ease forwards;
   }
 
   /* Extra FX */
@@ -54,6 +54,9 @@
   .animate-creditRoll {
     animation: creditRoll 20s linear infinite;
   }
+  .animate-spin-slow {
+    animation: spin-slow 6s linear infinite;
+  }
 }
 
 /* Keyframes */
@@ -65,7 +68,10 @@
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 /* Fade In */
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -94,8 +100,14 @@
   to { opacity: 0; transform: translateY(-30px) scale(1.05); }
 }
 @keyframes fadeOutDown {
-  from { opacity: 1; transform: translateY(0) scale(1); }
-  to { opacity: 0; transform: translateY(30px) scale(1.05); }
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(30px); /* turun sambil hilang */
+  }
 }
 
 /* Float FX */

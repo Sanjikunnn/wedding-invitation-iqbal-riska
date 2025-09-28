@@ -33,6 +33,17 @@ export default function WishSection() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // ✅ Ambil nama dari query param `to`
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const toName = params.get('to');
+    if (toName) {
+      const capitalized =
+        toName.charAt(0).toUpperCase() + toName.slice(1).toLowerCase();
+      setName(capitalized); // auto isi field name
+    }
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
