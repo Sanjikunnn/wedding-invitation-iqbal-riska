@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@supabase/supabase-js": "^2.46.1",
     "firebase": "^11.9.1",
     "framer-motion": "^12.23.22",
