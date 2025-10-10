@@ -75,7 +75,7 @@ Pasang dependensi Supabase untuk React:
 npm install @supabase/supabase-js
 ```
 
-###🧩 Dependensi Utama
+🧩 Dependensi Utama
 
 Berikut beberapa dependensi penting yang digunakan dalam proyek ini:
 
