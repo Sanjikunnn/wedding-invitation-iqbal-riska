@@ -75,6 +75,25 @@ Pasang dependensi Supabase untuk React:
 npm install @supabase/supabase-js
 ```
 
+###🧩 Dependensi Utama
+
+Berikut beberapa dependensi penting yang digunakan dalam proyek ini:
+
+| Library             | Versi     | Fungsi                                                                               |
+| ------------------- | --------- | ------------------------------------------------------------------------------------ |
+| **React**           | ^18.3.1   | Library utama untuk membangun antarmuka pengguna (UI) interaktif.                    |
+| **React DOM**       | ^18.3.1   | Digunakan untuk merender komponen React ke dalam DOM browser.                        |
+| **Vite**            | ^5.4.10   | Build tool modern dan cepat untuk proyek berbasis React.                             |
+| **Tailwind CSS**    | ^3.4.15   | Framework CSS utility-first untuk desain yang cepat dan responsif.                   |
+| **Framer Motion**   | ^12.23.22 | Library animasi untuk React yang halus dan interaktif.                               |
+| **Lucide React**    | ^0.522.0  | Koleksi ikon modern berbasis React.                                                  |
+| **Heroicons React** | ^2.2.0    | Ikon SVG sederhana untuk antarmuka aplikasi.                                         |
+| **Supabase JS**     | ^2.46.1   | Client library untuk berinteraksi dengan layanan Supabase (Auth, Database, Storage). |
+| **Firebase**        | ^11.9.1   | Layanan cloud untuk autentikasi, hosting, dan penyimpanan data.                      |
+| **Lodash**          | ^4.17.21  | Library utilitas JavaScript untuk manipulasi d                                       |
+
+
+
 ## Struktur Proyek
 
 Berikut adalah struktur direktori proyek yang telah terintegrasi dengan Supabase:
