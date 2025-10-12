@@ -23,18 +23,31 @@ function App() {
   const analytics = getAnalytics(app);
 
   useEffect(() => {
-    // fade-in effect pas PWA dibuka
     setFadeIn(true);
   }, []);
 
+  // 🔊 Efek suara kecil pas tombol ditekan
   const playPopSound = () => {
     const audio = new Audio('/audio/pop.mp3');
     audio.volume = 0.4;
     audio.play().catch(() => {});
   };
 
-  const handleEnter = () => {
+  // 🖱️ Saat user klik tombol “Buka Undangan”
+  const handleEnter = async () => {
     playPopSound();
+
+    // 🖥️ Aktifkan fullscreen mode (desktop/mobile)
+    const el = document.documentElement;
+    try {
+      if (el.requestFullscreen) await el.requestFullscreen();
+      else if (el.webkitRequestFullscreen) await el.webkitRequestFullscreen();
+      else if (el.msRequestFullscreen) await el.msRequestFullscreen();
+    } catch (err) {
+      console.warn('Fullscreen gagal:', err);
+    }
+
+    // 🎬 Masuk ke halaman utama (Thumbnail)
     setIsLogin(true);
   };
 
