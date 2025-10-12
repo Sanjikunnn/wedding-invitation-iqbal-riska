@@ -1,18 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import UserWatch from './components/section/user-watch';
 import Thumbnail from './components/section/thumbnail';
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLogin(true), 2000); // auto masuk setelah 2 detik
+    return () => clearTimeout(timer);
+  }, []);
+
   const firebaseConfig = {
     apiKey: "AIzaSyA_AG8R0p53EhsKrNJb_6Bz8187aSPFwPk",
     authDomain: "wedding-invitation-iqbal-riska.firebaseapp.com",
@@ -23,25 +23,20 @@ function App() {
     measurementId: "G-Y1402HSTQ6"
   };
 
-  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-  return (
-  <div className="min-h-screen w-full bg-black text-white flex items-center justify-center">
-    <div className="w-full">
-      {isLogin ? (
-        <Thumbnail />
-      ) : (
-        <UserWatch
-          onClick={() => {
-            setIsLogin(true);
-          }}
-        />
-      )}
-    </div>
-  </div>
-);
 
+  return (
+    <div className="min-h-screen w-full bg-black text-white flex items-center justify-center">
+      <div className="w-full">
+        {isLogin ? (
+          <Thumbnail />
+        ) : (
+          <UserWatch />
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default App;
