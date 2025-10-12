@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer utilities {
+  img, video, canvas {
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
   /* Fade In Variants */
   .animate-fadeIn {
     @apply opacity-0;

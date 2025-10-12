@@ -1,73 +1,54 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState, useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
 import data from "../../../data/config.json";
 
 export default function BreakingNews() {
-  const scrollRef = useRef(null);
   const sectionRef = useRef(null);
-  const [direction, setDirection] = useState("right");
   const [inView, setInView] = useState(false);
+  const [direction, setDirection] = useState(1); // 1 = ke kanan, -1 = ke kiri
+  const controls = useAnimation();
 
   const images = data.breaking_news_img || [];
 
-  // Auto scroll ping-pong
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
-    const speed = 1; // pixel per frame
-    let animationId;
-
-    const scrollPingPong = () => {
-      if (!el) return;
-
-      if (direction === "right") {
-        el.scrollLeft += speed;
-        if (el.scrollLeft + el.clientWidth >= el.scrollWidth) {
-          setDirection("left");
-        }
-      } else {
-        el.scrollLeft -= speed;
-        if (el.scrollLeft <= 0) {
-          setDirection("right");
-        }
-      }
-
-      animationId = requestAnimationFrame(scrollPingPong);
-    };
-
-    scrollPingPong();
-
-    return () => cancelAnimationFrame(animationId);
-  }, [direction]);
-
-  // Observer untuk trigger animasi ulang
+  /* ===========================
+     Intersection Observer
+  ============================ */
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // masuk viewport → jalankan animasi lagi
-            setInView(true);
-          } else {
-            // keluar viewport → reset jadi hidden
-            setInView(false);
-          }
-        });
-      },
+      ([entry]) => setInView(entry.isIntersecting),
       { threshold: 0.3 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
-    };
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
   }, []);
 
-  // Variants animasi
+  /* ===========================
+     Ping-Pong Animation
+  ============================ */
+  useEffect(() => {
+    if (!inView) {
+      controls.stop();
+      return;
+    }
+
+    const animatePingPong = async () => {
+      while (true) {
+        // Geser kanan
+        await controls.start({
+          x: direction > 0 ? "-50%" : "0%",
+          transition: { duration: 40, ease: "linear" },
+        });
+        // Balik arah
+        setDirection((prev) => -prev);
+      }
+    };
+
+    animatePingPong();
+  }, [inView, direction, controls]);
+
+  /* ===========================
+     Variants
+  ============================ */
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -81,12 +62,16 @@ export default function BreakingNews() {
     show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
+  /* ===========================
+     Render
+  ============================ */
   return (
     <motion.div
       ref={sectionRef}
       variants={containerVariants}
       initial="hidden"
       animate={inView ? "show" : "hidden"}
+      className="overflow-hidden"
     >
       <div className="w-full h-[3px] bg-red-500"></div>
 
@@ -98,18 +83,17 @@ export default function BreakingNews() {
         Breaking News
       </motion.h2>
 
-      {/* Carousel */}
+      {/* Carousel (infinite ping-pong) */}
       <motion.div
-        variants={itemVariants}
-        ref={scrollRef}
-        className="flex overflow-x-scroll no-scrollbar space-x-4"
-        style={{ scrollBehavior: "smooth" }}
+        className="flex space-x-4 w-max"
+        animate={controls}
+        style={{ willChange: "transform" }}
       >
-        {images.map((src, index) => (
+        {[...images, ...images].map((src, i) => (
           <motion.img
-            key={index}
+            key={i}
             src={src}
-            alt={`breaking-news-${index}`}
+            alt={`breaking-news-${i}`}
             className="h-72 w-72 flex-shrink-0 rounded-md object-cover shadow-lg"
             variants={itemVariants}
           />

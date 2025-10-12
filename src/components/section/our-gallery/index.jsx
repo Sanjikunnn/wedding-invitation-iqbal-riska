@@ -7,6 +7,9 @@ const IMAGE_INTERVAL = 3000;
 /* =========================
    GalleryItem (Portrait/Landscape)
    ========================= */
+/* =========================
+   GalleryItem (Portrait/Landscape)
+   ========================= */
 const GalleryItem = memo(({ images, isVertical, onSelect }) => {
   const [index, setIndex] = useState(0);
 
@@ -24,27 +27,38 @@ const GalleryItem = memo(({ images, isVertical, onSelect }) => {
 
   return (
     <div
-      className={`relative w-full overflow-hidden rounded-md cursor-pointer ${
+      className={`relative w-full overflow-hidden rounded-md cursor-pointer select-none ${
         isVertical ? "h-64 mb-4" : "h-[200px]"
       }`}
       onClick={handleClick}
     >
       {images.map((src, i) => (
-        <img
+        <motion.img
           key={i}
           src={src}
           alt={`gallery-${i}`}
           loading={i === 0 ? "eager" : "lazy"}
           fetchpriority={i === 0 ? "high" : "auto"}
           decoding="async"
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-            index === i ? "opacity-100 z-10" : "opacity-0 z-0"
-          }`}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{
+            opacity: index === i ? 1 : 0,
+            scale: index === i ? 1 : 1.05,
+            zIndex: index === i ? 10 : 0,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 80,
+            damping: 15,
+            mass: 0.8,
+          }}
+          className="absolute inset-0 w-full h-full object-cover"
         />
       ))}
     </div>
   );
 });
+
 
 /* =========================
    AIGalleryItem (Auto-scroll horizontal tanpa lib)

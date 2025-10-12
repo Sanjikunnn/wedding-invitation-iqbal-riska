@@ -3,13 +3,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import data from "../../../data/config.json";
 
 export default function WeddingEventDetailsWithMap() {
+  const [activeTab, setActiveTab] = useState("akad");
   const akad = data.akad || {};
   const resepsi = data.resepsi || {};
   const makan = data.makan || {};
-  const hasEmbed = data.maps && typeof data.maps === "string";
-  const hasUrl = data.url_maps && typeof data.url_maps === "string";
+  const currentEvent = data[activeTab];
+  const hasEmbed = !!currentEvent?.maps;
+  const hasUrl = !!currentEvent?.url_maps;
 
-  const [activeTab, setActiveTab] = useState("akad");
+
   const [inView, setInView] = useState(false);
   const sectionRef = useRef(null);
 
@@ -199,14 +201,15 @@ export default function WeddingEventDetailsWithMap() {
 
           <div className="overflow-hidden rounded-2xl border-4 border-red-800 bg-white/5 shadow-[0_0_30px_rgba(255,0,0,0.3)] transition-transform hover:scale-[1.01] duration-500">
             <iframe
-              src={data.maps}
+              key={activeTab} // agar iframe refresh saat tab berganti
+              src={currentEvent.maps}
               width="100%"
               height="600"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
-              title="Wedding Location"
-              aria-label="Google Maps of Wedding Location"
+              title={`Map of ${activeTab}`}
+              aria-label={`Google Maps of ${activeTab}`}
               referrerPolicy="no-referrer-when-downgrade"
               className="w-full h-[400px] md:h-[600px] rounded-2xl"
             />
@@ -215,7 +218,7 @@ export default function WeddingEventDetailsWithMap() {
           {hasUrl && (
             <div className="mt-6 text-center">
               <a
-                href={data.url_maps}
+                href={currentEvent.url_maps}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-1 bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white font-bold rounded-full text-lg shadow-lg hover:scale-105 transition-all duration-300"

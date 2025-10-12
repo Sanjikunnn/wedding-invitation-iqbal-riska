@@ -48,7 +48,7 @@
       {
         "provider": "ShopeePay",
         "nama": "Faizal Muhamad Iqbal",
-        "nomor": "089523013056",
+        "nomor": "085943653889",
         "logo_url": "/images/bahan/shopeepay.png",
         "card_bg": "/images/bahan/shopeepay.png"
       },
@@ -74,24 +74,28 @@
       "phone_number": "081335873753"
     }
   },
-  "maps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126472.10124350523!2d110.55291301860215!3d-7.868555464358877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a4be412c847d1%3A0x4027a76e352fce0!2sKec.%20Nglipar%2C%20Kabupaten%20Gunungkidul%2C%20Daerah%20Istimewa%20Yogyakarta!5e0!3m2!1sid!2sid!4v1750869011778!5m2!1sid!2sid",
-  "url_maps": "https://maps.app.goo.gl/iTdXmUYE7W75yqGS8",
   "whoosh_url": "/audio/whoosh.mp3",
   "tanggal_pernikahan": "25 DESEMBER 2025",
   "akad": {
     "tanggal": "Kamis, 25 Desember 2025",
     "waktu": "08.00 - 10.00 WITA",
-    "tempat": "Kediaman Mempelai Wanita"
+    "tempat": "Kediaman Mempelai Wanita",
+    "maps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126472.10124350523!2d110.55291301860215!3d-7.868555464358877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a4be412c847d1%3A0x4027a76e352fce0!2sKec.%20Nglipar%2C%20Kabupaten%20Gunungkidul%2C%20Daerah%20Istimewa%20Yogyakarta!5e0!3m2!1sid!2sid!4v1750869011778!5m2!1sid!2sid",
+    "url_maps": "https://maps.app.goo.gl/iTdXmUYE7W75yqGS8"
   },
   "resepsi": {
     "tanggal": "Kamis, 25 Desember 2025",
     "waktu": "10.00 WITA - Selesai",
-    "tempat": "Kediaman Mempelai Wanita"
+    "tempat": "Kediaman Mempelai Wanita",
+    "maps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126472.10124350523!2d110.55291301860215!3d-7.868555464358877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a4be412c847d1%3A0x4027a76e352fce0!2sKec.%20Nglipar%2C%20Kabupaten%20Gunungkidul%2C%20Daerah%20Istimewa%20Yogyakarta!5e0!3m2!1sid!2sid!4v1750869011778!5m2!1sid!2sid",
+    "url_maps": "https://maps.app.goo.gl/iTdXmUYE7W75yqGS8"
   },
   "makan": {
     "tanggal": "03 Januari 2026",
     "waktu": "10:00 WIB - Selesai",
-    "tempat": "Perumahan Taman Buah Sukamantri, Blok AE No 10, Pasar Kemis, Kabupaten Tangerang, Banten 15560"
+    "tempat": "Perumahan Taman Buah Sukamantri, Blok AE No 10, Pasar Kemis, Kabupaten Tangerang, Banten 15560",
+    "maps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d495.84858804601765!2d106.5428235512185!3d-6.159047290677329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ffe43987de91%3A0x60b0f17bcbc0387!2sRGRV%2BC4F%2C%20Sukamantri%2C%20Kec.%20Ps.%20Kemis%2C%20Kabupaten%20Tangerang%2C%20Banten%2015560!5e0!3m2!1sid!2sid!4v1760278236877!5m2!1sid!2sid",
+    "url_maps": "https://maps.app.goo.gl/WUduongubukyyePXA"
   },
   "thumbnail_image_url": "/images/awall.jpeg",
   "url_video": "/video/videonya.mp4",
@@ -327,18 +331,21 @@
     "wish": true
   },
   "turut_mengundang": [
-    { "nama": "Keluarga Besar Asep Wijaya", "jabatan": "Orang Tua Mempelai Pria" },
-    { "nama": "Keluarga Besar Dewi Lestari", "jabatan": "Orang Tua Mempelai Wanita" },
-    { "nama": "Sahabat & Rekan Kantor", "jabatan": "Sahabat & Rekan" },
-    { "nama": "Bapak/Ibu H. Sutrisno", "jabatan": "Paman Mempelai Pria" },
-    { "nama": "Bapak/Ibu Hj. Kartini", "jabatan": "Bibi Mempelai Wanita" },
-    { "nama": "Rekan Alumni SMA 5 Bandung", "jabatan": "Teman Sekolah" },
-    { "nama": "Komunitas Pecinta Alam Nusantara", "jabatan": "Sahabat & Rekan" },
-    { "nama": "Bapak Drs. H. Ahmad Sudirman", "jabatan": "Keluarga Besar" },
-    { "nama": "Ibu Hj. Nur Aini", "jabatan": "Keluarga Besar" },
-    { "nama": "Rekan Satu Kantor Mempelai Pria", "jabatan": "Rekan Kerja" },
-    { "nama": "Rekan Satu Kantor Mempelai Wanita", "jabatan": "Rekan Kerja" },
-    { "nama": "Tetangga & Sahabat Dekat", "jabatan": "Kerabat & Sahabat" }
+    { "nama": "Keluarga Besar Alm. Abah H.Syukur", "jabatan": "Mempelai Pria" },
+    { "nama": "Keluarga Besar Alm. Abah Muhidin", "jabatan": "Mempelai Pria" },
+    { "nama": "Keluarga Besar Marto Sucipto (Mario)", "jabatan": "Mempelai Wanita" },
+    { "nama": "Keluarga Besar Alm. Perwito Wiyarjo", "jabatan": "Mempelai Wanita" },
+    { "nama": "Sahabat & Rekan Kerja", "jabatan": "PT. Diamas Star" },
+    { "nama": "Sahabat & Rekan Kerja", "jabatan": "PT. Mahakarya (Mito)" },
+    { "nama": "Sahabat & Rekan Kerja", "jabatan": "PT. Sinar Atom" },
+    { "nama": "Sahabat & Rekan Kerja", "jabatan": "DC Alfamart Balaraja" },
+    { "nama": "Rekan Alumni SPENSAPAR", "jabatan": "Teman Sekolah Mempelai Wanita" },
+    { "nama": "Rekan Alumni SMETANOVA", "jabatan": "Teman Sekolah Mempelai Wanita" },
+    { "nama": "Rekan Alumni UNPAM", "jabatan": "Teman Kuliah Mempelai Wanita" },
+    { "nama": "Rekan Alumni UNIPI", "jabatan": "Teman Kuliah Mempelai Pria" },
+    { "nama": "Tetangga & Sahabat Dekat", "jabatan": "Mempelai Pria & Wanita" },
+    { "nama": "Warga Pesbuk Malas Ngoding", "jabatan": "IMPHNEN" },
+    { "nama": "<br />Kepada seluruh teman dan rekan yang tidak dapat kami sebutkan satu per satu <br /> Terima kasih atas doa dan dukungannya.", "jabatan": "" }
   ],
   "terima_kasih_image": "/images/l4.jpg"
 

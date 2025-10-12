@@ -1,71 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import DetailInfo from '../detail-info';
-import data from '../../../data/config.json'; // Pastikan path ini benar
+import React, { useEffect, useState } from "react";
+import DetailInfo from "../detail-info";
+import data from "../../../data/config.json"; // pastikan path benar
 
-// --- Komponen Pembantu: TagItem ---
-// Menggunakan React.memo untuk mencegah re-render jika props tidak berubah
-const TagItem = React.memo(({ title }) => (
-  <li className="bg-[#4D4D4D] py-1 px-2 rounded-xl text-xs text-white animate-fadeIn delay-700">
+/* =========================
+   Komponen Pembantu: TagItem
+   ========================= */
+const TagItem = React.memo(({ title, delay }) => (
+  <span
+    className="bg-[#4D4D4D] py-1 px-2 rounded-xl text-xs text-white opacity-0 animate-fadeInUp"
+    style={{ animationDelay: delay, animationDuration: "1.2s" }}
+  >
     {title}
-  </li>
+  </span>
 ));
 
-// --- Komponen Utama: Thumbnail ---
+/* =========================
+   Komponen Utama: Thumbnail
+   ========================= */
 export default function Thumbnail() {
   const [isOpenDetail, setIsOpenDetail] = useState(false);
 
   useEffect(() => {
-    // Threshold scroll untuk memicu pembukaan detail.
-    // Nilai 1 pixel sangat sensitif, disarankan nilai yang lebih besar
-    // jika ingin perilaku yang kurang responsif terhadap sentuhan/gulir tak sengaja.
     const scrollThreshold = 1;
 
-    // Fungsi handler untuk event scroll
     const handleScroll = () => {
-      // Jika halaman digulir melebihi threshold, buka detail
-      if (window.scrollY > scrollThreshold) {
-        setIsOpenDetail(true);
-      }
+      if (window.scrollY > scrollThreshold) setIsOpenDetail(true);
     };
 
-    // Fungsi handler untuk event sentuhan (touchmove)
     const handleTouchMove = (event) => {
       const touch = event.touches[0];
-      // Jika ada sentuhan dan posisi Y sentuhan kurang dari -scrollThreshold, buka detail
-      // Perhatikan: Logika ini mungkin perlu penyesuaian jika ingin membedakan
-      // geser ke atas vs. geser ke bawah secara lebih akurat.
-      if (touch && touch.clientY < -scrollThreshold) {
-        setIsOpenDetail(true);
-      }
+      if (touch && touch.clientY < -scrollThreshold) setIsOpenDetail(true);
     };
 
-    // Menambahkan event listeners untuk scroll dan touchmove
-    // Menggunakan { passive: true } untuk performa scroll yang lebih baik pada mobile
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
 
-    // Fungsi cleanup: Hapus event listeners saat komponen di-unmount
-    // Penting untuk mencegah memory leak dan perilaku yang tidak diinginkan.
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("touchmove", handleTouchMove);
     };
-    // Array dependensi kosong berarti efek ini hanya berjalan sekali saat mount
-    // dan membersihkan saat unmount.
-  }, []); // Dependensi kosong, jadi efek berjalan hanya sekali saat mount
+  }, []);
 
-  // Jika isOpenDetail adalah true, render komponen DetailInfo dan hentikan render Thumbnail
-  if (isOpenDetail) {
-    return <DetailInfo />;
-  }
+  if (isOpenDetail) return <DetailInfo />;
 
-  // Render komponen Thumbnail jika isOpenDetail masih false
   return (
     <div className="relative w-screen min-h-screen overflow-hidden animate-fadeCinematic">
-      {/* Lapisan Overlay Hitam untuk membuat gambar latar belakang lebih gelap */}
+      {/* Overlay Gelap */}
       <div className="absolute inset-0 bg-black opacity-60 z-0"></div>
 
-      {/* Gambar latar belakang dengan efek zoom masuk yang lembut */}
+      {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 animate-zoomSlow z-[-1]"
         style={{
@@ -73,9 +56,9 @@ export default function Thumbnail() {
         }}
       />
 
-      {/* Konten Utama yang diletakkan di bagian bawah layar */}
+      {/* Konten Utama */}
       <div className="relative z-10 flex flex-col justify-end min-h-screen">
-        <div className="pb-10 pt-2 bg-gradient-to-b from-transparent via-black/80 to-black px-5">
+        <div className="pb-10 pt-2 bg-gradient-to-b from-transparent via-black/80 to-black px-2">
           <div className="mb-10 space-y-4">
             {/* Gambar pasangan */}
             <img
@@ -92,7 +75,9 @@ export default function Thumbnail() {
             >
               {data.pegantin.pria.panggilan} & {data.pegantin.wanita.panggilan}
               <br />
-              <span className="text-lg font-light text-gray-300">A Love Story</span>
+              <span className="text-lg font-light text-gray-300">
+                A Love Story
+              </span>
             </h1>
 
             {/* Status + Tanggal */}
@@ -103,35 +88,25 @@ export default function Thumbnail() {
               <span
                 className={`text-xs text-white rounded-md px-2 py-1 ${
                   new Date() >= new Date(data.tanggal_pernikahan)
-                    ? 'bg-green-600'
-                    : 'bg-red-600'
+                    ? "bg-green-600"
+                    : "bg-red-600"
                 }`}
               >
                 {new Date() >= new Date(data.tanggal_pernikahan)
-                  ? 'Berlangsung'
-                  : 'Coming Soon'}
+                  ? "Berlangsung"
+                  : "Coming Soon"}
               </span>
               <p className="text-sm">{data.tanggal_pernikahan}</p>
             </div>
 
-            {/* Tags (muncul satu per satu lebih lambat) */}
-            <ul className="flex gap-2 justify-center items-center text-xs" aria-label="Wedding Tags">
-              <li className="opacity-0 animate-fadeInUp" style={{ animationDelay: "2.8s", animationDuration: "1.2s" }}>
-                <TagItem title="#Romance" />
-              </li>
-              <li className="opacity-0 animate-fadeInUp" style={{ animationDelay: "3.4s", animationDuration: "1.2s" }}>
-                <TagItem title="#Wedding" />
-              </li>
-              <li className="opacity-0 animate-fadeInUp" style={{ animationDelay: "4s", animationDuration: "1.2s" }}>
-                <TagItem title="#TheBride&Groom" />
-              </li>
-              <li className="opacity-0 animate-fadeInUp" style={{ animationDelay: "4.6s", animationDuration: "1.2s" }}>
-                <TagItem title="#Love" />
-              </li>
-              <li className="opacity-0 animate-fadeInUp" style={{ animationDelay: "5.2s", animationDuration: "1.2s" }}>
-                <TagItem title="#Story" />
-              </li>
-            </ul>
+            {/* Tags */}
+            <div className="flex flex-wrap gap-1 justify-center items-center text-xs">
+              <TagItem title="#Romance" delay="2.8s" />
+              <TagItem title="#Wedding" delay="3.4s" />
+              <TagItem title="#TheBride&Groom" delay="4s" />
+              <TagItem title="#Love" delay="4.6s" />
+              <TagItem title="#Story" delay="5.2s" />
+            </div>
           </div>
 
           {/* Tombol terakhir */}
@@ -164,8 +139,6 @@ export default function Thumbnail() {
           </div>
         </div>
       </div>
-
-
     </div>
   );
 }

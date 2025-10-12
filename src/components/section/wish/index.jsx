@@ -2,7 +2,6 @@ import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import supabase from "../../../lib/supabaseClient";
 import badwords from "indonesian-badwords";
-import { ChevronDownIcon } from "@heroicons/react/24/outline"; // ✅ install @heroicons/react
 
 /* =====================
    Variants

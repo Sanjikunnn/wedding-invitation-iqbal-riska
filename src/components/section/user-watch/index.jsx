@@ -404,7 +404,7 @@ export default function UserWatch({ onClick }) {
 
             {/* Footer */}
             <div className="absolute bottom-0 w-full text-center text-[10px] tracking-widest z-10 font-cursive animate-fadeIn"
-              style={{ animationDelay: '2s' }}>
+              style={{ animationDelay: '2s', background: 'rgba(92, 34, 34, 0.3)', padding: '2px 0', backdropFilter: 'blur(4px)', borderTop: '1px solid rgba(255, 255, 255, 0.1)',  }}>
               <p className="mt-0">
                 Build with ❤️ by&nbsp;
                 <a
@@ -596,7 +596,7 @@ export default function UserWatch({ onClick }) {
               </div>
             </div>
 
-            <div className="fixed bottom-0 left-0 w-full flex flex-col items-center text-center space-y-3 sm:space-y-4 pb-4 bg-transparent z-50">
+            <div className="fixed bottom-0 left-0 w-full flex flex-col items-center text-center space-y-3 sm:space-y-4 pb-0 bg-transparent z-50">
               {/* GRADIENT LINE */}
               <div className="w-[80%] sm:w-[60%] h-[1px] bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-50 animate-pulse" />
 

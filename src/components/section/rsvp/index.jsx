@@ -4,21 +4,17 @@ import supabase from "../../../lib/supabaseClient";
 import badwords from "indonesian-badwords";
 import dataConfig from "../../../data/config.json";
 
-/* 🎬 Variants Animasi */
+/* ===================== 🎬 Variants Animasi ===================== */
 const containerVariants = {
-  hidden: { opacity: 0, y: 40 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { staggerChildren: 0.2, duration: 0.6, ease: "easeOut" },
-  },
+  hidden: {},
+  show: { transition: { staggerChildren: 0.2 } },
 };
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 const titleVariants = {
-  hidden: { opacity: 0, x: -30 },
+  hidden: { opacity: 0, x: -20 },
   show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 const paragraphVariants = {
@@ -28,8 +24,7 @@ const paragraphVariants = {
 
 const colorList = ["#ef4444", "#facc15", "#22c55e", "#0ea5e9"];
 
-/* 🎁 Item RSVP */
-
+/* ===================== 🎁 Item RSVP ===================== */
 const RSVPItem = forwardRef(({ name, status, total, color }, ref) => (
   <motion.div
     ref={ref}
@@ -58,42 +53,40 @@ const RSVPItem = forwardRef(({ name, status, total, color }, ref) => (
   </motion.div>
 ));
 
-
+/* ===================== 🎯 Komponen Utama ===================== */
 export default function RSVPSection() {
   const sectionRef = useRef(null);
   const rsvpRef = useRef(null);
   const inviteRef = useRef(null);
   const thanksRef = useRef(null);
   const lastChildRef = useRef(null);
+  const listRef = useRef(null);
 
-  // 👁️ Observer tiap section
   const rsvpInView = useInView(rsvpRef, { once: false, amount: 0.3 });
   const inviteInView = useInView(inviteRef, { once: false, amount: 0.3 });
   const thanksInView = useInView(thanksRef, { once: false, amount: 0.3 });
 
-  // Animasi state gabungan
   const [animState, setAnimState] = useState({
     rsvp: "hidden",
     invite: "hidden",
     thanks: "hidden",
   });
 
-  // Data RSVP
   const [data, setData] = useState([]);
   const [name, setName] = useState("");
   const [status, setStatus] = useState("hadir");
   const [total, setTotal] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [showScrollIcon, setShowScrollIcon] = useState(false);
 
-  // Helper validasi nama
+  // Validasi nama
   const validateName = (value) => {
     if (badwords.flag(value)) return "Nama mengandung kata tidak pantas!";
     if (value.length > 0 && value.length < 3) return "Nama minimal 3 karakter!";
     return null;
   };
 
-  // Input handler nama
   const handleNameChange = (e) => {
     const value = e.target.value;
     setName(value);
@@ -103,7 +96,6 @@ export default function RSVPSection() {
   // ✅ Submit RSVP
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const err = validateName(name);
     if (err) return setError(err);
 
@@ -117,7 +109,6 @@ export default function RSVPSection() {
       .insert([{ name, status, total: parseInt(total), color: randomColor }]);
 
     setLoading(false);
-
     if (error) return setError(error.message);
 
     await refreshData();
@@ -127,34 +118,28 @@ export default function RSVPSection() {
     setStatus("hadir");
   };
 
-  // Ambil data dari supabase
   const refreshData = async () => {
     const { data, error } = await supabase
       .from(import.meta.env.VITE_APP_TABLE_RSVP)
       .select("name, status, total, color");
-    if (!error) setData(data);
+    if (!error) setData(data || []);
   };
 
-  // Scroll ke item terakhir
   const scrollToLastChild = () => {
     lastChildRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Prefill nama dari query ?to=...
+  // Prefill nama dari ?to=
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const toName = params.get("to");
-    if (toName) {
-      setName(decodeURIComponent(toName));
-    }
+    if (toName) setName(decodeURIComponent(toName));
   }, []);
 
-  // Refresh data awal
   useEffect(() => {
     refreshData();
   }, []);
 
-  // Update animasi tiap kali inView berubah
   useEffect(() => {
     setAnimState({
       rsvp: rsvpInView ? "show" : "hidden",
@@ -163,9 +148,22 @@ export default function RSVPSection() {
     });
   }, [rsvpInView, inviteInView, thanksInView]);
 
+  // 🔍 Cek apakah ada scroll
+  useEffect(() => {
+    const checkScroll = () => {
+      if (listRef.current) {
+        const { scrollHeight, clientHeight } = listRef.current;
+        setShowScrollIcon(scrollHeight > clientHeight);
+      }
+    };
+    checkScroll();
+    window.addEventListener("resize", checkScroll);
+    return () => window.removeEventListener("resize", checkScroll);
+  }, [data]);
+
   return (
     <div ref={sectionRef} className="text-white font-cursive space-y-20">
-      {/* Bagian RSVP */}
+      {/* ================== RSVP Section ================== */}
       <motion.div
         ref={rsvpRef}
         variants={containerVariants}
@@ -181,9 +179,18 @@ export default function RSVPSection() {
           RSVP Kehadiran
         </motion.h2>
 
+        {/* 🧾 List RSVP */}
         <motion.div
+          ref={listRef}
           variants={containerVariants}
-          className="max-h-[20rem] overflow-auto space-y-4 px-2 pb-2 scroll-smooth"
+          className="relative max-h-[20rem] overflow-auto space-y-4 px-2 pb-8 scroll-smooth"
+          onScroll={(e) => {
+            const el = e.target;
+            setShowScrollIcon(
+              el.scrollHeight > el.clientHeight &&
+                el.scrollTop < el.scrollHeight - el.clientHeight - 20
+            );
+          }}
         >
           <AnimatePresence>
             {data.map((item, index) => (
@@ -194,8 +201,46 @@ export default function RSVPSection() {
               />
             ))}
           </AnimatePresence>
+
+          {/* Scroll Icon */}
+          {showScrollIcon && (
+            <div className="sticky -bottom-8 flex justify-center pointer-events-none select-none">
+              <motion.div
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 1.5,
+                  repeatType: "mirror",
+                }}
+                className="backdrop-blur-md bg-gradient-to-b from-pink-500/30 to-amber-500/30 shadow-[0_0_20px_rgba(255,105,180,0.6)] rounded-full p-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-7 h-7 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.9)] animate-bounce"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 13l-7 7-7-7"
+                  />
+                </svg>
+              </motion.div>
+            </div>
+          )}
         </motion.div>
 
+        {/* Form RSVP */}
         <motion.form
           onSubmit={handleSubmit}
           className="mt-6 space-y-5 px-2"
@@ -257,7 +302,7 @@ export default function RSVPSection() {
         </motion.form>
       </motion.div>
 
-      {/* Bagian Turut Mengundang */}
+      {/* ================== Turut Mengundang ================== */}
       <motion.div
         ref={inviteRef}
         variants={containerVariants}
@@ -269,7 +314,6 @@ export default function RSVPSection() {
           Turut Mengundang
         </motion.h2>
         <motion.div className="w-full h-[3px] bg-red-500 mt-3" variants={itemVariants} />
-
         <motion.div
           className="text-center relative overflow-hidden h-[200px] md:h-[300px]"
           variants={itemVariants}
@@ -282,7 +326,14 @@ export default function RSVPSection() {
                   className="flex justify-between w-full px-0"
                   variants={paragraphVariants}
                 >
-                  <span className="text-left">{item.nama}</span>
+                  <span className="text-left">
+                    <div
+                      className={`${
+                        item.nama.includes("Kepada seluruh teman") ? "text-center mt-6 leading-relaxed text-white/80 italic" : ""
+                      }`}
+                      dangerouslySetInnerHTML={{ __html: item.nama }}
+                    />
+                  </span>
                   <span className="text-right italic">{item.jabatan}</span>
                 </motion.div>
               ))}
@@ -291,7 +342,7 @@ export default function RSVPSection() {
         </motion.div>
       </motion.div>
 
-      {/* Bagian Terima Kasih */}
+      {/* ================== Terima Kasih ================== */}
       <motion.div
         ref={thanksRef}
         variants={containerVariants}
@@ -307,7 +358,6 @@ export default function RSVPSection() {
           >
             <div className="absolute inset-[6px] bg-black rounded-full"></div>
           </div>
-
           <img
             src={dataConfig.terima_kasih_image}
             alt="Terima Kasih"
@@ -315,15 +365,13 @@ export default function RSVPSection() {
                       object-cover rounded-full shadow-lg z-10"
           />
         </motion.div>
-
         <motion.div
           className="w-16 h-[8px] bg-red-500 mx-auto rounded-full"
           variants={itemVariants}
         />
-
         <motion.p
           variants={paragraphVariants}
-          className="text-sm md:text-base text-white/80 italic leading-relaxed px-4 md:px-10"
+          className="text-sm md:text-base text-white/80 italic leading-relaxed px-2 md:px-10"
         >
           Dengan penuh rasa hormat dan sukacita, kami mengundang kehadiran
           Bapak/Ibu/Saudara/i melalui undangan digital ini. Besar harapan kami
@@ -338,4 +386,3 @@ export default function RSVPSection() {
     </div>
   );
 }
-
