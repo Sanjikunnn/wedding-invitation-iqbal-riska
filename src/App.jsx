@@ -24,8 +24,8 @@ function App() {
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 
-  // Atur viewport agar fix dan tidak bisa di zoom
   useEffect(() => {
+    // Kunci viewport
     const viewport = document.querySelector('meta[name="viewport"]');
     if (viewport) {
       viewport.setAttribute(
@@ -33,29 +33,47 @@ function App() {
         'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
       );
     }
+
+    // Langsung coba masuk fullscreen
+    const el = document.documentElement;
+    const tryFullscreen = async () => {
+      try {
+        if (el.requestFullscreen) await el.requestFullscreen();
+        else if (el.webkitRequestFullscreen) await el.webkitRequestFullscreen();
+        else if (el.msRequestFullscreen) await el.msRequestFullscreen();
+      } catch (err) {
+        // kalau gagal (misalnya browser block), diam aja
+      }
+    };
+
+    tryFullscreen();
+
+    // Cadangan: kalau gagal, tunggu user tap pertama kali
+    const enableFullscreen = () => {
+      tryFullscreen();
+      document.removeEventListener('click', enableFullscreen);
+      document.removeEventListener('touchstart', enableFullscreen);
+    };
+    document.addEventListener('click', enableFullscreen);
+    document.addEventListener('touchstart', enableFullscreen);
+
+    return () => {
+      document.removeEventListener('click', enableFullscreen);
+      document.removeEventListener('touchstart', enableFullscreen);
+    };
   }, []);
 
-  // Fungsi buat minta fullscreen
-  const goFullScreen = () => {
-    const el = document.documentElement;
-    if (el.requestFullscreen) el.requestFullscreen();
-    else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
-    else if (el.msRequestFullscreen) el.msRequestFullscreen();
-  };
-
-  // Fungsi buat play suara pop kecil
+  // Bunyi kecil
   const playPopSound = () => {
-    const audio = new Audio('/audio/pop.mp3'); // taruh file di public/sounds/pop.mp3
+    const audio = new Audio('/audio/pop.mp3');
     audio.volume = 0.4;
-    audio.play().catch(() => {}); // biar ga error kalau browser block autoplay
+    audio.play().catch(() => {});
   };
 
-  // Ketika user klik tombol buka undangan
+  // Saat klik tombol buka undangan
   const handleEnter = () => {
-    goFullScreen();
     playPopSound();
     setFadeIn(true);
-
     setTimeout(() => setIsLogin(true), 300);
   };
 
@@ -69,9 +87,7 @@ function App() {
         {isLogin ? (
           <div
             className="animate-fadein"
-            style={{
-              animation: 'fadein 1s ease-in forwards'
-            }}
+            style={{ animation: 'fadein 1s ease-in forwards' }}
           >
             <Thumbnail />
           </div>
