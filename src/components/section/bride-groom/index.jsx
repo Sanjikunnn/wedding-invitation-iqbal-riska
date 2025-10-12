@@ -105,19 +105,24 @@ export default function Bridegroom() {
           variants={fromLeft}
           className="flex flex-col items-center text-center"
         >
-          <div className="relative w-full h-96 overflow-hidden rounded-md">
+          <div className="relative w-full h-96 overflow-hidden rounded-md border border-white/10">
             {priaImages.map((img, idx) => (
-              <img
+              <motion.img
                 key={idx}
                 src={img}
                 loading="lazy"
                 alt={`Foto ${idx + 1}`}
-                className={`absolute inset-0 w-full h-full object-cover rounded-md transition-opacity duration-1000 ${
-                  idx === priaIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-                }`}
+                initial={{ scale: 1.05, opacity: 0 }}
+                animate={{
+                  opacity: idx === priaIndex ? 1 : 0,
+                  scale: idx === priaIndex ? 1 : 1.05,
+                }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+                className="absolute inset-0 w-full h-full object-cover rounded-md will-change-transform"
               />
             ))}
           </div>
+
           <div className="mt-3">
             <h4 className="text-lg text-white font-medium">
               {data.pegantin.pria.nama}
@@ -145,19 +150,24 @@ export default function Bridegroom() {
           variants={fromRight}
           className="flex flex-col items-center text-center"
         >
-          <div className="relative w-full h-96 overflow-hidden rounded-md">
+          <div className="relative w-full h-96 overflow-hidden rounded-md border border-white/10">
             {wanitaImages.map((img, idx) => (
-              <img
+              <motion.img
                 key={idx}
                 src={img}
                 loading="lazy"
                 alt={`Foto ${idx + 1}`}
-                className={`absolute inset-0 w-full h-full object-cover rounded-md transition-opacity duration-1000 ${
-                  idx === wanitaIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-                }`}
+                initial={{ scale: 1.05, opacity: 0 }}
+                animate={{
+                  opacity: idx === wanitaIndex ? 1 : 0,
+                  scale: idx === wanitaIndex ? 1 : 1.05,
+                }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+                className="absolute inset-0 w-full h-full object-cover rounded-md will-change-transform"
               />
             ))}
           </div>
+
           <div className="mt-3">
             <h4 className="text-lg text-white font-medium">
               {data.pegantin.wanita.nama}
@@ -179,6 +189,7 @@ export default function Bridegroom() {
             </p>
           </div>
         </motion.div>
+
       </motion.div>
     </motion.div>
   );
