@@ -7,36 +7,9 @@ import { getAnalytics } from "firebase/analytics";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
+  const [fadeIn, setFadeIn] = useState(false);
 
-  // Paksa tampilan full zoom & fullscreen di HP
-  useEffect(() => {
-    // 1. Pastikan viewport scale = 1
-    const viewport = document.querySelector('meta[name="viewport"]');
-    if (viewport) {
-      viewport.setAttribute(
-        'content',
-        'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
-      );
-    }
-
-    // 2. Coba minta fullscreen (untuk mobile browser)
-    const goFullScreen = () => {
-      const el = document.documentElement;
-      if (el.requestFullscreen) el.requestFullscreen();
-      else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
-      else if (el.msRequestFullscreen) el.msRequestFullscreen();
-    };
-
-    // aktifkan fullscreen setelah user menyentuh layar (bukan otomatis)
-    const enableFS = () => {
-      goFullScreen();
-      document.removeEventListener('click', enableFS);
-    };
-    document.addEventListener('click', enableFS);
-
-    return () => document.removeEventListener('click', enableFS);
-  }, []);
-
+  // Firebase Config
   const firebaseConfig = {
     apiKey: "AIzaSyA_AG8R0p53EhsKrNJb_6Bz8187aSPFwPk",
     authDomain: "wedding-invitation-iqbal-riska.firebaseapp.com",
@@ -47,16 +20,92 @@ function App() {
     measurementId: "G-Y1402HSTQ6"
   };
 
+  // Inisialisasi Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 
+  // Atur viewport agar fix dan tidak bisa di zoom
+  useEffect(() => {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) {
+      viewport.setAttribute(
+        'content',
+        'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+      );
+    }
+
+    // Coba langsung fullscreen saat web dibuka
+    const el = document.documentElement;
+    const tryFullscreen = async () => {
+      try {
+        if (el.requestFullscreen) await el.requestFullscreen();
+        else if (el.webkitRequestFullscreen) await el.webkitRequestFullscreen();
+        else if (el.msRequestFullscreen) await el.msRequestFullscreen();
+      } catch (err) {
+        // diam aja kalau gagal (browser blokir)
+      }
+    };
+
+    tryFullscreen();
+
+    // Bisa juga trigger ulang saat user scroll / tap pertama kali (buat backup)
+    const enableFullscreen = () => {
+      tryFullscreen();
+      document.removeEventListener('touchstart', enableFullscreen);
+      document.removeEventListener('click', enableFullscreen);
+    };
+    document.addEventListener('touchstart', enableFullscreen);
+    document.addEventListener('click', enableFullscreen);
+
+    return () => {
+      document.removeEventListener('touchstart', enableFullscreen);
+      document.removeEventListener('click', enableFullscreen);
+    };
+  }, []);
+
+
+  // Fungsi buat minta fullscreen
+  const goFullScreen = () => {
+    const el = document.documentElement;
+    if (el.requestFullscreen) el.requestFullscreen();
+    else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+    else if (el.msRequestFullscreen) el.msRequestFullscreen();
+  };
+
+  // Fungsi buat play suara pop kecil
+  const playPopSound = () => {
+    const audio = new Audio('/audio/pop.mp3'); // taruh file di public/sounds/pop.mp3
+    audio.volume = 0.4;
+    audio.play().catch(() => {}); // biar ga error kalau browser block autoplay
+  };
+
+  // Ketika user klik tombol buka undangan
+  const handleEnter = () => {
+    goFullScreen();
+    playPopSound();
+    setFadeIn(true);
+
+    setTimeout(() => setIsLogin(true), 300);
+  };
+
   return (
-    <div className="min-h-screen w-full bg-black text-white flex items-center justify-center">
-      <div className="w-full">
+    <div className="min-h-screen w-full bg-black text-white flex items-center justify-center overflow-hidden">
+      <div
+        className={`w-full transition-opacity duration-1000 ease-out ${
+          fadeIn ? 'opacity-0' : 'opacity-100'
+        }`}
+      >
         {isLogin ? (
-          <Thumbnail />
+          <div
+            className="animate-fadein"
+            style={{
+              animation: 'fadein 1s ease-in forwards'
+            }}
+          >
+            <Thumbnail />
+          </div>
         ) : (
-          <UserWatch onClick={() => setIsLogin(true)} />
+          <UserWatch onClick={handleEnter} />
         )}
       </div>
     </div>
