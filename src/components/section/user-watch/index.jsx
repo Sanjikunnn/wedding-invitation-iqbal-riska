@@ -173,7 +173,7 @@ export default function UserWatch({ onClick }) {
   
 
   return (
-    <div className="relative w-screen h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white overflow-hidden">
+    <div className="relative w-screen min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white overflow-hidden">
       {/* Audio Element */}
       <audio ref={audioRef} src={data.whoosh_url} preload="auto" />
 
@@ -220,7 +220,7 @@ export default function UserWatch({ onClick }) {
       {/* Main Content Container */}
       <div className="relative z-10">
         {!started && (
-          <div className="relative flex flex-col justify-center items-center h-full text-center px-6 bg-black/80 backdrop-blur-md border-4 border-white shadow-[8px_8px_0px_rgba(255,255,255,0.3)] overflow-hidden">
+          <div className="relative flex flex-col justify-center items-center min-h-screen text-center px-6 bg-black/80 backdrop-blur-md border-4 border-white shadow-[8px_8px_0px_rgba(255,255,255,0.3)] overflow-hidden">
             {/* Background motif batik */}
             <div
               className="absolute inset-0 z-10 opacity-30 "
@@ -423,7 +423,7 @@ export default function UserWatch({ onClick }) {
 
         {/* Loading Screen */}
         {started && !showContent && (
-          <div className="flex flex-col justify-center items-center h-full space-y-10 bg-gradient-to-b from-black via-zinc-900 to-black text-white font-sans overflow-hidden px-6 relative">
+          <div className="flex flex-col justify-center items-center min-h-screen space-y-10 bg-gradient-to-b from-black via-zinc-900 to-black text-white font-sans overflow-hidden px-6 relative">
             {/* CINEMATIC OVERLAY */}
             <div className="absolute inset-0 bg-black/70 backdrop-blur-md z-0" />
             <div className="absolute inset-0 bg-gradient-radial from-transparent via-black/30 to-black z-0" />
@@ -497,7 +497,7 @@ export default function UserWatch({ onClick }) {
 
         {/* Main Content (after loading) */}
         {started && showContent && (
-          <div className="relative h-full w-full bg-gradient-to-b from-black via-zinc-900 to-black text-white font-sans overflow-hidden px-6 pt-10 pb-15 flex flex-col items-center text-center">
+          <div className="relative min-h-screen w-full bg-gradient-to-b from-black via-zinc-900 to-black text-white font-sans overflow-hidden px-6 pt-10 pb-15 flex flex-col items-center text-center">
 
             {/* BACKGROUND OVERLAY & NOISE TEXTURE */}
             <div className="absolute inset-0 bg-black/70 backdrop-blur-md z-0" />
