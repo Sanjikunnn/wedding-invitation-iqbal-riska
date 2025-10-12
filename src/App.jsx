@@ -34,21 +34,21 @@ function App() {
   };
 
   // 🖱️ Saat user klik tombol “Buka Undangan”
-  const handleEnter = async () => {
+  const handleEnter = () => {
     playPopSound();
 
-    // 🖥️ Aktifkan fullscreen mode (desktop/mobile)
+    // Langsung coba fullscreen TANPA async (wajib di event handler langsung)
     const el = document.documentElement;
     try {
-      if (el.requestFullscreen) await el.requestFullscreen();
-      else if (el.webkitRequestFullscreen) await el.webkitRequestFullscreen();
-      else if (el.msRequestFullscreen) await el.msRequestFullscreen();
+      if (el.requestFullscreen) el.requestFullscreen();
+      else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+      else if (el.msRequestFullscreen) el.msRequestFullscreen();
     } catch (err) {
       console.warn('Fullscreen gagal:', err);
     }
 
     // 🎬 Masuk ke halaman utama (Thumbnail)
-    setIsLogin(true);
+    setTimeout(() => setIsLogin(true), 150);
   };
 
   return (
