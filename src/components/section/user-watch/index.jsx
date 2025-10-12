@@ -173,7 +173,7 @@ export default function UserWatch({ onClick }) {
   
 
   return (
-    <div className="relative w-screen min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white overflow-hidden">
+    <div className="relative w-screen h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white overflow-hidden">
       {/* Audio Element */}
       <audio ref={audioRef} src={data.whoosh_url} preload="auto" />
 
