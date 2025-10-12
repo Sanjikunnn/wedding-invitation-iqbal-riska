@@ -103,7 +103,7 @@ export default function BreakingNews() {
       {/* Content */}
       <motion.div
         variants={itemVariants}
-        className="text-[#A3A1A1] text-sm italic leading-[1.15rem] mt-4"
+        className="text-[#A3A1A1] text-sm italic leading-[1.15rem] mt-4 text-justify tracking-wide"
         dangerouslySetInnerHTML={{
           __html: data.breaking_news_content,
         }}
