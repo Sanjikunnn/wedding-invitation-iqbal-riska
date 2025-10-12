@@ -8,8 +8,8 @@ import { getAnalytics } from "firebase/analytics";
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [fadeIn, setFadeIn] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
-  // Firebase Config
   const firebaseConfig = {
     apiKey: "AIzaSyA_AG8R0p53EhsKrNJb_6Bz8187aSPFwPk",
     authDomain: "wedding-invitation-iqbal-riska.firebaseapp.com",
@@ -20,12 +20,11 @@ function App() {
     measurementId: "G-Y1402HSTQ6"
   };
 
-  // Inisialisasi Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 
   useEffect(() => {
-    // Kunci viewport
+    // fix viewport
     const viewport = document.querySelector('meta[name="viewport"]');
     if (viewport) {
       viewport.setAttribute(
@@ -34,43 +33,38 @@ function App() {
       );
     }
 
-    // Langsung coba masuk fullscreen
-    const el = document.documentElement;
-    const tryFullscreen = async () => {
+    const goFull = async () => {
+      const el = document.documentElement;
       try {
         if (el.requestFullscreen) await el.requestFullscreen();
         else if (el.webkitRequestFullscreen) await el.webkitRequestFullscreen();
         else if (el.msRequestFullscreen) await el.msRequestFullscreen();
-      } catch (err) {
-        // kalau gagal (misalnya browser block), diam aja
-      }
+        setIsFullscreen(true);
+      } catch {}
     };
 
-    tryFullscreen();
-
-    // Cadangan: kalau gagal, tunggu user tap pertama kali
-    const enableFullscreen = () => {
-      tryFullscreen();
-      document.removeEventListener('click', enableFullscreen);
-      document.removeEventListener('touchstart', enableFullscreen);
+    // auto fullscreen saat user tap pertama kali di mana pun
+    const enable = () => {
+      goFull();
+      document.removeEventListener('click', enable);
+      document.removeEventListener('touchstart', enable);
     };
-    document.addEventListener('click', enableFullscreen);
-    document.addEventListener('touchstart', enableFullscreen);
+
+    document.addEventListener('click', enable);
+    document.addEventListener('touchstart', enable);
 
     return () => {
-      document.removeEventListener('click', enableFullscreen);
-      document.removeEventListener('touchstart', enableFullscreen);
+      document.removeEventListener('click', enable);
+      document.removeEventListener('touchstart', enable);
     };
   }, []);
 
-  // Bunyi kecil
   const playPopSound = () => {
     const audio = new Audio('/audio/pop.mp3');
     audio.volume = 0.4;
     audio.play().catch(() => {});
   };
 
-  // Saat klik tombol buka undangan
   const handleEnter = () => {
     playPopSound();
     setFadeIn(true);
@@ -78,7 +72,11 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-black text-white flex items-center justify-center overflow-hidden">
+    <div
+      className={`min-h-screen w-full bg-black text-white flex items-center justify-center overflow-hidden transition-opacity duration-1000 ${
+        isFullscreen ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
       <div
         className={`w-full transition-opacity duration-1000 ease-out ${
           fadeIn ? 'opacity-0' : 'opacity-100'
