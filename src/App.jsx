@@ -9,6 +9,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [fadeIn, setFadeIn] = useState(true);
 
+  // 🔥 Firebase Config
   const firebaseConfig = {
     apiKey: "AIzaSyA_AG8R0p53EhsKrNJb_6Bz8187aSPFwPk",
     authDomain: "wedding-invitation-iqbal-riska.firebaseapp.com",
@@ -22,8 +23,26 @@ function App() {
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 
+  /* =======================================
+     🔄 CEK MODE PWA vs WEB BIASA
+  ======================================= */
   useEffect(() => {
-    setFadeIn(true);
+    const isStandalone =
+      window.matchMedia('(display-mode: standalone)').matches ||
+      window.navigator.standalone === true;
+
+    // Kalau mode PWA → auto fullscreen & langsung masuk
+    if (isStandalone) {
+      try {
+        const el = document.body;
+        if (el.requestFullscreen) el.requestFullscreen();
+        else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+      } catch (err) {
+        console.warn("Auto fullscreen gagal:", err);
+      }
+
+      setTimeout(() => setIsLogin(true), 500); // auto masuk setelah fullscreen
+    }
   }, []);
 
   // 🔊 Efek suara kecil pas tombol ditekan
@@ -33,12 +52,14 @@ function App() {
     audio.play().catch(() => {});
   };
 
-  // 🖱️ Saat user klik tombol “Buka Undangan”
+  /* =======================================
+     🖱️ USER KLIK “BUKA UNDANGAN”
+  ======================================= */
   const handleEnter = () => {
     playPopSound();
 
-    // Langsung coba fullscreen TANPA async (wajib di event handler langsung)
-    const el = document.documentElement;
+    // Minta fullscreen manual (web mode)
+    const el = document.body;
     try {
       if (el.requestFullscreen) el.requestFullscreen();
       else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
@@ -47,8 +68,7 @@ function App() {
       console.warn('Fullscreen gagal:', err);
     }
 
-    // 🎬 Masuk ke halaman utama (Thumbnail)
-    setTimeout(() => setIsLogin(true), 150);
+    setTimeout(() => setIsLogin(true), 300);
   };
 
   return (
