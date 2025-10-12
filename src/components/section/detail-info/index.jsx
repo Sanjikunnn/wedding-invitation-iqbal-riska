@@ -32,9 +32,9 @@ export default function DetailInfo() {
     return () => observer.disconnect();
   }, []);
   return (
-    <div className="space-y-5 pb-10 scroll-smooth">
+    <div className="relative overflow-x-hidden space-y-5 pb-10 scroll-smooth">
       {/* Video Opening */}
-      <video className="w-full" autoPlay muted>
+      <video className="w-full max-w-full block" autoPlay muted playsInline>
         <source src={data.url_video} type="video/mp4" />
         Your browser does not support the video tag.
       </video>

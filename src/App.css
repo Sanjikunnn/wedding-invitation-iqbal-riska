@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer utilities {
+  html, body {
+    overflow-x: hidden;
+  }
   img, video, canvas {
     backface-visibility: hidden;
     transform: translateZ(0);
