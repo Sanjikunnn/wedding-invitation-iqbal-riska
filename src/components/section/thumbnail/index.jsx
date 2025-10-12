@@ -59,7 +59,7 @@ export default function Thumbnail() {
       {/* Konten Utama */}
       <div className="relative z-10 flex flex-col justify-end min-h-screen">
         <div className="pb-10 pt-2 bg-gradient-to-b from-transparent via-black/80 to-black px-2">
-          <div className="mb-10 space-y-4">
+          <div className="mb-10 space-y-2">
             {/* Gambar pasangan */}
             <img
               src="/images/iqbalriska.png"
