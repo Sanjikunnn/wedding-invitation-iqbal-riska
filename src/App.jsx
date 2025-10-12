@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import UserWatch from './components/section/user-watch';
 import Thumbnail from './components/section/thumbnail';
@@ -8,9 +8,33 @@ import { getAnalytics } from "firebase/analytics";
 function App() {
   const [isLogin, setIsLogin] = useState(false);
 
+  // Paksa tampilan full zoom & fullscreen di HP
   useEffect(() => {
-    const timer = setTimeout(() => setIsLogin(true), 2000); // auto masuk setelah 2 detik
-    return () => clearTimeout(timer);
+    // 1. Pastikan viewport scale = 1
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) {
+      viewport.setAttribute(
+        'content',
+        'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+      );
+    }
+
+    // 2. Coba minta fullscreen (untuk mobile browser)
+    const goFullScreen = () => {
+      const el = document.documentElement;
+      if (el.requestFullscreen) el.requestFullscreen();
+      else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+      else if (el.msRequestFullscreen) el.msRequestFullscreen();
+    };
+
+    // aktifkan fullscreen setelah user menyentuh layar (bukan otomatis)
+    const enableFS = () => {
+      goFullScreen();
+      document.removeEventListener('click', enableFS);
+    };
+    document.addEventListener('click', enableFS);
+
+    return () => document.removeEventListener('click', enableFS);
   }, []);
 
   const firebaseConfig = {
@@ -32,7 +56,7 @@ function App() {
         {isLogin ? (
           <Thumbnail />
         ) : (
-          <UserWatch />
+          <UserWatch onClick={() => setIsLogin(true)} />
         )}
       </div>
     </div>
