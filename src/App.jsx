@@ -26,6 +26,7 @@ function App() {
 
   // Atur viewport agar fix dan tidak bisa di zoom
   useEffect(() => {
+    // Set viewport
     const viewport = document.querySelector('meta[name="viewport"]');
     if (viewport) {
       viewport.setAttribute(
@@ -34,34 +35,34 @@ function App() {
       );
     }
 
-    // Coba langsung fullscreen saat web dibuka
-    const el = document.documentElement;
-    const tryFullscreen = async () => {
+    // Tambahkan listener 1x untuk fullscreen setelah sentuhan pertama
+    const enableFullscreen = async () => {
+      const el = document.documentElement;
       try {
         if (el.requestFullscreen) await el.requestFullscreen();
         else if (el.webkitRequestFullscreen) await el.webkitRequestFullscreen();
         else if (el.msRequestFullscreen) await el.msRequestFullscreen();
+
+        // Setelah fullscreen, langsung fade-in isi
+        setFadeIn(true);
+        setTimeout(() => setIsLogin(true), 600);
       } catch (err) {
-        // diam aja kalau gagal (browser blokir)
+        console.warn('Fullscreen gagal:', err);
       }
-    };
 
-    tryFullscreen();
-
-    // Bisa juga trigger ulang saat user scroll / tap pertama kali (buat backup)
-    const enableFullscreen = () => {
-      tryFullscreen();
-      document.removeEventListener('touchstart', enableFullscreen);
       document.removeEventListener('click', enableFullscreen);
+      document.removeEventListener('touchstart', enableFullscreen);
     };
-    document.addEventListener('touchstart', enableFullscreen);
+
     document.addEventListener('click', enableFullscreen);
+    document.addEventListener('touchstart', enableFullscreen);
 
     return () => {
-      document.removeEventListener('touchstart', enableFullscreen);
       document.removeEventListener('click', enableFullscreen);
+      document.removeEventListener('touchstart', enableFullscreen);
     };
   }, []);
+
 
 
   // Fungsi buat minta fullscreen
@@ -92,24 +93,22 @@ function App() {
     <div className="min-h-screen w-full bg-black text-white flex items-center justify-center overflow-hidden">
       <div
         className={`w-full transition-opacity duration-1000 ease-out ${
-          fadeIn ? 'opacity-0' : 'opacity-100'
+          fadeIn ? 'opacity-100' : 'opacity-0'
         }`}
       >
         {isLogin ? (
-          <div
-            className="animate-fadein"
-            style={{
-              animation: 'fadein 1s ease-in forwards'
-            }}
-          >
-            <Thumbnail />
-          </div>
+          <Thumbnail />
         ) : (
-          <UserWatch onClick={handleEnter} />
+          <div className="flex flex-col items-center justify-center text-center space-y-2">
+            <p className="text-white/80 text-sm animate-pulse">
+              Sentuh layar untuk membuka undangan 💌
+            </p>
+          </div>
         )}
       </div>
     </div>
   );
+
 }
 
 export default App;
