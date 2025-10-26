@@ -17,7 +17,7 @@
       "ig": "https://instagram.com/riska.anggra"
     }
   },
-  "audio_url": "/audio/MUARA.mp3",
+  "audio_url": "/audio/PUJANINGSIH.mp3",
   "GiftSection": {
     "title": "Kado Pernikahan",
     "description": "Jika ingin memberikan kado pernikahan, silakan transfer ke rekening atau alamat berikut:",
@@ -80,15 +80,15 @@
     "tanggal": "Kamis, 25 Desember 2025",
     "waktu": "08.00 - 10.00 WITA",
     "tempat": "Kediaman Mempelai Wanita",
-    "maps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126472.10124350523!2d110.55291301860215!3d-7.868555464358877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a4be412c847d1%3A0x4027a76e352fce0!2sKec.%20Nglipar%2C%20Kabupaten%20Gunungkidul%2C%20Daerah%20Istimewa%20Yogyakarta!5e0!3m2!1sid!2sid!4v1750869011778!5m2!1sid!2sid",
-    "url_maps": "https://maps.app.goo.gl/iTdXmUYE7W75yqGS8"
+    "maps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.006232711943!2d110.617905675586!3d-7.894415578541946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a4b0038148fa5%3A0x11fb65a38e052eef!2sRISKA%20ANGGRAINI%20HOME!5e0!3m2!1sid!2sid!4v1761489789595!5m2!1sid!2sid",
+    "url_maps": "https://maps.app.goo.gl/SgfN6zrp3U6cg8DLA"
   },
   "resepsi": {
     "tanggal": "Kamis, 25 Desember 2025",
     "waktu": "10.00 WITA - Selesai",
     "tempat": "Kediaman Mempelai Wanita",
-    "maps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126472.10124350523!2d110.55291301860215!3d-7.868555464358877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a4be412c847d1%3A0x4027a76e352fce0!2sKec.%20Nglipar%2C%20Kabupaten%20Gunungkidul%2C%20Daerah%20Istimewa%20Yogyakarta!5e0!3m2!1sid!2sid!4v1750869011778!5m2!1sid!2sid",
-    "url_maps": "https://maps.app.goo.gl/iTdXmUYE7W75yqGS8"
+    "maps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.006232711943!2d110.617905675586!3d-7.894415578541946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a4b0038148fa5%3A0x11fb65a38e052eef!2sRISKA%20ANGGRAINI%20HOME!5e0!3m2!1sid!2sid!4v1761489789595!5m2!1sid!2sid",
+    "url_maps": "https://maps.app.goo.gl/SgfN6zrp3U6cg8DLA"
   },
   "makan": {
     "tanggal": "03 Januari 2026",
@@ -331,10 +331,10 @@
     "wish": true
   },
   "turut_mengundang": [
-    { "nama": "Keluarga Besar Alm. Abah H.Syukur", "jabatan": "Mempelai Pria" },
-    { "nama": "Keluarga Besar Alm. Abah Muhidin", "jabatan": "Mempelai Pria" },
     { "nama": "Keluarga Besar Marto Sucipto (Mario)", "jabatan": "Mempelai Wanita" },
     { "nama": "Keluarga Besar Alm. Perwito Wiyarjo", "jabatan": "Mempelai Wanita" },
+    { "nama": "Keluarga Besar Alm. Abah H.Syukur", "jabatan": "Mempelai Pria" },
+    { "nama": "Keluarga Besar Alm. Abah Muhidin", "jabatan": "Mempelai Pria" },
     { "nama": "Sahabat & Rekan Kerja", "jabatan": "PT. Diamas Star" },
     { "nama": "Sahabat & Rekan Kerja", "jabatan": "PT. Mahakarya (Mito)" },
     { "nama": "Sahabat & Rekan Kerja", "jabatan": "PT. Sinar Atom" },
