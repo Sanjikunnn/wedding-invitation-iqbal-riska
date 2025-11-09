@@ -34,7 +34,7 @@ export default function DetailInfo() {
   return (
     <div className="relative overflow-x-hidden space-y-5 pb-10 scroll-smooth">
       {/* Video Opening */}
-      <video className="w-full max-w-full block" autoPlay muted playsInline>
+      <video className="w-full max-w-full block" autoPlay muted loop playsInline>
         <source src={data.url_video} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
