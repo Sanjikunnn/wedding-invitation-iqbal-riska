@@ -88,7 +88,6 @@ export default function WeddingEventDetailsWithMap() {
         {[
           { key: "akad", label: "Akad Nikah" },
           { key: "resepsi", label: "Resepsi" },
-          { key: "makan", label: "Silaturahmi" },
         ].map((tab) => (
           <button
             key={tab.key}
@@ -156,31 +155,6 @@ export default function WeddingEventDetailsWithMap() {
             </motion.div>
           )}
 
-          {activeTab === "makan" && (
-            <motion.div
-              key="makan"
-              variants={contentVariants}
-              initial="hidden"
-              animate="show"
-              exit="exit"
-              className="border border-red-800 rounded-2xl shadow-lg p-6 text-center"
-            >
-              <h3 className="text-xl font-bold text-red-600 mb-2 uppercase">
-                Silaturahmi Teman & Rekan Kerja
-              </h3>
-              <p className="text-gray-300">
-                <em className="text-sm text-gray-400">
-                  Acara santai bersama teman & rekan kerja 🤝🍽️
-                </em>
-                <br />
-                <strong>Tanggal:</strong> {makan.tanggal || "---"}
-                <br />
-                <strong>Waktu:</strong> {makan.waktu || "---"}
-                <br />
-                <strong>Tempat:</strong> {makan.tempat || "---"}
-              </p>
-            </motion.div>
-          )}
         </AnimatePresence>
       </motion.div>
 

@@ -78,24 +78,17 @@
   "tanggal_pernikahan": "25 DESEMBER 2025",
   "akad": {
     "tanggal": "Kamis, 25 Desember 2025",
-    "waktu": "08.00 - 10.00 WITA",
+    "waktu": "08.00 - 10.00 WIB",
     "tempat": "Kediaman Mempelai Wanita",
     "maps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.006232711943!2d110.617905675586!3d-7.894415578541946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a4b0038148fa5%3A0x11fb65a38e052eef!2sRISKA%20ANGGRAINI%20HOME!5e0!3m2!1sid!2sid!4v1761489789595!5m2!1sid!2sid",
     "url_maps": "https://maps.app.goo.gl/SgfN6zrp3U6cg8DLA"
   },
   "resepsi": {
     "tanggal": "Kamis, 25 Desember 2025",
-    "waktu": "10.00 WITA - Selesai",
+    "waktu": "10.00 WIB - Selesai",
     "tempat": "Kediaman Mempelai Wanita",
     "maps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.006232711943!2d110.617905675586!3d-7.894415578541946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a4b0038148fa5%3A0x11fb65a38e052eef!2sRISKA%20ANGGRAINI%20HOME!5e0!3m2!1sid!2sid!4v1761489789595!5m2!1sid!2sid",
     "url_maps": "https://maps.app.goo.gl/SgfN6zrp3U6cg8DLA"
-  },
-  "makan": {
-    "tanggal": "03 Januari 2026",
-    "waktu": "10:00 WIB - Selesai",
-    "tempat": "Perumahan Taman Buah Sukamantri, Blok AE No 10, Pasar Kemis, Kabupaten Tangerang, Banten 15560",
-    "maps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d495.84858804601765!2d106.5428235512185!3d-6.159047290677329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ffe43987de91%3A0x60b0f17bcbc0387!2sRGRV%2BC4F%2C%20Sukamantri%2C%20Kec.%20Ps.%20Kemis%2C%20Kabupaten%20Tangerang%2C%20Banten%2015560!5e0!3m2!1sid!2sid!4v1760278236877!5m2!1sid!2sid",
-    "url_maps": "https://maps.app.goo.gl/WUduongubukyyePXA"
   },
   "thumbnail_image_url": "/images/awall.jpeg",
   "url_video": "/video/videonya.mp4",
