@@ -4,7 +4,7 @@ import UserWatch from './components/section/user-watch';
 import Thumbnail from './components/section/thumbnail';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-
+import { Analytics } from "@vercel/analytics/next"
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [fadeIn, setFadeIn] = useState(true);
