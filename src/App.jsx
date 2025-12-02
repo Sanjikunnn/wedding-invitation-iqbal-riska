@@ -4,7 +4,7 @@ import UserWatch from './components/section/user-watch';
 import Thumbnail from './components/section/thumbnail';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [fadeIn, setFadeIn] = useState(true);
@@ -72,14 +72,20 @@ function App() {
   };
 
   return (
-    <div
-      className={`min-h-screen w-full bg-black text-white flex items-center justify-center transition-opacity duration-1000 ${
-        fadeIn ? 'opacity-100' : 'opacity-0'
-      }`}
-    >
-      {isLogin ? <Thumbnail /> : <UserWatch onClick={handleEnter} />}
-    </div>
+    <>
+      <div
+        className={`min-h-screen w-full bg-black text-white flex items-center justify-center transition-opacity duration-1000 ${
+          fadeIn ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        {isLogin ? <Thumbnail /> : <UserWatch onClick={handleEnter} />}
+      </div>
+
+      {/* Vercel Analytics */}
+      <Analytics />
+    </>
   );
+
 }
 
 export default App;
