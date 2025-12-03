@@ -34,10 +34,27 @@ export default function DetailInfo() {
   return (
     <div className="relative overflow-x-hidden space-y-5 pb-10 scroll-smooth">
       {/* Video Opening */}
-      <video className="w-full max-w-full block" autoPlay muted loop playsInline>
-        <source src={data.url_video} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {
+        data.url_video.includes("youtube.com") || data.url_video.includes("youtu.be") ? (
+          <iframe
+            className="w-full max-w-full block aspect-video rounded-md"
+            src={
+              data.url_video
+                .replace("youtu.be/", "www.youtube.com/embed/")
+                + "?autoplay=1&mute=1&loop=1&playlist=" 
+                + data.url_video.split("/").pop() // biar looping jalan
+            }
+            allow="autoplay; encrypted-media; accelerometer; clipboard-write; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        ) : (
+          <video className="w-full max-w-full block" autoPlay muted loop playsInline>
+            <source src={data.url_video} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        )
+      }
+
 
       {/* Sticky Bottom Navigation */}
       <div className="fixed bottom-0 left-0 right-0 bg-black border-t border-gray-700 flex justify-around items-center py-2 z-50 text-white text-[10px] sm:text-xs">
