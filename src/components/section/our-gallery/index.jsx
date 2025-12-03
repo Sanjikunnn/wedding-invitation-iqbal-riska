@@ -21,9 +21,18 @@ const GalleryItem = memo(({ images, isVertical, onSelect }) => {
     return () => clearInterval(interval);
   }, [images]);
 
+  useEffect(() => {
+    const preload = [...allImages, ...aiImages];
+    preload.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [allImages, aiImages]);
+
   const handleClick = useCallback(() => {
     requestAnimationFrame(() => onSelect(images, index));
   }, [images, index, onSelect]);
+
 
   return (
     <div
