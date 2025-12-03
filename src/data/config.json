@@ -2,10 +2,10 @@
   "pegantin": {
     "pria": {
     "foto_list": [
-      "https://i.ibb.co.com/1Ysh77V3/iqbal.webp",
-      "https://i.ibb.co.com/M5NWh6c4/iqbal2.webp",
-      "https://i.ibb.co.com/jvyZcGtG/iqbal3.webp",
-      "https://i.ibb.co.com/tpmFZV0D/iqbal4.webp"
+      "https://i.ibb.co/1Ysh77V3/iqbal.webp",
+      "https://i.ibb.co/M5NWh6c4/iqbal2.webp",
+      "https://i.ibb.co/jvyZcGtG/iqbal3.webp",
+      "https://i.ibb.co/tpmFZV0D/iqbal4.webp"
     ],
       "panggilan": "Iqbal",
       "nama": "Faizal Muhamad Iqbal, S.Kom",
@@ -15,10 +15,10 @@
     },
     "wanita": {
       "foto_list": [
-        "https://i.ibb.co.com/tTGKnC32/riska3.webp",
-        "https://i.ibb.co.com/hrSdPJn/riska4.webp",
-        "https://i.ibb.co.com/gZZ6Q3cZ/riska.webp",
-        "https://i.ibb.co.com/Q7n4T67K/riska2.webp"
+        "https://i.ibb.co/tTGKnC32/riska3.webp",
+        "https://i.ibb.co/hrSdPJn/riska4.webp",
+        "https://i.ibb.co/gZZ6Q3cZ/riska.webp",
+        "https://i.ibb.co/Q7n4T67K/riska2.webp"
       ],
       "panggilan": "Riska",
       "nama": "Riska Anggraini, S.M",
@@ -104,22 +104,22 @@
   "url_video": "https://www.youtube.com/embed/5iPGj6ct_6I",
   "intro": "<p>''Allah selalu punya cara yang indah dalam mempertemukan dua hati. Bukan di tempat yang romantis, melainkan di antara tumpukan kerjaan, teguran yang terkadang pedas, dan canda tawa yang perlahan tumbuh menjadi benih-benih cinta.</p> <p>Dari awal penuh salah paham hingga akhir yang penuh cinta, semuanya adalah bagian dari perjalanan yang telah Allah takdirkan. Termasuk momen ini, sebuah janji suci yang bernama pernikahan, agar kebersamaan yang lahir dari cerita sederhana itu menjadi ibadah sepanjang usia.</p> <p>Dan kini, di hadapan keluarga dan sahabat, dua hati yang telah melewati banyak cerita dipersatukan. Semoga setiap langkah bersama dipenuhi kasih, kesabaran, dan keberkahan, menjadi cahaya yang menerangi perjalanan hidup hingga akhir usia.''</p>",
   "breaking_news_img": [
-    "https://i.ibb.co.com/995cjFtm/foto1.webp",
-    "https://i.ibb.co.com/xKBkrDYx/foto2.webp",
-    "https://i.ibb.co.com/PZbm7BdH/gl14.webp",
-    "https://i.ibb.co.com/1tDDT999/foto3.webp",
-    "https://i.ibb.co.com/PZT2H55D/foto4.webp",
-    "https://i.ibb.co.com/k2zCk458/foto5.webp"
-  ],  
-  "breaking_news_content": "<p>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p><p>Assalamu’alaikum Warahmatullahi Wabarakatuh.</p><p>Alhamdulillahi Rabbil ‘Alamin, dengan penuh rasa syukur kami sampaikan kabar bahagia bahwa insyaAllah kami akan segera melangsungkan akad nikah, menyempurnakan separuh agama, dan memulai perjalanan rumah tangga dengan ridha Allah ﷻ.</p><p className=\"mt-4\">Karena keterbatasan dan dengan berbagai pertimbangan, pernikahan kami akan dilaksanakan secara sederhana dan bersifat <i>intimate wedding</i> di Gunung Kidul, Yogyakarta, yang hanya dihadiri keluarga besar dan orang-orang terdekat.</p><p className=\"mt-4\">Kami memohon maaf yang sebesar-besarnya kepada sahabat serta kerabat yang belum dapat kami undang untuk hadir secara langsung. Namun kami sangat mengharapkan doa yang terbaik agar Allah ﷻ senantiasa melimpahkan keberkahan, kelancaran, serta menjadikan pernikahan ini sebagai rumah tangga yang sakinah, mawaddah, warahmah.</p><p className=\"mt-4\">Wassalamu’alaikum Warahmatullahi Wabarakatuh.</p><p className=\"mt-4\">Dengan penuh cinta dan doa,</p><p>The Bride & Groom</p><br /><p>Iqbal & Riska</p>",
+      "https://i.ibb.co/995cjFtm/foto1.webp",
+      "https://i.ibb.co/xKBkrDYx/foto2.webp",
+      "https://i.ibb.co/PZbm7BdH/gl14.webp",
+      "https://i.ibb.co/1tDDT999/foto3.webp",
+      "https://i.ibb.co/PZT2H55D/foto4.webp",
+      "https://i.ibb.co/k2zCk458/foto5.webp"
+  ],
 
+  "breaking_news_content": "<p>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p><p>Assalamu’alaikum Warahmatullahi Wabarakatuh.</p><p>Alhamdulillahi Rabbil ‘Alamin, dengan penuh rasa syukur kami sampaikan kabar bahagia bahwa insyaAllah kami akan segera melangsungkan akad nikah, menyempurnakan separuh agama, dan memulai perjalanan rumah tangga dengan ridha Allah ﷻ.</p><p className=\"mt-4\">Karena keterbatasan dan dengan berbagai pertimbangan, pernikahan kami akan dilaksanakan secara sederhana dan bersifat <i>intimate wedding</i> di Gunung Kidul, Yogyakarta, yang hanya dihadiri keluarga besar dan orang-orang terdekat.</p><p className=\"mt-4\">Kami memohon maaf yang sebesar-besarnya kepada sahabat serta kerabat yang belum dapat kami undang untuk hadir secara langsung. Namun kami sangat mengharapkan doa yang terbaik agar Allah ﷻ senantiasa melimpahkan keberkahan, kelancaran, serta menjadikan pernikahan ini sebagai rumah tangga yang sakinah, mawaddah, warahmah.</p><p className=\"mt-4\">Wassalamu’alaikum Warahmatullahi Wabarakatuh.</p><p className=\"mt-4\">Dengan penuh cinta dan doa,</p><p>The Bride & Groom</p><br /><p>Iqbal & Riska</p>",
 
   "love_story": [
     {
       "image_list": [
-        "https://i.ibb.co.com/twytKCb6/ls1.webp",
-        "https://i.ibb.co.com/qFkY81KK/ls2.webp", 
-        "https://i.ibb.co.com/6CTbT73/ls3.webp"
+        "https://i.ibb.co/twytKCb6/ls1.webp",
+        "https://i.ibb.co/qFkY81KK/ls2.webp",
+        "https://i.ibb.co/6CTbT73/ls3.webp"
       ],
       "title": "Episode 1: Anak Baru di Gudang",
       "tagline": "Pertemuan pertama jarang terasa menyenangkan.",
@@ -132,9 +132,9 @@
     },
     {
       "image_list": [
-        "https://i.ibb.co.com/VYFtTdqj/ls4.webp", 
-        "https://i.ibb.co.com/VcYnnJgg/ls5.webp", 
-        "https://i.ibb.co.com/GftpN48r/ls6.webp"
+        "https://i.ibb.co/VYFtTdqj/ls4.webp",
+        "https://i.ibb.co/VcYnnJgg/ls5.webp",
+        "https://i.ibb.co/GftpN48r/ls6.webp"
       ],
       "title": "Episode 2: Tatapan yang Mengganggu",
       "tagline": "Bahasa mata tak pernah bisa disembunyikan.",
@@ -147,9 +147,9 @@
     },
     {
       "image_list": [
-        "https://i.ibb.co.com/fYgRZkK6/ls7.webp", 
-        "https://i.ibb.co.com/V0Gd000C/ls8.webp", 
-        "https://i.ibb.co.com/1JXB53Fj/ls9.webp"
+        "https://i.ibb.co/fYgRZkK6/ls7.webp",
+        "https://i.ibb.co/V0Gd000C/ls8.webp",
+        "https://i.ibb.co/1JXB53Fj/ls9.webp"
       ],
       "title": "Episode 3: Perlahan Membuka Hati",
       "tagline": "Batas antara cuek dan penasaran semakin tipis.",
@@ -162,9 +162,9 @@
     },
     {
       "image_list": [
-        "https://i.ibb.co.com/WpqVtWW8/ls10.webp",
-        "https://i.ibb.co.com/1YCwbTj2/ls11.webp",
-        "https://i.ibb.co.com/GvX46482/ls12.webp"
+        "https://i.ibb.co/WpqVtWW8/ls10.webp",
+        "https://i.ibb.co/1YCwbTj2/ls11.webp",
+        "https://i.ibb.co/GvX46482/ls12.webp"
       ],
       "title": "Episode 4: Obrolan Pertama",
       "tagline": "Dari satu obrolan lahir rasa berbeda.",
@@ -177,9 +177,9 @@
     },
     {
       "image_list": [
-        "https://i.ibb.co.com/Q71VfTGN/ls13.webp",
-        "https://i.ibb.co.com/C58Tf8tQ/ls14.webp",
-        "https://i.ibb.co.com/844VRqWz/ls15.webp"
+        "https://i.ibb.co/Q71VfTGN/ls13.webp",
+        "https://i.ibb.co/C58Tf8tQ/ls14.webp",
+        "https://i.ibb.co/844VRqWz/ls15.webp"
       ],
       "title": "Episode 5: Senyuman yang Menular",
       "tagline": "Satu senyum bisa mengubah segalanya.",
@@ -192,9 +192,9 @@
     },
     {
       "image_list": [
-        "https://i.ibb.co.com/svVs4GrZ/ls16.webp",
-        "https://i.ibb.co.com/3m7S60vD/ls17.webp",
-        "https://i.ibb.co.com/LhPLdBnh/ls18.webp"
+        "https://i.ibb.co/svVs4GrZ/ls16.webp",
+        "https://i.ibb.co/3m7S60vD/ls17.webp",
+        "https://i.ibb.co/LhPLdBnh/ls18.webp"
       ],
       "title": "Episode 6: Langkah di Luar Gudang",
       "tagline": "Di luar rutinitas, cerita baru dimulai.",
@@ -207,9 +207,9 @@
     },
     {
       "image_list": [
-        "https://i.ibb.co.com/WWFr5QWG/ls19.webp",
-        "https://i.ibb.co.com/84N1NPnY/ls20.webp",
-        "https://i.ibb.co.com/nq74z0GW/ls21.webp"
+        "https://i.ibb.co/WWFr5QWG/ls19.webp",
+        "https://i.ibb.co/84N1NPnY/ls20.webp",
+        "https://i.ibb.co/nq74z0GW/ls21.webp"
       ],
       "title": "Episode 7: Tawa Pertama Bersama",
       "tagline": "Tawa tulus tak pernah bisa disembunyikan.",
@@ -222,9 +222,9 @@
     },
     {
       "image_list": [
-        "https://i.ibb.co.com/VWJJ7YGX/ls22.webp",
-        "https://i.ibb.co.com/jv0TcTZx/ls23.webp",
-        "https://i.ibb.co.com/rKqhLVtg/ls24.webp"
+        "https://i.ibb.co/VWJJ7YGX/ls22.webp",
+        "https://i.ibb.co/jv0TcTZx/ls23.webp",
+        "https://i.ibb.co/rKqhLVtg/ls24.webp"
       ],
       "title": "Episode 8: Perjalanan Singkat",
       "tagline": "Perjalanan kecil, kenangan besar.",
@@ -237,9 +237,9 @@
     },
     {
       "image_list": [
-        "https://i.ibb.co.com/5hsK7ggf/ls25.webp",
-        "https://i.ibb.co.com/v62ncPJV/ls26.webp",
-        "https://i.ibb.co.com/NdF1vW29/ls27.webp"
+        "https://i.ibb.co/5hsK7ggf/ls25.webp",
+        "https://i.ibb.co/v62ncPJV/ls26.webp",
+        "https://i.ibb.co/NdF1vW29/ls27.webp"
       ],
       "title": "Episode 9: Semakin Dekat",
       "tagline": "Jarak hati kini tinggal sehelai benang.",
@@ -252,9 +252,9 @@
     },
     {
       "image_list": [
-        "https://i.ibb.co.com/3V3jR8w/ls28.webp",
-        "https://i.ibb.co.com/1J0Mwk4Q/ls29.webp",
-        "https://i.ibb.co.com/B2f073Jp/ls30.webp"
+        "https://i.ibb.co/3V3jR8w/ls28.webp",
+        "https://i.ibb.co/1J0Mwk4Q/ls29.webp",
+        "https://i.ibb.co/B2f073Jp/ls30.webp"
       ],
       "title": "Episode 10: Momen Mengikat",
       "tagline": "Ada momen yang mengubah segalanya… selamanya.",
@@ -267,9 +267,9 @@
     },
     {
       "image_list": [
-        "https://i.ibb.co.com/21mTrgh5/ls31.webp",
-        "https://i.ibb.co.com/TMCQLcWF/ls32.webp",
-        "https://i.ibb.co.com/TxPRTMmR/ls33.webp"
+        "https://i.ibb.co/21mTrgh5/ls31.webp",
+        "https://i.ibb.co/TMCQLcWF/ls32.webp",
+        "https://i.ibb.co/TxPRTMmR/ls33.webp"
       ],
       "title": "Episode 11: Hari-Hari Bahagia",
       "tagline": "Kebahagiaan sederhana, perasaan yang luar biasa.",
@@ -282,9 +282,9 @@
     },
     {
       "image_list": [
-        "https://i.ibb.co.com/XrzHw5GQ/ls34.webp",
-        "https://i.ibb.co.com/SwbVXf1X/ls35.webp",
-        "https://i.ibb.co.com/HL71x1nN/ls36.webp"
+        "https://i.ibb.co/XrzHw5GQ/ls34.webp",
+        "https://i.ibb.co/SwbVXf1X/ls35.webp",
+        "https://i.ibb.co/HL71x1nN/ls36.webp"
       ],
       "title": "Episode 12: Dukungan Tanpa Batas",
       "tagline": "Saat dunia terasa berat, kita jadi sandaran satu sama lain.",
@@ -297,9 +297,9 @@
     },
     {
       "image_list": [
-        "https://i.ibb.co.com/rfbSqKGF/ls37.webp",
-        "https://i.ibb.co.com/YBWp23sT/ls38.webp",
-        "https://i.ibb.co.com/XZ2YWCWq/ls39.webp"
+        "https://i.ibb.co/rfbSqKGF/ls37.webp",
+        "https://i.ibb.co/YBWp23sT/ls38.webp",
+        "https://i.ibb.co/XZ2YWCWq/ls39.webp"
       ],
       "title": "Episode 13: Rencana Masa Depan",
       "tagline": "Masa depan bukan hanya mimpi, tapi rencana bersama.",
@@ -312,9 +312,9 @@
     },
     {
       "image_list": [
-        "https://i.ibb.co.com/fVvY3nbF/ls40.webp",
-        "https://i.ibb.co.com/jZwB03kn/ls41.webp",
-        "https://i.ibb.co.com/Rp6XLWTz/ls42.webp"
+        "https://i.ibb.co/fVvY3nbF/ls40.webp",
+        "https://i.ibb.co/jZwB03kn/ls41.webp",
+        "https://i.ibb.co/Rp6XLWTz/ls42.webp"
       ],
       "title": "Episode 14: Menuju Janji Suci",
       "tagline": "Semua perjalanan membawa ke titik ini.",
@@ -329,55 +329,55 @@
   ],
 
   "ai": [
-    "https://i.ibb.co.com/67FkGJSt/ai16.webp",
-    "https://i.ibb.co.com/r2kWL5R2/ai17.webp",
-    "https://i.ibb.co.com/YF20kxvr/ai18.webp",
-    "https://i.ibb.co.com/XrT4Vr2G/ai19.webp",
-    "https://i.ibb.co.com/27TxyXVH/ai20.webp",
-    "https://i.ibb.co.com/6R6pWBXz/ai21.webp",
-    "https://i.ibb.co.com/LdNYwMX4/ai1.webp",
-    "https://i.ibb.co.com/GvYHBkt1/ai2.webp",
-    "https://i.ibb.co.com/TxB3mfzw/ai3.webp",
-    "https://i.ibb.co.com/h115gchS/ai4.webp",
-    "https://i.ibb.co.com/3Y0sfDD8/ai5.webp",
-    "https://i.ibb.co.com/tPF3dr5r/ai6.webp",
-    "https://i.ibb.co.com/9HG1bcKJ/ai7.webp",
-    "https://i.ibb.co.com/bjYqMW3b/ai8.webp",
-    "https://i.ibb.co.com/JwN2PD1s/ai9.webp",
-    "https://i.ibb.co.com/XfL255vk/ai10.webp",
-    "https://i.ibb.co.com/SjwvJsc/ai11.webp",
-    "https://i.ibb.co.com/JRk6hS2J/ai12.webp",
-    "https://i.ibb.co.com/TMtY4VVC/ai14.webp",
-    "https://i.ibb.co.com/nMY3rrnw/ai15.webp"
+    "https://i.ibb.co/67FkGJSt/ai16.webp",
+    "https://i.ibb.co/r2kWL5R2/ai17.webp",
+    "https://i.ibb.co/YF20kxvr/ai18.webp",
+    "https://i.ibb.co/XrT4Vr2G/ai19.webp",
+    "https://i.ibb.co/27TxyXVH/ai20.webp",
+    "https://i.ibb.co/6R6pWBXz/ai21.webp",
+    "https://i.ibb.co/LdNYwMX4/ai1.webp",
+    "https://i.ibb.co/GvYHBkt1/ai2.webp",
+    "https://i.ibb.co/TxB3mfzw/ai3.webp",
+    "https://i.ibb.co/h115gchS/ai4.webp",
+    "https://i.ibb.co/3Y0sfDD8/ai5.webp",
+    "https://i.ibb.co/tPF3dr5r/ai6.webp",
+    "https://i.ibb.co/9HG1bcKJ/ai7.webp",
+    "https://i.ibb.co/bjYqMW3b/ai8.webp",
+    "https://i.ibb.co/JwN2PD1s/ai9.webp",
+    "https://i.ibb.co/XfL255vk/ai10.webp",
+    "https://i.ibb.co/SjwvJsc/ai11.webp",
+    "https://i.ibb.co/JRk6hS2J/ai12.webp",
+    "https://i.ibb.co/TMtY4VVC/ai14.webp",
+    "https://i.ibb.co/nMY3rrnw/ai15.webp"
   ],
   "gallery": [
-    "https://i.ibb.co.com/cRHBRcq/gl1.webp",
-    "https://i.ibb.co.com/Rk5Bq0Tt/gl2.webp",
-    "https://i.ibb.co.com/yFbSwJ4y/gl3.webp",
-    "https://i.ibb.co.com/mVyzrYLW/gl4.webp",
-    "https://i.ibb.co.com/Q3mmG1L7/gl5.webp",
-    "https://i.ibb.co.com/cSnj5MSm/gl6.webp",
-    "https://i.ibb.co.com/wryVDNWn/gl7.webp",
-    "https://i.ibb.co.com/JjhKjwHd/gl8.webp",
-    "https://i.ibb.co.com/cXFfrZmH/gl9.webp",
-    "https://i.ibb.co.com/35tCQHYW/gl10.webp",
-    "https://i.ibb.co.com/1fx9kNN0/gl11.webp",
-    "https://i.ibb.co.com/gFWnS22k/gl12.webp",
-    "https://i.ibb.co.com/cK97pQFy/gl13.webp",
-    "https://i.ibb.co.com/PZbm7BdH/gl14.webp",
-    "https://i.ibb.co.com/Wv9pvYS6/gl15.webp",
-    "https://i.ibb.co.com/8Lr4yvNC/gl16.webp",
-    "https://i.ibb.co.com/Q3jX4FCz/gl17.webp",
-    "https://i.ibb.co.com/rf2mvrrN/gl18.webp",
-    "https://i.ibb.co.com/yFHMz86m/l1.jpg",
-    "https://i.ibb.co.com/xKpqk6fP/l2.webp",
-    "https://i.ibb.co.com/Ng77PPnh/l3.webp",
-    "https://i.ibb.co.com/mFqsBnGw/l4.webp",
-    "https://i.ibb.co.com/HD5nJv30/l5.webp",
-    "https://i.ibb.co.com/1Y3h8F09/l6.webp",
-    "https://i.ibb.co.com/0y7ZngXC/l7.webp",
-    "https://i.ibb.co.com/FbhSk5Pk/l8.webp",
-    "https://i.ibb.co.com/dJpp7TVf/l9.webp"
+    "https://i.ibb.co/cRHBRcq/gl1.webp",
+    "https://i.ibb.co/Rk5Bq0Tt/gl2.webp",
+    "https://i.ibb.co/yFbSwJ4y/gl3.webp",
+    "https://i.ibb.co/mVyzrYLW/gl4.webp",
+    "https://i.ibb.co/Q3mmG1L7/gl5.webp",
+    "https://i.ibb.co/cSnj5MSm/gl6.webp",
+    "https://i.ibb.co/wryVDNWn/gl7.webp",
+    "https://i.ibb.co/JjhKjwHd/gl8.webp",
+    "https://i.ibb.co/cXFfrZmH/gl9.webp",
+    "https://i.ibb.co/35tCQHYW/gl10.webp",
+    "https://i.ibb.co/1fx9kNN0/gl11.webp",
+    "https://i.ibb.co/gFWnS22k/gl12.webp",
+    "https://i.ibb.co/cK97pQFy/gl13.webp",
+    "https://i.ibb.co/PZbm7BdH/gl14.webp",
+    "https://i.ibb.co/Wv9pvYS6/gl15.webp",
+    "https://i.ibb.co/8Lr4yvNC/gl16.webp",
+    "https://i.ibb.co/Q3jX4FCz/gl17.webp",
+    "https://i.ibb.co/rf2mvrrN/gl18.webp",
+    "https://i.ibb.co/yFHMz86m/l1.jpg",
+    "https://i.ibb.co/xKpqk6fP/l2.webp",
+    "https://i.ibb.co/Ng77PPnh/l3.webp",
+    "https://i.ibb.co/mFqsBnGw/l4.webp",
+    "https://i.ibb.co/HD5nJv30/l5.webp",
+    "https://i.ibb.co/1Y3h8F09/l6.webp",
+    "https://i.ibb.co/0y7ZngXC/l7.webp",
+    "https://i.ibb.co/FbhSk5Pk/l8.webp",
+    "https://i.ibb.co/dJpp7TVf/l9.webp"
   ],
   "show_menu": {
     "breaking_news": true,
@@ -406,6 +406,6 @@
     { "nama": "Warga Pesbuk Malas Ngoding", "jabatan": "IMPHNEN" },
     { "nama": "<br />Kepada seluruh teman dan rekan yang tidak dapat kami sebutkan satu per satu <br /> Terima kasih atas doa dan dukungannya.", "jabatan": "" }
   ],
-  "terima_kasih_image": "https://i.ibb.co.com/mFqsBnGw/l4.webp"
+  "terima_kasih_image": "https://i.ibb.co/mFqsBnGw/l4.webp"
 
 }
