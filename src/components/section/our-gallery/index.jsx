@@ -223,9 +223,8 @@ const ImageWithLoader = memo(({ src, alt, className, onClick, loadingType = "laz
 
   return (
     <div className="relative w-full h-full overflow-hidden">
-      {/* Skeleton Loading */}
       {!loaded && (
-        <div className="absolute inset-0 bg-gray-800 animate-pulse rounded-md" />
+        <div className="absolute inset-0 bg-gray-800 animate-pulse rounded-md z-10" />
       )}
 
       <img
@@ -235,15 +234,14 @@ const ImageWithLoader = memo(({ src, alt, className, onClick, loadingType = "laz
         decoding="async"
         onLoad={() => setLoaded(true)}
         onClick={onClick}
-        className={`${className} transition-all duration-700 ${
-          loaded
-            ? "opacity-100 blur-0"
-            : "opacity-0 blur-md scale-[1.02]"
+        className={`${className} transition-[filter] duration-500 ${
+          loaded ? "blur-0" : "blur-md scale-[1.02]"
         }`}
       />
     </div>
   );
 });
+
 
 /* ======================================================================
    GalleryItem (Portrait & Landscape)
