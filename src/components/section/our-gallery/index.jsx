@@ -15,6 +15,7 @@ const IMAGE_INTERVAL = 3000;
 export default function OurGallery() {
   const [activeSection, setActiveSection] = useState("portrait");
   const [lightbox, setLightbox] = useState({ images: [], index: null });
+  const [slideshowReady, setSlideshowReady] = useState(false);
 
   const allImages = data.gallery || [];
   const aiImages = data.ai || [];
@@ -25,12 +26,15 @@ export default function OurGallery() {
   const [globalIndex, setGlobalIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setGlobalIndex((i) => i + 1);
-    }, IMAGE_INTERVAL);
+  if (!slideshowReady) return;
 
-    return () => clearInterval(interval);
-  }, []);
+  const interval = setInterval(() => {
+    setGlobalIndex((i) => i + 1);
+  }, IMAGE_INTERVAL);
+
+  return () => clearInterval(interval);
+}, [slideshowReady]);
+
 
   // Grouping
   const getGroupedImages = useCallback(
@@ -133,7 +137,10 @@ export default function OurGallery() {
 
       {/* Sections */}
       {activeSection === "portrait" && (
-        <LazySection height={400}>
+        <LazySection
+          height={400}
+          onVisible={() => setSlideshowReady(true)}
+        >
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
             {groupedPortrait.map((group, i) => (
               <GalleryItem
@@ -142,7 +149,7 @@ export default function OurGallery() {
                 isVertical={false}
                 onSelect={openLightbox}
                 globalIndex={globalIndex}
-
+                
               />
             ))}
           </div>
@@ -150,7 +157,11 @@ export default function OurGallery() {
       )}
 
       {activeSection === "landscape" && (
-        <LazySection height={400}>
+        <LazySection
+          height={400}
+          onVisible={() => setSlideshowReady(true)}
+        >
+
           <div className="flex flex-col">
             {groupedLandscape.map((group, i) => (
               <GalleryItem
@@ -313,7 +324,7 @@ const AIGalleryItem = memo(({ images, onSelect }) => {
 /* ======================================================================
    LazySection — hanya load saat terlihat
    ====================================================================== */
-const LazySection = ({ children, height = 300 }) => {
+  const LazySection = ({ children, height = 300, onVisible }) => {
   const [visible, setVisible] = useState(false);
   const ref = useRef(null);
 
@@ -322,6 +333,7 @@ const LazySection = ({ children, height = 300 }) => {
       (entries) => {
         if (entries[0].isIntersecting) {
           setVisible(true);
+          onVisible?.(); // 🔥 kasih sinyal
           obs.disconnect();
         }
       },
@@ -330,7 +342,8 @@ const LazySection = ({ children, height = 300 }) => {
 
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
-  }, []);
+  }, [onVisible]);
+
 
   return (
     <div ref={ref} style={{ minHeight: height }}>
