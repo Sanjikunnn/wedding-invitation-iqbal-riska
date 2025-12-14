@@ -10,7 +10,7 @@ export default function TitleInfo() {
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, delay: 0.2 }}
-        viewport={{ once: false }} // false = refresh animasi tiap kali masuk viewport
+        viewport={{ once: false }} 
         className="flex gap-2 items-center"
       >
         <img src="/favicon.ico" alt="logo" width={18} height={18} />
