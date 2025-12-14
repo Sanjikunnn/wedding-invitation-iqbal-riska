@@ -9,145 +9,6 @@ import data from "../../../data/config.json";
 import { motion, useInView } from "framer-motion";
 
 const IMAGE_INTERVAL = 3000;
-
-/* ======================================================================
-   COMPONENT: ImageWithLoader (dipakai oleh semua komponen)
-   ====================================================================== */
-const ImageWithLoader = memo(({ src, alt, className, onClick, loadingType = "lazy" }) => {
-  const [loaded, setLoaded] = useState(false);
-
-  return (
-    <div className="relative w-full h-full overflow-hidden">
-      {/* Skeleton Loading */}
-      {!loaded && (
-        <div className="absolute inset-0 bg-gray-800 animate-pulse rounded-md" />
-      )}
-
-      <img
-        src={src}
-        alt={alt}
-        loading={loadingType}
-        decoding="async"
-        onLoad={() => setLoaded(true)}
-        onClick={onClick}
-        className={`${className} transition-all duration-700 ${
-          loaded
-            ? "opacity-100 blur-0"
-            : "opacity-0 blur-md scale-[1.02]"
-        }`}
-      />
-    </div>
-  );
-});
-
-/* ======================================================================
-   GalleryItem (Portrait & Landscape)
-   ====================================================================== */
-const GalleryItem = memo(({ images, isVertical, onSelect }) => {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    if (!images?.length) return;
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, IMAGE_INTERVAL);
-
-    return () => clearInterval(interval);
-  }, [images]);
-
-  const handleClick = useCallback(
-    () => onSelect(images, index),
-    [images, index, onSelect]
-  );
-
-  return (
-    <div
-      className={`relative w-full overflow-hidden rounded-md cursor-pointer select-none ${
-        isVertical ? "h-64 mb-4" : "h-[200px]"
-      }`}
-      onClick={handleClick}
-    >
-      {images.map((src, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: index === i ? 1 : 0,
-            zIndex: index === i ? 10 : 1
-          }}
-          transition={{ duration: 0.5 }}
-          className="absolute inset-0"
-        >
-          <ImageWithLoader
-            src={src}
-            alt={`gallery-${i}`}
-            loadingType={i === 0 ? "eager" : "lazy"}
-            className="w-full h-full object-cover rounded-md"
-          />
-        </motion.div>
-      ))}
-    </div>
-  );
-});
-
-/* ======================================================================
-   AIGalleryItem — scroll horizontal
-   ====================================================================== */
-const AIGalleryItem = memo(({ images, onSelect }) => {
-  const doubled = [...images, ...images];
-
-  return (
-    <div className="relative w-full overflow-hidden rounded-md">
-      <div className="flex w-max animate-scrollX gap-4">
-        {doubled.map((src, i) => (
-          <ImageWithLoader
-            key={i}
-            src={src}
-            alt={`ai-${i}`}
-            loadingType="lazy"
-            className="w-32 h-40 sm:w-40 sm:h-52 md:w-48 md:h-64 lg:w-56 lg:h-72 
-                       object-cover rounded-md flex-shrink-0 cursor-pointer"
-            onClick={() => onSelect(images, i % images.length)}
-          />
-        ))}
-      </div>
-    </div>
-  );
-});
-
-/* ======================================================================
-   LazySection — hanya load saat terlihat
-   ====================================================================== */
-const LazySection = ({ children, height = 300 }) => {
-  const [visible, setVisible] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setVisible(true);
-          obs.disconnect();
-        }
-      },
-      { rootMargin: "80px" }
-    );
-
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-
-  return (
-    <div ref={ref} style={{ minHeight: height }}>
-      {visible ? (
-        children
-      ) : (
-        <div className="animate-pulse bg-gray-900 rounded-md w-full h-full" />
-      )}
-    </div>
-  );
-};
-
 /* ======================================================================
    MAIN COMPONENT — OurGallery (Optimized)
    ====================================================================== */
@@ -160,6 +21,16 @@ export default function OurGallery() {
 
   const galleryPortrait = allImages.slice(0, 18);
   const galleryLandscape = allImages.slice(18);
+
+  const [globalIndex, setGlobalIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setGlobalIndex((i) => i + 1);
+    }, IMAGE_INTERVAL);
+
+    return () => clearInterval(interval);
+  }, []);
 
   // Grouping
   const getGroupedImages = useCallback(
@@ -270,6 +141,8 @@ export default function OurGallery() {
                 images={group}
                 isVertical={false}
                 onSelect={openLightbox}
+                globalIndex={globalIndex}
+
               />
             ))}
           </div>
@@ -285,6 +158,8 @@ export default function OurGallery() {
                 images={group}
                 isVertical={true}
                 onSelect={openLightbox}
+                globalIndex={globalIndex}
+
               />
             ))}
           </div>
@@ -340,3 +215,134 @@ export default function OurGallery() {
     </div>
   );
 }
+/* ======================================================================
+   COMPONENT: ImageWithLoader (dipakai oleh semua komponen)
+   ====================================================================== */
+const ImageWithLoader = memo(({ src, alt, className, onClick, loadingType = "lazy" }) => {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <div className="relative w-full h-full overflow-hidden">
+      {/* Skeleton Loading */}
+      {!loaded && (
+        <div className="absolute inset-0 bg-gray-800 animate-pulse rounded-md" />
+      )}
+
+      <img
+        src={src}
+        alt={alt}
+        loading={loadingType}
+        decoding="async"
+        onLoad={() => setLoaded(true)}
+        onClick={onClick}
+        className={`${className} transition-all duration-700 ${
+          loaded
+            ? "opacity-100 blur-0"
+            : "opacity-0 blur-md scale-[1.02]"
+        }`}
+      />
+    </div>
+  );
+});
+
+/* ======================================================================
+   GalleryItem (Portrait & Landscape)
+   ====================================================================== */
+const GalleryItem = memo(({ images, isVertical, onSelect, globalIndex }) => {
+  const index = globalIndex % images.length;
+
+  const handleClick = useCallback(
+    () => onSelect(images, index),
+    [images, index, onSelect]
+  );
+
+  return (
+    <div
+      className={`relative w-full overflow-hidden rounded-md cursor-pointer select-none ${
+        isVertical ? "h-64 mb-4" : "h-[200px]"
+      }`}
+      onClick={handleClick}
+    >
+      {images.map((src, i) => (
+        <motion.div
+          key={i}
+          initial={false}
+          animate={{
+            opacity: index === i ? 1 : 0,
+            zIndex: index === i ? 10 : 1
+          }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <ImageWithLoader
+            src={src}
+            alt={`gallery-${i}`}
+            loadingType={i === 0 ? "eager" : "lazy"}
+            className="w-full h-full object-cover rounded-md"
+          />
+        </motion.div>
+      ))}
+    </div>
+  );
+});
+
+
+/* ======================================================================
+   AIGalleryItem — scroll horizontal
+   ====================================================================== */
+const AIGalleryItem = memo(({ images, onSelect }) => {
+  const doubled = [...images, ...images];
+
+  return (
+    <div className="relative w-full overflow-hidden rounded-md">
+      <div className="flex w-max animate-scrollX gap-4">
+        {doubled.map((src, i) => (
+          <ImageWithLoader
+            key={i}
+            src={src}
+            alt={`ai-${i}`}
+            loadingType="lazy"
+            className="w-32 h-40 sm:w-40 sm:h-52 md:w-48 md:h-64 lg:w-56 lg:h-72 
+                       object-cover rounded-md flex-shrink-0 cursor-pointer"
+            onClick={() => onSelect(images, i % images.length)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+});
+
+/* ======================================================================
+   LazySection — hanya load saat terlihat
+   ====================================================================== */
+const LazySection = ({ children, height = 300 }) => {
+  const [visible, setVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
+      },
+      { rootMargin: "80px" }
+    );
+
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} style={{ minHeight: height }}>
+      {visible ? (
+        children
+      ) : (
+        <div className="animate-pulse bg-gray-900 rounded-md w-full h-full" />
+      )}
+    </div>
+  );
+};
+
+
