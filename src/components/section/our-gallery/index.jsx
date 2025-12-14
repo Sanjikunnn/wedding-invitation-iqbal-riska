@@ -88,13 +88,28 @@ const GalleryItem = memo(({ images, isVertical, onSelect }) => {
    ====================================================== */
 const AIGalleryItem = memo(({ images, onSelect }) => {
   return (
-    <div className="relative w-full overflow-x-auto">
-      <div className="flex gap-4 py-2">
+    <div className="relative w-full overflow-hidden">
+      {/* Track */}
+      <div className="flex w-max animate-scrollX gap-4">
+        {/* First set */}
         {images.map((src, i) => (
           <ImageWithLoader
-            key={i}
+            key={`ai-a-${i}`}
             src={src}
             alt={`ai-${i}`}
+            loadingType="lazy"
+            className="w-32 h-40 sm:w-40 sm:h-52 md:w-48 md:h-64 lg:w-56 lg:h-72 
+                       object-cover rounded-md flex-shrink-0 cursor-pointer"
+            onClick={() => onSelect(images, i)}
+          />
+        ))}
+
+        {/* Second set (for seamless loop, SAME images, NOT new request) */}
+        {images.map((src, i) => (
+          <ImageWithLoader
+            key={`ai-b-${i}`}
+            src={src}
+            alt={`ai-dup-${i}`}
             loadingType="lazy"
             className="w-32 h-40 sm:w-40 sm:h-52 md:w-48 md:h-64 lg:w-56 lg:h-72 
                        object-cover rounded-md flex-shrink-0 cursor-pointer"
@@ -105,6 +120,7 @@ const AIGalleryItem = memo(({ images, onSelect }) => {
     </div>
   );
 });
+
 
 /* ======================================================
    LazySection — real lazy mount
