@@ -4,7 +4,7 @@ import UserWatch from './components/section/user-watch';
 import Thumbnail from './components/section/thumbnail';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { Analytics } from "@vercel/analytics/react"
+import { inject } from '@vercel/analytics';
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [fadeIn, setFadeIn] = useState(true);
@@ -27,6 +27,9 @@ function App() {
      🔄 CEK MODE PWA vs WEB BIASA
   ======================================= */
   useEffect(() => {
+    // Initialize Vercel Analytics on client side
+    inject();
+
     const isStandalone =
       window.matchMedia('(display-mode: standalone)').matches ||
       window.navigator.standalone === true;
@@ -72,18 +75,13 @@ function App() {
   };
 
   return (
-    <>
-      <div
-        className={`min-h-screen w-full bg-black text-white flex items-center justify-center transition-opacity duration-1000 ${
-          fadeIn ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
-        {isLogin ? <Thumbnail /> : <UserWatch onClick={handleEnter} />}
-      </div>
-
-      {/* Vercel Analytics */}
-      <Analytics />
-    </>
+    <div
+      className={`min-h-screen w-full bg-black text-white flex items-center justify-center transition-opacity duration-1000 ${
+        fadeIn ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
+      {isLogin ? <Thumbnail /> : <UserWatch onClick={handleEnter} />}
+    </div>
   );
 
 }
