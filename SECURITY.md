@@ -1,8 +1,3 @@
-Untuk mengisinya, kamu perlu mengganti teks deskripsi placeholder dengan informasi spesifik dari repositori/proyek milikmu.
-
-Berikut adalah panduan isi dan contoh draf lengkap yang tinggal kamu sesuaikan (*copy-paste*):
-
----
 
 # Kebijakan Keamanan
 
